@@ -1,19 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			isLogged: "false"
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -41,6 +29,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			logged: () => {
+				let status = sessionStorage.getItem("is_logged");
+				status != "true" ? setStore({ isLogged: "false" }) : setStore({ isLogged: status });
+			},
+
+			logOut: () => {
+				sessionStorage.removeItem("user_token");
+				sessionStorage.removeItem("is_logged");
+				getActions().logged();
 			}
 		}
 	};

@@ -1,3 +1,31 @@
-/* 
-    General Styles
-*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    ///background-color: black;
+}
+
+footer  {
+ ///background-color: black;
+    ///color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.posicionFooter{
+    height: 70px;
+}
+
+nav {
+    background-color: black;
+    ///box-shadow: 0px 0px 10px rgb(41, 41, 41);;
+}
+
+.posicionNav{
+    height: 100px;
+}
+
+.logo-nav{
+    max-width: 100px;
+    min-width: 50px;
+}
