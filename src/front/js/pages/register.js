@@ -51,8 +51,8 @@ export const Register = () => {
 	};
 
 	return (
-		<div className="container d-flex justify-content-center mt-2">
-			<div className="formulario">
+		<div className="container d-flex justify-content-center mt-2 mb-5">
+			<div className="formulario mb-5">
 				<h3 className="mt-2">Register</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
@@ -142,7 +142,7 @@ export const Register = () => {
 					</form>
 				</div>
 			</div>
-
+			<div className="posicionFooter" />
 			{redirect ? <Redirect to="/login" /> : ""}
 		</div>
 	);

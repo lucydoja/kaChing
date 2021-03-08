@@ -19,6 +19,7 @@ export const Home = () => {
 					Read documentation
 				</a>
 			</p>
+			<div className="posicionFooter" />
 		</div>
 	);
 };
