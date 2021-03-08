@@ -11,6 +11,7 @@ import { Login } from "./pages/login";
 import { View1 } from "./pages/view1";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Gastos } from "./pages/gastos";
 
 //create your first component
 const Layout = () => {
@@ -29,6 +30,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/view1">
 							<View1 />
+						</Route>
+						<Route exact path="/gastos">
+							<Gastos />
 						</Route>
 						<Route exact path="/register">
 							<Register />
