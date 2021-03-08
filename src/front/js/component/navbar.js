@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../img/logo.jpg";
 
 export const Navbar = () => {
 	return (
@@ -8,23 +9,19 @@ export const Navbar = () => {
 			<nav className="navbar navbar-expand-lg mb-2 pr-0 flex-nowrap fixed-top">
 				<div className="container-fluid row">
 					<Link to="/">
-						<span className="navbar-brand mb-0">
-							<img
-								src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/640px-Star_Wars_Logo.svg.png"
-								alt="star wars logo"
-								className="logo-nav ml-2"
-							/>
+						<span className="navbar-brand m-0">
+							<img src={logo} alt="kaChing!" className="logo-nav" />
 						</span>
 					</Link>
 					<div className="d-flex justify-content-end">
 						{" "}
 						<Link to={"/register"}>
-							<span className="btn btn-outline-light mr-2" href="#" role="button">
+							<span className="btn btn-outline-dark mr-2" href="#" role="button">
 								Register
 							</span>
 						</Link>
 						<Link to={"/login"}>
-							<span className="btn btn-outline-light" href="#" role="button">
+							<span className="btn btn-outline-dark" href="#" role="button">
 								Log in
 							</span>
 						</Link>{" "}
