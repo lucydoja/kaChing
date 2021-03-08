@@ -11,6 +11,12 @@ import { Login } from "./pages/login";
 import { View1 } from "./pages/view1";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+<<<<<<< HEAD
+import { Gastos } from "./pages/gastos";
+import { Finances } from "./pages/finances";
+=======
+import { Expenses } from "./pages/expenses";
+>>>>>>> 3080474203f4b9ecd263396b284ce6bd006437ec
 
 //create your first component
 const Layout = () => {
@@ -30,11 +36,17 @@ const Layout = () => {
 						<Route exact path="/view1">
 							<View1 />
 						</Route>
+						<Route exact path="/expenses">
+							<Expenses />
+						</Route>
 						<Route exact path="/register">
 							<Register />
 						</Route>
 						<Route exact path="/login">
 							<Login />
+						</Route>
+						<Route exact path="/finances">
+							<Finances />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
