@@ -15,7 +15,7 @@ export const Finances = () => {
                     <label for="start">Month</label>
 
                     <input type="month" id="month" name="month" />
-                    <label for="cars">Choose a car:</label>
+                    <label for="cars">Choose a Category:</label>
 
                     <select name="category" id="category">
                         <option value="home">Home</option>
