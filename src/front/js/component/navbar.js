@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.jpg";
+import { NavLogged } from "../pages/navLogged";
 
 export const Navbar = () => {
 	return (
@@ -13,19 +14,7 @@ export const Navbar = () => {
 							<img src={logo} alt="kaChing!" className="logo-nav" />
 						</span>
 					</Link>
-					<div className="d-flex justify-content-end">
-						{" "}
-						<Link to={"/register"}>
-							<span className="btn btn-outline-dark ml-2 mr-2" href="#" role="button">
-								Register
-							</span>
-						</Link>
-						<Link to={"/login"}>
-							<span className="btn btn-outline-dark" href="#" role="button">
-								Log in
-							</span>
-						</Link>{" "}
-					</div>
+					<NavLogged />
 				</div>
 			</nav>
 		</div>
