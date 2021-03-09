@@ -8,11 +8,13 @@ export const Register = () => {
 	const [last_name, setLast] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [securityQ, setSecurityQ] = useState("");
+	const [securityA, setSecurityA] = useState("");
 	const [redirect, setRedirect] = useState(false);
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		if (email === "" || password === "" || first_name === "" || last_name === "") {
+		if (email === "" || password === "" || first_name === "" || last_name === "" || securityA === "") {
 			alert("Please fill all the entries");
 		}
 
@@ -21,8 +23,11 @@ export const Register = () => {
 			email: email,
 			password: password,
 			first_name: first_name,
-			last_name: last_name
+			last_name: last_name,
+			securityA: securityA,
+			securityQ: securityQ
 		};
+		console.log(data);
 
 		fetch("https://3000-purple-tick-m9my33f9.ws-us03.gitpod.io/register", {
 			method: "POST",
@@ -65,9 +70,6 @@ export const Register = () => {
 								type="text"
 								className="form-control"
 								maxLength="120"
-								onKeyDown={() => {
-									return "/[a-z, ]/i.test(event.key)";
-								}}
 								onChange={e => {
 									setFirst(e.target.value);
 								}}
@@ -81,9 +83,6 @@ export const Register = () => {
 								type="text"
 								className="form-control"
 								maxLength="120"
-								onKeyDown={() => {
-									return "/[a-z, ]/i.test(event.key)";
-								}}
 								onChange={e => {
 									setLast(e.target.value);
 								}}
@@ -120,13 +119,20 @@ export const Register = () => {
 						</div>
 						<div className="form-row mt-3">
 							<label>Pick a security question*</label>
-							<select className="form-control" name="security" id="security" required>
+							<select
+								className="form-control"
+								name="security"
+								id="security"
+								onChange={e => {
+									setSecurityQ(e.target.value);
+								}}
+								required>
 								<option value="" selected disabled hidden>
 									Security question
 								</option>
-								<option value="pet">Name your first pet</option>
-								<option value="city">First city you lived in</option>
-								<option value="dish">Favorite dish</option>
+								<option value="Name your first pet">Name your first pet</option>
+								<option value="First city you lived in">First city you lived in</option>
+								<option value="Favorite dish">Favorite dish</option>
 							</select>
 							<div className="valid-feedback" />
 						</div>
@@ -136,7 +142,9 @@ export const Register = () => {
 								type="text"
 								className="form-control"
 								maxLength="120"
-								onKeyDown="return /[a-z, ]/i.test(event.key)"
+								onChange={e => {
+									setSecurityA(e.target.value);
+								}}
 								required
 							/>
 							<div className="valid-feedback" />
