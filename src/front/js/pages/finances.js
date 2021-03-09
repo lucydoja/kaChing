@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
@@ -6,8 +6,13 @@ import { Bar } from "react-chartjs-2";
 export const Finances = () => {
 	const { store, actions } = useContext(Context);
 
+	const [month, setMonth] = useState("");
+	const [category, setCategory] = useState("");
+
 	const handleSubmit = e => {
 		e.preventDefault();
+		console.log(month);
+		console.log(category);
 	};
 
 	const data = {
@@ -49,7 +54,14 @@ export const Finances = () => {
 					<div className="col-lg-4 form-group d-flex flex-column">
 						<label htmlFor="month">Select Month</label>
 
-						<select className="form-control" name="month" id="month">
+						<select
+							onChange={e => setMonth(e.target.value)}
+							className="form-control"
+							name="month"
+							id="month">
+							<option value="" selected disabled hidden>
+								Month
+							</option>
 							<option value="nov-2020">November 2020</option>
 							<option value="dic-2020">December 2020</option>
 							<option value="jan-2021">January 2021</option>
@@ -61,7 +73,14 @@ export const Finances = () => {
 					<div className="col-lg-4 form-group d-flex flex-column">
 						<label htmlFor="category">Select Category</label>
 
-						<select className="form-control" name="category" id="category">
+						<select
+							onChange={e => setCategory(e.target.value)}
+							className="form-control"
+							name="category"
+							id="category">
+							<option value="" selected disabled hidden>
+								Category
+							</option>
 							<option value="all">All</option>
 							<option value="home">Home</option>
 							<option value="food">Food</option>
