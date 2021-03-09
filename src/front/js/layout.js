@@ -46,13 +46,11 @@ const Layout = () => {
 						<Route exact path="/login">
 							<Login />
 						</Route>
-<<<<<<< HEAD
 						<Route exact path="/finances">
 							<Finances />
-=======
+						</Route>
 						<Route exact path="/bienvenida">
 							<Bienvenida />
->>>>>>> origin/milena1988
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
