@@ -16,7 +16,7 @@ export const Navbar = () => {
 					<div className="d-flex justify-content-end">
 						{" "}
 						<Link to={"/register"}>
-							<span className="btn btn-outline-dark mr-2" href="#" role="button">
+							<span className="btn btn-outline-dark ml-2 mr-2" href="#" role="button">
 								Register
 							</span>
 						</Link>

@@ -1,26 +1,27 @@
 import { Context } from "../store/appContext";
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
-	const [user_name, setUser] = useState("");
+	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [redirect, setRedirect] = useState(false);
 	const { store, actions } = useContext(Context);
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		if (user_name === "" || password === "") {
+		if (email === "" || password === "") {
 			alert("Please fill all the entries");
 		}
 
 		// FETCH
 		const data = {
 			password: password,
-			user_name: user_name
+			email: email
 		};
 
-		fetch("https://3000-purple-tick-m9my33f9.ws-us03.gitpod.io/login", {
+		fetch(process.env.BACKEND_URL + "/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -40,7 +41,6 @@ export const Login = () => {
 				sessionStorage.setItem("user_token", data.token);
 				sessionStorage.setItem("is_logged", "true");
 				actions.logged();
-				actions.loadFavorites();
 				console.log("Succesful log in");
 			})
 			.catch(error => {
@@ -49,27 +49,33 @@ export const Login = () => {
 	};
 
 	return (
-		<div className="container d-flex justify-content-center">
-			<div className="formulario-login">
+		<div className="container d-flex justify-content-center mt-2 mb-5">
+			<div className="formulario mb-5">
+				<div className="alert alert-info" role="alert">
+					Welcome back to <strong>KaChing! </strong>
+					we are so happy to see you again! Please log in to access your account.
+				</div>
 				<h3 className="mt-2">Log in</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
 						<div className="form-row mt-3">
-							<label>Username*</label>
-
+							<label>Email*</label>
 							<input
-								type="text"
+								type="email"
 								className="form-control"
-								minLength="5"
-								maxLength="80"
+								maxLength="120"
 								onChange={e => {
-									setUser(e.target.value);
+									setEmail(e.target.value);
 								}}
 								required
 							/>
+							<div className="valid-feedback" />
 						</div>
 						<div className="form-row mt-3">
-							<label>Password*</label>
+							<label>Password* &nbsp;&nbsp;</label>
+							<Link to={"/reset"}>
+								<p>Did you forget your password?</p>
+							</Link>
 							<input
 								type="password"
 								className="form-control"
@@ -84,12 +90,20 @@ export const Login = () => {
 						</div>
 
 						<div className="mt-3 form-row justify-content-end">
-							<button className="btn btn-secondary" type="reset">
-								Cancel
-							</button>
+							<Link to={"/"}>
+								<button className="btn btn-secondary btn-md" type="reset">
+									<p className="boton-link"> Cancel</p>
+								</button>
+							</Link>
 							<button className="btn btn-primary ml-1" type="submit">
 								Log in
 							</button>
+						</div>
+						<div className="d-flex justify-content-center mt-3 row">
+							<span>You don&apos;t have an account? &nbsp;</span>
+							<Link to={"/register"}>
+								<p> Register</p>
+							</Link>
 						</div>
 					</form>
 				</div>

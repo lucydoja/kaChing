@@ -1,12 +1,12 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    ///background-color: black;
+    //background-color: white;
     
   
 }
 
 footer{
- ///background-color: black;
+    ///background-color: black;
     ///color: white;
     position: absolute;
     bottom: 0;
@@ -17,8 +17,9 @@ footer{
     height: 70px;
 }
 
-nav {
-    //background-color: black;
+nav{
+    width: 100vw;
+    background-color: white;
     box-shadow: 0px 0px 10px rgb(41, 41, 41);;
 }
 
@@ -37,25 +38,14 @@ nav {
     //box-shadow: 0px 0px 6px white;
     background-color: white;
     min-width: 150px;
-    max-width: 800px;
+    max-width: 500px;
     height: auto;
     
     margin: 10px;
     
 }
 
-.formulario-login{
-    text-align: justify;
-    display: inline-block;
-    //box-shadow: 0px 0px 6px white;
-    background-color: white;
-    min-width: 150px;
-    max-width: 800px;
-    height: 350px;
-    margin-top: 10vh;
-    margin: 10px;
-    
-}
+
 
 .btn{
     cursor: pointer;
@@ -63,8 +53,16 @@ nav {
 
 .contenedor{
     position: relative;
-     min-height: 100vh;
+    min-height: 100vh;
      
 }
 
-
+.boton-link{
+    
+  color: #FFF;
+padding: 0px;
+margin: 0px;
+}
+.boton-link:hover {
+   color: white;
+}

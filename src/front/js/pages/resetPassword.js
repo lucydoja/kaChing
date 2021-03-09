@@ -3,9 +3,8 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-export const Register = () => {
-	const [first_name, setFirst] = useState("");
-	const [last_name, setLast] = useState("");
+export const ResetPass = () => {
+	const { store, actions } = useContext(Context);
 	const [email, setEmail] = useState("");
 	const [password1, setPassword1] = useState("");
 	const [password2, setPassword2] = useState("");
@@ -15,32 +14,22 @@ export const Register = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		if (
-			email === "" ||
-			password1 === "" ||
-			password2 === "" ||
-			first_name === "" ||
-			last_name === "" ||
-			securityA === "" ||
-			securityQ === ""
-		) {
+		if (email === "" || password1 === "" || password2 === "" || securityA === "" || securityQ === "") {
 			alert("Please fill all the entries");
 		} else if (password1 != password2) {
-			alert("Your confimation password must be identical to password ");
+			alert("Your confimation password must be identical to your new password ");
 		}
 
 		// FETCH
 		const data = {
 			email: email,
 			password: password2,
-			first_name: first_name,
-			last_name: last_name,
 			securityA: securityA,
 			securityQ: securityQ
 		};
 		console.log(data);
 
-		fetch(process.env.BACKEND_URL + "/register", {
+		fetch(process.env.BACKEND_URL + "/reset", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -57,50 +46,22 @@ export const Register = () => {
 				return response.json();
 			})
 			.then(data => {
-				console.log("New user was registered");
+				console.log("Password reset");
 			})
 			.catch(error => {
 				console.error("Error:", error);
 			});
 	};
-
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
 			<div className="formulario mb-5">
 				<div className="alert alert-info" role="alert">
-					Welcome to <strong>KaChing! </strong>
-					the app that allows you to take control over your finances. Please leave your information bellow to
-					be part of this awesome community!
+					Oh no! It seams that you forgot your <strong>KaChing! </strong>
+					password, please fill the information bellow to reset it!
 				</div>
-				<h3 className="mt-2">Register</h3>
+				<h3 className="mt-2">Reset Password</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
-						<div className="form-row mt-3">
-							<label>First Name*</label>
-							<input
-								type="text"
-								className="form-control"
-								maxLength="120"
-								onChange={e => {
-									setFirst(e.target.value);
-								}}
-								required
-							/>
-							<div className="valid-feedback" />
-						</div>
-						<div className="form-row mt-3">
-							<label>Last Name*</label>
-							<input
-								type="text"
-								className="form-control"
-								maxLength="120"
-								onChange={e => {
-									setLast(e.target.value);
-								}}
-								required
-							/>
-							<div className="valid-feedback" />
-						</div>
 						<div className="form-row mt-3">
 							<label>Email*</label>
 							<input
@@ -114,8 +75,41 @@ export const Register = () => {
 							/>
 							<div className="valid-feedback" />
 						</div>
+
 						<div className="form-row mt-3">
-							<label>Password*</label>
+							<label>Pick your security question*</label>
+							<select
+								className="form-control"
+								name="security"
+								id="security"
+								onChange={e => {
+									setSecurityQ(e.target.value);
+								}}
+								required>
+								<option value="" selected disabled hidden>
+									Security question
+								</option>
+								<option value="Name your first pet">Name your first pet</option>
+								<option value="First city you lived in">First city you lived in</option>
+								<option value="Favorite dish">Favorite dish</option>
+							</select>
+							<div className="valid-feedback" />
+						</div>
+						<div className="form-row mt-3">
+							<label>Answer*</label>
+							<input
+								type="text"
+								className="form-control"
+								maxLength="120"
+								onChange={e => {
+									setSecurityA(e.target.value);
+								}}
+								required
+							/>
+							<div className="valid-feedback" />
+						</div>
+						<div className="form-row mt-3">
+							<label>New password*</label>
 							<input
 								type="password"
 								minLength="8"
@@ -142,65 +136,16 @@ export const Register = () => {
 							/>
 							<div className="valid-feedback" />
 						</div>
-						<div className="form-row mt-3">
-							<label>Pick a security question* &nbsp;</label>
-							<button
-								type="button"
-								className="btn btn-white p-0 m-0 mb-1"
-								data-toggle="popover"
-								data-placement="top"
-								trigger="hover click"
-								title="This will be the security question/answer if you forget your password"
-								data-content="This will be the security question/answer if you forget your password"
-								disabled>
-								<i className="fas fa-info-circle" />
-							</button>
-							<select
-								className="form-control"
-								name="security"
-								id="security"
-								onChange={e => {
-									setSecurityQ(e.target.value);
-								}}
-								required>
-								<option value="" selected disabled hidden>
-									Security question
-								</option>
-								<option value="Name your first pet">Name your first pet</option>
-								<option value="First city you lived in">First city you lived in</option>
-								<option value="Favorite dish">Favorite dish</option>
-							</select>
-							<div className="valid-feedback" />
-						</div>
-						<div className="form-row mt-3">
-							<label>Security answer*</label>
-							<input
-								type="text"
-								className="form-control"
-								maxLength="120"
-								onChange={e => {
-									setSecurityA(e.target.value);
-								}}
-								required
-							/>
-							<div className="valid-feedback" />
-						</div>
 						<div className="mt-3 form-row justify-content-end">
-							<Link to={"/"}>
+							<Link to={"/login"}>
 								<button className="btn btn-secondary btn-md" type="reset">
 									<p className="boton-link"> Cancel</p>
 								</button>
 							</Link>
 
 							<button className="btn btn-primary ml-2 btn-md" type="submit">
-								Register
+								Reset Password
 							</button>
-						</div>
-						<div className="d-flex justify-content-center mt-3 row">
-							<span>You already have an account? &nbsp;</span>
-							<Link to={"/login"}>
-								<p> Log in</p>
-							</Link>
 						</div>
 					</form>
 				</div>
