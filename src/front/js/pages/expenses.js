@@ -28,7 +28,7 @@ export const Expenses = () => {
 						<option value="Cash">Cash</option>
 					</select>
 					<input id="number" type="number" min="1" pattern="^[0-9]+" placeholder="$Amount" required />
-					<textarea maxLength="20" placeholder="Description" required />
+					<textarea maxLength="30" placeholder="Description" />
 					<button type="submit">Submit</button>
 					<button type="reset">Cancel</button>
 				</form>
