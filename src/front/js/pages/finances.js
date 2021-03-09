@@ -19,7 +19,7 @@ export const Finances = () => {
 		labels: ["Home", "Food", "Transport", "Services", "Education", "Clothing", "Entertainment"],
 		datasets: [
 			{
-				label: "Gastos",
+				label: "Expenses",
 				data: [90000, 49000, 30000, 50000, 20000, 8000, 15000],
 				backgroundColor: [
 					"rgba(255, 99, 132, 0.2)",
