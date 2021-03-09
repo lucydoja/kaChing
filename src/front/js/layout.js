@@ -11,6 +11,8 @@ import { Login } from "./pages/login";
 import { View1 } from "./pages/view1";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Finances } from "./pages/finances";
+import { Expenses } from "./pages/expenses";
 
 //create your first component
 const Layout = () => {
@@ -19,7 +21,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-column h-100">
+		<div className="contenedor d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -30,11 +32,17 @@ const Layout = () => {
 						<Route exact path="/view1">
 							<View1 />
 						</Route>
+						<Route exact path="/expenses">
+							<Expenses />
+						</Route>
 						<Route exact path="/register">
 							<Register />
 						</Route>
 						<Route exact path="/login">
 							<Login />
+						</Route>
+						<Route exact path="/finances">
+							<Finances />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

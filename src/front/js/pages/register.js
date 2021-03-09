@@ -6,14 +6,15 @@ import { Link } from "react-router-dom";
 export const Register = () => {
 	const [first_name, setFirst] = useState("");
 	const [last_name, setLast] = useState("");
-	const [user_name, setUser] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [securityQ, setSecurityQ] = useState("");
+	const [securityA, setSecurityA] = useState("");
 	const [redirect, setRedirect] = useState(false);
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		if (email === "" || password === "" || first_name === "" || last_name === "" || user_name === "") {
+		if (email === "" || password === "" || first_name === "" || last_name === "" || securityA === "") {
 			alert("Please fill all the entries");
 		}
 
@@ -23,8 +24,10 @@ export const Register = () => {
 			password: password,
 			first_name: first_name,
 			last_name: last_name,
-			user_name: user_name
+			securityA: securityA,
+			securityQ: securityQ
 		};
+		console.log(data);
 
 		fetch("https://3000-purple-tick-m9my33f9.ws-us03.gitpod.io/register", {
 			method: "POST",
@@ -51,35 +54,22 @@ export const Register = () => {
 	};
 
 	return (
-		<div className="container d-flex justify-content-center mt-2">
-			<div className="formulario">
+		<div className="container d-flex justify-content-center mt-2 mb-5">
+			<div className="formulario mb-5">
+				<div className="alert alert-info" role="alert">
+					Welcome to <strong>KaChing! </strong>
+					the app that allows you to take control over your finances. Please leave your information bellow to
+					be part of this awesome community!
+				</div>
 				<h3 className="mt-2">Register</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
-						<div className="form-row mt-3">
-							<label>Username*</label>
-
-							<input
-								type="text"
-								className="form-control"
-								minLength="5"
-								maxLength="80"
-								onChange={e => {
-									setUser(e.target.value);
-								}}
-								required
-							/>
-						</div>
-
 						<div className="form-row mt-3">
 							<label>First Name*</label>
 							<input
 								type="text"
 								className="form-control"
 								maxLength="120"
-								onKeyDown={() => {
-									return "/[a-z, ]/i.test(event.key)";
-								}}
 								onChange={e => {
 									setFirst(e.target.value);
 								}}
@@ -93,9 +83,6 @@ export const Register = () => {
 								type="text"
 								className="form-control"
 								maxLength="120"
-								onKeyDown={() => {
-									return "/[a-z, ]/i.test(event.key)";
-								}}
 								onChange={e => {
 									setLast(e.target.value);
 								}}
@@ -130,19 +117,59 @@ export const Register = () => {
 							/>
 							<div className="valid-feedback" />
 						</div>
-
+						<div className="form-row mt-3">
+							<label>Pick a security question*</label>
+							<select
+								className="form-control"
+								name="security"
+								id="security"
+								onChange={e => {
+									setSecurityQ(e.target.value);
+								}}
+								required>
+								<option value="" selected disabled hidden>
+									Security question
+								</option>
+								<option value="Name your first pet">Name your first pet</option>
+								<option value="First city you lived in">First city you lived in</option>
+								<option value="Favorite dish">Favorite dish</option>
+							</select>
+							<div className="valid-feedback" />
+						</div>
+						<div className="form-row mt-3">
+							<label>Security answer*</label>
+							<input
+								type="text"
+								className="form-control"
+								maxLength="120"
+								onChange={e => {
+									setSecurityA(e.target.value);
+								}}
+								required
+							/>
+							<div className="valid-feedback" />
+						</div>
 						<div className="mt-3 form-row justify-content-end">
-							<button className="btn btn-secondary btn-md" type="reset">
-								Cancel
-							</button>
+							<Link to={"/"}>
+								<button className="btn btn-secondary btn-md" type="reset">
+									<p className="boton-link"> Cancel</p>
+								</button>
+							</Link>
+
 							<button className="btn btn-primary ml-2 btn-md" type="submit">
 								Register
 							</button>
 						</div>
+						<div className="d-flex justify-content-center mt-3 row">
+							<span>You already have an account? &nbsp;</span>
+							<Link to={"/login"}>
+								<p> Log in</p>
+							</Link>
+						</div>
 					</form>
 				</div>
 			</div>
-
+			<div className="posicionFooter" />
 			{redirect ? <Redirect to="/login" /> : ""}
 		</div>
 	);
