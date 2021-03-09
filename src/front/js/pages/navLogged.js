@@ -46,7 +46,7 @@ export function NavLogged() {
 							My Finances
 						</span>
 					</Link>
-					<Link to={"/perfil"}>
+					<Link to={"/profile"}>
 						<span className="dropdown-item d-flex flex-grow-1" role="button">
 							Profile
 						</span>
