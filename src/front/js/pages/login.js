@@ -21,7 +21,7 @@ export const Login = () => {
 			email: email
 		};
 
-		fetch("https://3000-purple-tick-m9my33f9.ws-us03.gitpod.io/login", {
+		fetch(process.env.BACKEND_URL + "/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -49,8 +49,8 @@ export const Login = () => {
 	};
 
 	return (
-		<div className="container d-flex justify-content-center mt-2">
-			<div className="formulario-login">
+		<div className="container d-flex justify-content-center mt-2 mb-5">
+			<div className="formulario mb-5">
 				<div className="alert alert-info" role="alert">
 					Welcome back to <strong>KaChing! </strong>
 					we are so happy to see you again! Please log in to access your account.
@@ -72,7 +72,10 @@ export const Login = () => {
 							<div className="valid-feedback" />
 						</div>
 						<div className="form-row mt-3">
-							<label>Password*</label>
+							<label>Password* &nbsp;&nbsp;</label>
+							<Link to={"/reset"}>
+								<p>Did you forget your password?</p>
+							</Link>
 							<input
 								type="password"
 								className="form-control"

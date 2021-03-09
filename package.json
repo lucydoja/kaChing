@@ -76,10 +76,13 @@
 		]
 	},
 	"dependencies": {
-		"bootstrap": "^4.3.1",
+		"bootstrap": "^4.6.0",
 		"chart.js": "^2.9.4",
+		"jquery": "^3.6.0",
+		"popper.js": "^1.16.1",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
+		"react-bootstrap": "^1.5.1",
 		"react-chartjs-2": "^2.11.1",
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
