@@ -11,12 +11,8 @@ import { Login } from "./pages/login";
 import { View1 } from "./pages/view1";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-<<<<<<< HEAD
-import { Gastos } from "./pages/gastos";
 import { Finances } from "./pages/finances";
-=======
 import { Expenses } from "./pages/expenses";
->>>>>>> 3080474203f4b9ecd263396b284ce6bd006437ec
 
 //create your first component
 const Layout = () => {
