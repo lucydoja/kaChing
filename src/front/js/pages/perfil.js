@@ -57,7 +57,6 @@ export const Perfil = () => {
 					</div>
 				</form>
 			</div>
-
 			<div className="row mt-3">
 				<div className="col-md">
 					<p className="text-center">
@@ -65,6 +64,7 @@ export const Perfil = () => {
 					</p>
 				</div>
 			</div>
+			<div className="posicionFooter" />
 		</div>
 	);
 };
