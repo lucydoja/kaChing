@@ -43,7 +43,7 @@ export const Finances = () => {
 		<div className="container mb-2">
 			<div className="row">
 				<div className="container breadcrumb">Your Finances</div>
-                <div className="container breadcrumb">Mi cambio en Branch Andres</div>
+				<div className="container breadcrumb">Mi cambio en Branch Andres</div>
 			</div>
 			<div className="row d-flex flex-column">
 				<form onSubmit={e => handleSubmit(e)}>
