@@ -31,7 +31,7 @@ export const Expenses = () => {
 			</div>
 			<div className="row d-flex flex-column">
 				<form>
-					<div className="col-lg-4 form-group d-flex flex-column">
+					<div className="form-row mt-3">
 						<label string="">Choose a Category:</label>
 						<select className="form-control" name="category" id="category">
 							<option value="home">Home</option>
@@ -43,20 +43,20 @@ export const Expenses = () => {
 							<option value="entertainment">Entertainment</option>
 						</select>
 					</div>
-					<div className="col-lg-4 form-group d-flex flex-column">
+					<div className="form-row mt-3">
 						<label string="cars">Payment method:</label>
 						<select className="form-control" name="category" id="category">
 							<option value="Card">Card</option>
 							<option value="Cash">Cash</option>
 						</select>
 					</div>
-					<div className="col-lg-4 form-group d-flex flex-column">
+					<div className="form-row mt-3">
 						<input id="number" type="number" min="1" pattern="^[0-9]+" placeholder="$Amount" required />
 					</div>
-					<div className="col-lg-4 form-group d-flex flex-column">
-						<textarea className="form-control" maxLength="30" placeholder="Description" />
+					<div className="form-row mt-3">
+						<input type="text" className="form-control" maxLength="30" placeholder="Description" />
 					</div>
-					<div className="col-lg-4 form-group">
+					<div className="form-row mt-3">
 						<button type="reset" className="btn btn-danger">
 							Cancel
 						</button>
