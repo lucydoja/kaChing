@@ -14,6 +14,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
+import { Bienvenida } from "./pages/bienvenida";
 
 //create your first component
 const Layout = () => {
@@ -45,8 +46,13 @@ const Layout = () => {
 						<Route exact path="/login">
 							<Login />
 						</Route>
+<<<<<<< HEAD
 						<Route exact path="/finances">
 							<Finances />
+=======
+						<Route exact path="/bienvenida">
+							<Bienvenida />
+>>>>>>> origin/milena1988
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

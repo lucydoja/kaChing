@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Expenses = () => {
 	const { store, actions } = useContext(Context);
 
-    const [tarea, setTarea] = React.useState("");
+	const [tarea, setTarea] = React.useState("");
 	const [arrayTareas, setArrayTareas] = React.useState([]);
 	const agregarTarea = e => {
 		e.preventDefault();
@@ -65,8 +65,8 @@ export const Expenses = () => {
 						</button>
 					</div>
 				</form>
-            
-                {/* <ul className="list-group ">
+
+				{/* <ul className="list-group ">
 						{arrayTareas.map(item => (
 							<li
 								className="list-group-item shadow d-flex justify-content-between"
@@ -82,9 +82,8 @@ export const Expenses = () => {
 							</li>
 					</div>	))}
 					</ul> */}
-				</div>
-            
-            
+			</div>
+
 			<div className="posicionFooter" />
 		</div>
 	);
