@@ -118,31 +118,29 @@ export const Register = () => {
 							/>
 							<div className="valid-feedback" />
 						</div>
-						<div className="dropdown form-row mt-3">
+						<div className="form-row mt-3">
 							<label>Pick a security question*</label>
-							<button
-								className="btn btn-secondary dropdown-toggle"
-								type="button"
-								id="dropdownMenuButton"
-								data-toggle="dropdown"
-								aria-haspopup="true"
-								aria-expanded="false">
-								Security Question
-							</button>
-							<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a className="dropdown-item" href="#">
-									Name your first pet
-								</a>
-								<a className="dropdown-item" href="#">
-									First city you lived in
-								</a>
-								<a className="dropdown-item" href="#">
-									Favorite dish
-								</a>
-							</div>
+							<select className="form-control" name="security" id="security" required>
+								<option value="" selected disabled hidden>
+									Security question
+								</option>
+								<option value="pet">Name your first pet</option>
+								<option value="city">First city you lived in</option>
+								<option value="dish">Favorite dish</option>
+							</select>
 							<div className="valid-feedback" />
 						</div>
-
+						<div className="form-row mt-3">
+							<label>Security answer*</label>
+							<input
+								type="text"
+								className="form-control"
+								maxLength="120"
+								onKeyDown="return /[a-z, ]/i.test(event.key)"
+								required
+							/>
+							<div className="valid-feedback" />
+						</div>
 						<div className="mt-3 form-row justify-content-end">
 							<Link to={"/"}>
 								<button className="btn btn-secondary btn-md" type="reset">
