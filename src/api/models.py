@@ -36,7 +36,7 @@ class User(db.Model):
 # Expense Model
 class Expense(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_email = db.Column(db.String(120), db.ForeignKey('user.email'), nullable=False)
     category = db.Column(db.String(120), unique=False, nullable=False)
     payment_method = db.Column(db.String(120), unique=False, nullable=False)
     amount = db.Column(db.Integer, unique=False, nullable=False)
@@ -49,7 +49,7 @@ class Expense(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "user_id": self.user_id,
+            "user_email": self.user_email,
             "category": self.category,
             "payment_method": self.payment_method,
             "amount": self.amount,
@@ -60,7 +60,7 @@ class Expense(db.Model):
 # Income Model
 class Income(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_email = db.Column(db.String(120), db.ForeignKey('user.email'), nullable=False)
     amount = db.Column(db.Integer, unique=False, nullable=False)
     detail = db.Column(db.String(280), unique=False, nullable=True)
     date = db.Column(db.DateTime, unique=False, nullable=False)
@@ -71,7 +71,7 @@ class Income(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "user_id": self.user_id,
+            "user_email": self.user_email,
             "amount": self.amount,
             "detail": self.detail,
             "date": self.date

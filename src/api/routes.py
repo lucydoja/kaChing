@@ -67,3 +67,10 @@ def login():
 
         return jsonify({"access_token": access_token}), 200
 
+# Receive Income Data
+@api.route("/income", methods=["POST"])
+@jwt_required()
+def create_user_income():
+
+    current_user = get_jwt_identity()
+
