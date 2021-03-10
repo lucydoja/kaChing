@@ -2,6 +2,7 @@ import { Context } from "../store/appContext";
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Tooltip, OverlayTrigger, Button } from "react-bootstrap";
 
 export const Register = () => {
 	const [first_name, setFirst] = useState("");
@@ -144,17 +145,18 @@ export const Register = () => {
 						</div>
 						<div className="form-row mt-3">
 							<label>Pick a security question* &nbsp;</label>
-							<button
-								type="button"
-								className="btn btn-white p-0 m-0 mb-1"
-								data-toggle="popover"
-								data-placement="top"
-								trigger="hover click"
-								title="This will be the security question/answer if you forget your password"
-								data-content="This will be the security question/answer if you forget your password"
-								disabled>
-								<i className="fas fa-info-circle" />
-							</button>
+							<OverlayTrigger
+								key="top"
+								placement="top"
+								overlay={
+									<Tooltip id={`tooltip-top`}>
+										This will be your security question if you forget your password
+									</Tooltip>
+								}>
+								<a>
+									<i className="fas fa-info-circle" />
+								</a>
+							</OverlayTrigger>
 							<select
 								className="form-control"
 								name="security"
@@ -172,8 +174,21 @@ export const Register = () => {
 							</select>
 							<div className="valid-feedback" />
 						</div>
+
 						<div className="form-row mt-3">
-							<label>Security answer*</label>
+							<label>Security answer* &nbsp;</label>
+							<OverlayTrigger
+								key="top"
+								placement="top"
+								overlay={
+									<Tooltip id={`tooltip-top`}>
+										This will be your security answer if you forget your password
+									</Tooltip>
+								}>
+								<a>
+									<i className="fas fa-info-circle" />
+								</a>
+							</OverlayTrigger>
 							<input
 								type="text"
 								className="form-control"

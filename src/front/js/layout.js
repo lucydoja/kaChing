@@ -14,8 +14,13 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
+<<<<<<< HEAD
 import { Bienvenida } from "./pages/bienvenida";
+import { IncExp } from "./pages/inc-exp";
 
+=======
+import { Perfil } from "./pages/perfil";
+>>>>>>> origin/gabriela
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -51,6 +56,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/bienvenida">
 							<Bienvenida />
+						</Route>
+						<Route exact path="/incexp">
+							<IncExp />
+                        </Route>
+						<Route exact path="/profile">
+							<Perfil />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
