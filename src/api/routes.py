@@ -50,17 +50,17 @@ def login():
 
         # Validate
         if not email:
-            return jsonify({"error": "em"}), 400
+            return jsonify({"error": "Invalid"}), 400
         if not password:
-            return jsonify({"error": "pas"}), 400
+            return jsonify({"error": "Invalid"}), 400
 
         user = User.query.filter_by(email=email).first()
 
         if not user:
-            return jsonify({"error": "usr"}), 400
+            return jsonify({"error": "Invalid"}), 400
         
         if not check_password_hash(user.password, password):
-            return jsonify({"error": "pashas"}), 400
+            return jsonify({"error": "Invalid"}), 400
         
         # Create Token
         access_token = create_access_token(identity=email)
