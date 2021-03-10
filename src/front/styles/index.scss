@@ -38,9 +38,20 @@ nav{
     //box-shadow: 0px 0px 6px white;
     background-color: white;
     min-width: 150px;
-    max-width: 500px;
+    max-width: 600px;
     height: auto;
     
+    margin: 10px;
+    
+}
+
+.formulario2{
+    text-align: justify;
+    display: inline-block;
+    //box-shadow: 0px 0px 6px white;
+    background-color: white;
+    min-width: 150px;
+    width: 600px;
     margin: 10px;
     
 }
@@ -76,4 +87,8 @@ margin: 0px;
 
 .far, .fas{
     cursor: pointer;
+}
+
+.graficos{
+    min-height: 250px;
 }

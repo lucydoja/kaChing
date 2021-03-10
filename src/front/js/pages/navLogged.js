@@ -38,7 +38,7 @@ export function NavLogged() {
 				<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 					<Link to={"/expenses"}>
 						<span className="dropdown-item d-flex flex-grow-1" role="button">
-							Expenses
+							My Transactions
 						</span>
 					</Link>
 					<Link to={"/finances"}>
