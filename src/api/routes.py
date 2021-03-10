@@ -12,6 +12,11 @@ api = Blueprint('api', __name__)
 
 ### Routes ###
 
+# Test
+@api.route('/test', methods=["GET"])
+def test():
+    return jsonify({"msg": "test"}), 200
+
 # Register User
 @api.route('/register', methods=["POST"])
 def create_user():
