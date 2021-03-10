@@ -15,13 +15,19 @@ export const Expenses = () => {
 	const agregarTarea = e => {
 		e.preventDefault();
 		const data = { category, payment, description, amount };
-		console.log(data);
+
 		setArrayTareas([
 			...arrayTareas,
 
-			// id: shortid.generate(),
-			data
+			{
+				id: shortid.generate(),
+				data
+			}
 		]);
+		setAmount("");
+		setDescription("");
+		setPayment("");
+		setCategory("");
 	};
 
 	const eliminaTarea = id => {
@@ -34,6 +40,7 @@ export const Expenses = () => {
 				<div className="container breadcrumb">Finance record</div>
 			</div>
 			<div className="row d-flex flex-column">
+				{/* --------------Here is initial form----------------------- */}
 				<form onSubmit={e => agregarTarea(e)}>
 					<div className="col-lg-4 form-group d-flex flex-column">
 						<label string="">Choose a Category:</label>
@@ -60,6 +67,7 @@ export const Expenses = () => {
 							className="form-control"
 							name="payment"
 							id="payment"
+							required
 							onChange={e => setPayment(e.target.value)}>
 							<option selected value="Choose your Payment">
 								Choose your Payment
@@ -96,7 +104,7 @@ export const Expenses = () => {
 						/>
 					</div>
 					<div className="col-lg-4 form-group ">
-						<button type="reset" className="btn btn-danger">
+						<button type="reset" value="Borrar" className="btn btn-danger">
 							Cancel
 						</button>
 						<button type="submit" className="btn btn-success">
@@ -104,63 +112,52 @@ export const Expenses = () => {
 						</button>
 					</div>
 				</form>
-				{/* table where we put the information about category, payment ... */}
-				<table className="table table-responsive">
+				{/*--------- And here is when the code of form are end--------------- */}
+				{/* table where we put the information about category, payment and others... */}
+				<table className="table table-reflow">
 					<thead>
-						<tr className="dlist-group-item shadow">
+						<tr className="table table-reflow">
 							<th>Category</th>
+
 							<th>Payment Method</th>
+
 							<th>Payment Amount</th>
+
 							<th>Description</th>
+							<th>Delete</th>
 						</tr>
 					</thead>
-					{arrayTareas.map((item, index) => (
-						<div key={index}>
-							<tbody>
-								<tr className="dlist-group-item shadow">
-									<th scope="row" />
-									<td>
-										<span>{item.category}</span>
-									</td>
-									<td>
-										<span>{item.payment}</span>
-									</td>
-									<td>
-										<span>{item.amount}</span>
-									</td>
-									<td>
-										<span>{item.description}</span>
-									</td>
-									<td>
-										<button
-											type="button"
-											className="btn btn-outline-danger "
-											onClick={() => eliminaTarea(item.id)}>
-											<i className="fas fa-times" />
-										</button>
-									</td>
-								</tr>
-							</tbody>
-						</div>
-					))}
-				</table>
 
-				{/* <ul className="container">
-					{arrayTareas.map(item => (
-						<tr className="list-group-item shadow" key={item.id}>
-							<span className="d-flex justify-content-between">
-								{item.data.category} {item.data.payment} {item.data.description} {item.data.amount}
-							</span>
-							<button
-								type="button"
-								className="btn btn-outline-danger "
-								onClick={() => eliminaTarea(item.id)}>
-								<i className="fas fa-times" />
-							</button>
-						</tr>
-					))}
-				</ul> */}
+					<tbody>
+						{arrayTareas.map((item, index) => (
+							<tr key={index} className="dlist-group-item shadow">
+								<td>
+									<span>{item.data.category}</span>
+								</td>
+								<td>
+									<span>{item.data.payment}</span>
+								</td>
+								<td>
+									<span>{item.data.amount}</span>
+								</td>
+								<td>
+									<span>{item.data.description}</span>
+								</td>
+								<td>
+									<button
+										type="button"
+										className="btn btn-outline-danger "
+										onClick={() => eliminaTarea(item.id)}>
+										<i className="fas fa-times" />
+									</button>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+				{/* And here is when the code of table is end */}
 			</div>
+
 			<div className="posicionFooter" />
 		</div>
 	);
