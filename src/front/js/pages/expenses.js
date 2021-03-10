@@ -18,10 +18,9 @@ export const Expenses = () => {
 		console.log(data);
 		setArrayTareas([
 			...arrayTareas,
-			{
-				id: shortid.generate(),
-				data
-			}
+
+			// id: shortid.generate(),
+			data
 		]);
 	};
 
@@ -121,16 +120,16 @@ export const Expenses = () => {
 								<tr className="dlist-group-item shadow">
 									<th scope="row" />
 									<td>
-										<span>{item.data.category}</span>
+										<span>{item.category}</span>
 									</td>
 									<td>
-										<span>{item.data.payment}</span>
+										<span>{item.payment}</span>
 									</td>
 									<td>
-										<span>{item.data.amount}</span>
+										<span>{item.amount}</span>
 									</td>
 									<td>
-										<span>{item.data.description}</span>
+										<span>{item.description}</span>
 									</td>
 									<td>
 										<button
