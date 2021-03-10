@@ -72,5 +72,14 @@ def login():
 @jwt_required()
 def create_user_income():
 
-    current_user = get_jwt_identity()
+    current_user_email = get_jwt_identity()
+    amount = request.json["amount"]
+    detail = request.json["detail"]
+    date = datetime.datetime.now()
 
+    new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date)
+
+    db.session.add(new_income)
+    db.session.commit()
+
+    return jsonify({"msg": "accepted"}), 200
