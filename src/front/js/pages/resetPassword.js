@@ -46,6 +46,8 @@ export const ResetPass = () => {
 				return response.json();
 			})
 			.then(data => {
+				actions.logOut();
+				actions.logged();
 				console.log("Password reset");
 			})
 			.catch(error => {
@@ -56,8 +58,8 @@ export const ResetPass = () => {
 		<div className="container d-flex justify-content-center mt-2 mb-5">
 			<div className="formulario mb-5">
 				<div className="alert alert-info" role="alert">
-					Oh no! It seams that you forgot your <strong>KaChing! </strong>
-					password, please fill the information bellow to reset it!
+					Oh! It seems that you need to reset your <strong>KaChing! </strong>
+					password, please fill the information bellow to set a new one!
 				</div>
 				<h3 className="mt-2">Reset Password</h3>
 				<div className="">

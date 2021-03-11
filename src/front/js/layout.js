@@ -10,8 +10,9 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
+import { Expenses2 } from "./pages/expenses_copy";
 import { Welcome } from "./pages/welcome";
-import { IncExp } from "./pages/inc-exp";
+import { Transactions } from "./pages/transactions";
 import { Profile } from "./pages/profileMain";
 import { Perfil } from "./pages/perfil";
 
@@ -28,14 +29,13 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 
-
 						<Route exact path="/" component={Welcome} />
 						<Route exact path="/expenses" component={Expenses} />
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/reset" component={ResetPass} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/finances" component={Finances} />
-						<Route exact path="/incexp" component={IncExp} />
+						<Route exact path="/transactions" component={Transactions} />
 						<Route exact path="/profile" component={Perfil} />
             <Route exact path="/profileMain" component={Profile} />
 

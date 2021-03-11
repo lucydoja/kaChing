@@ -77,18 +77,18 @@ export const Finances = () => {
 								<option value="" selected disabled hidden>
 									Month
 								</option>
-								<option value="january">January</option>
-								<option value="february">February</option>
-								<option value="mar-2021">March</option>
-								<option value="jan-2021">April</option>
-								<option value="feb-2021">May</option>
-								<option value="mar-2021">June</option>
-								<option value="jan-2021">July</option>
-								<option value="feb-2021">August</option>
-								<option value="mar-2021">September</option>
-								<option value="mar-2021">October</option>
-								<option value="nov-2020">November</option>
-								<option value="dic-2020">December</option>
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
 							</select>
 						</div>
 
