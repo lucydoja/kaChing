@@ -13,7 +13,7 @@ export const IncExp = () => {
 
 	const handleExpense = e => {
 		e.preventDefault();
-		if (amount === "" || category === "" || description === "" || payment === "") {
+		if (amount === "" || category === "" || payment === "") {
 			alert("Please fill all the entries");
 		}
 
@@ -161,7 +161,7 @@ export const IncExp = () => {
 									<input
 										type="text"
 										className="form-control"
-										maxLength="30"
+										maxLength="50"
 										placeholder="Description"
 										onChange={e => {
 											setDescription(e.target.value);
