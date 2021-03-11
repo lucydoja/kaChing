@@ -2,12 +2,19 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
+import Spinner from "react-bootstrap/Spinner";
+import Image from "react-bootstrap/Image";
 
 export const Welcome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container mb-2 " id="box-principal">
+			<Image
+				src="https://lh3.googleusercontent.com/proxy/th92mr_P_E8V4-zYCGfd6OtVfLIHJPTEBQ5U0pD8GrXmfp6BaNnvTdkpCF8V9ROhBZRwzlwJBIPOsJTyiDXlBSZW54A4JIiZAhGj8_A9iJLILZTGKhPcVg"
+				style={{ width: "100%", height: "250px" }}
+			/>
+			<Spinner animation="grow" variant="warning" /> ARE YOU READY?
 			<div className="alert alert-primary" role="alert">
 				<h4 className="alert-heading ">What is kaChing?</h4>
 				<p className="font-italic">
@@ -77,7 +84,6 @@ export const Welcome = () => {
 					</div>
 				</div>
 			</div>
-
 			<div className="card-group">
 				<div className="card">
 					<img
@@ -140,7 +146,6 @@ export const Welcome = () => {
 					</div>
 				</div>
 			</div>
-
 			<Carousel>
 				<Carousel.Item>
 					<img
