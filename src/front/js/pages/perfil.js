@@ -83,11 +83,11 @@ export const Perfil = () => {
 						</div>
 					</div>
 					<div className="submit-row d-flex justify-content-center my-2">
-						<button type="submit" className="btn btn-primary mr-1">
-							Accept
-						</button>
-						<button type="reset" className="btn btn-danger ml-1">
+						<button type="reset" className="btn btn-danger mr-1">
 							Cancel
+						</button>
+						<button type="submit" className="btn btn-primary ml-1">
+							Accept
 						</button>
 					</div>
 				</form>

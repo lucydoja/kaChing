@@ -2,11 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { Register } from "./pages/register";
 import { Login } from "./pages/login";
-import { View1 } from "./pages/view1";
 import { ResetPass } from "./pages/resetPassword";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -16,6 +14,7 @@ import { Welcome } from "./pages/welcome";
 import { IncExp } from "./pages/inc-exp";
 import { Profile } from "./pages/profileMain";
 import { Perfil } from "./pages/perfil";
+
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -28,39 +27,18 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/view1">
-							<View1 />
-						</Route>
-						<Route exact path="/expenses">
-							<Expenses />
-						</Route>
-						<Route exact path="/register">
-							<Register />
-						</Route>
-						<Route exact path="/reset">
-							<ResetPass />
-						</Route>
-						<Route exact path="/login">
-							<Login />
-						</Route>
-						<Route exact path="/finances">
-							<Finances />
-						</Route>
-						<Route exact path="/welcome">
-							<Welcome />
-						</Route>
-						<Route exact path="/incexp">
-							<IncExp />
-						</Route>
-						<Route exact path="/profileMain">
-							<Profile />
-						</Route>
-						<Route exact path="/profile">
-							<Perfil />
-						</Route>
+
+
+						<Route exact path="/" component={Welcome} />
+						<Route exact path="/expenses" component={Expenses} />
+						<Route exact path="/register" component={Register} />
+						<Route exact path="/reset" component={ResetPass} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/finances" component={Finances} />
+						<Route exact path="/incexp" component={IncExp} />
+						<Route exact path="/profile" component={Perfil} />
+            <Route exact path="/profileMain" component={Profile} />
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
