@@ -6,7 +6,6 @@ export const Perfil = () => {
 	const { store, actions } = useContext(Context);
 	const [total, setTotal] = useState(0);
 	const [periodicity, setPeriodicity] = useState("");
-	const [email, setEmail] = useState("");
 	const [name, setName] = useState("");
 	const [lastname, setLastname] = useState("");
 
@@ -20,7 +19,6 @@ export const Perfil = () => {
 		const data = {
 			total: total,
 			periodicity: periodicity,
-			email: email,
 			name: name,
 			lastname: lastname
 		};
@@ -59,18 +57,7 @@ export const Perfil = () => {
 							</select>
 						</div>
 					</div>
-					<div className="form-row my-2">
-						<div className="col-md">
-							<label>Email</label>
-							<input
-								type="email"
-								className="form-control"
-								placeholder="@gmail.com"
-								required
-								onChange={e => setEmail(e.target.value)}
-							/>
-						</div>
-					</div>
+
 					<div className="form-row my-2">
 						<div className="col-md">
 							<label>Name</label>
@@ -108,7 +95,7 @@ export const Perfil = () => {
 			<div className="row mt-3">
 				<div className="col-md">
 					<p className="text-center">
-						<Link to="/">Change Password</Link>
+						<Link to="/reset">Change Password</Link>
 					</p>
 				</div>
 			</div>

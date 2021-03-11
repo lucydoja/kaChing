@@ -14,7 +14,7 @@ import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
 import { Welcome } from "./pages/welcome";
 import { IncExp } from "./pages/inc-exp";
-
+import { Profile } from "./pages/profileMain";
 import { Perfil } from "./pages/perfil";
 //create your first component
 const Layout = () => {
@@ -54,6 +54,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/incexp">
 							<IncExp />
+						</Route>
+						<Route exact path="/profileMain">
+							<Profile />
 						</Route>
 						<Route exact path="/profile">
 							<Perfil />
