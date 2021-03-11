@@ -12,7 +12,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
-import { Bienvenida } from "./pages/bienvenida";
+import { Welcome } from "./pages/welcome";
 import { IncExp } from "./pages/inc-exp";
 
 import { Perfil } from "./pages/perfil";
@@ -49,8 +49,8 @@ const Layout = () => {
 						<Route exact path="/finances">
 							<Finances />
 						</Route>
-						<Route exact path="/bienvenida">
-							<Bienvenida />
+						<Route exact path="/welcome">
+							<Welcome />
 						</Route>
 						<Route exact path="/incexp">
 							<IncExp />
