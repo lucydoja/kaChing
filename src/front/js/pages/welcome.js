@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import Carousel from "react-bootstrap/Carousel";
 
-export const Bienvenida = () => {
+export const Welcome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container mb-2">
-			<div className="alert alert-success" role="alert">
-				<h4 className="alert-heading">What is Katching?</h4>
+			<div className="alert alert-primary" role="alert">
+				<h4 className="alert-heading text-warning">What is kaChing?</h4>
 				<p>
 					Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help you
 					to save your money and make a budget to how you should spend your money Saving money is at the heart
@@ -19,7 +20,7 @@ export const Bienvenida = () => {
 				<p className="mb-0" />
 			</div>
 			<div className="alert alert-warning " role="alert">
-				<h5 className="alert-heading">Benefits of Katching</h5>
+				<h5 className="alert-heading">Benefits of KaChing</h5>
 				<p />
 				You open your account free in less than 3 minutes and you can close it with a single click., No
 				commissions. No strings attached. No surprises.
@@ -36,7 +37,7 @@ export const Bienvenida = () => {
 						<h5 className="card-title">First step</h5>
 						<p className="card-text">Think Beyond Income and Expenses</p>
 						<p className="card-text">
-							<small className="text-muted">Last updated 3 mins ago</small>
+							<small className="text-muted">Why don´t you save up for a real life-changer?</small>
 						</p>
 					</div>
 				</div>
@@ -49,7 +50,7 @@ export const Bienvenida = () => {
 						<h5 className="card-title">Second step</h5>
 						<p className="card-text">Don´t have an account? Register One!</p>
 						<p className="card-text">
-							<small className="text-muted">Last updated 3 mins ago</small>
+							<small className="text-muted">Trying to save up. It´s the easiest way to do it</small>
 						</p>
 					</div>
 				</div>
@@ -66,7 +67,10 @@ export const Bienvenida = () => {
 							This card has even longer content than the first to show that equal height action.
 						</p>
 						<p className="card-text">
-							<small className="text-muted">Last updated 3 mins ago</small>
+							<small className="text-muted">
+								Every month, I transfer part of my salary into a savings account. I think it’s important
+								to save for a rainy day.
+							</small>
 						</p>
 					</div>
 				</div>
@@ -81,12 +85,17 @@ export const Bienvenida = () => {
 					/>
 					<div className="card-body">
 						<h5 className="card-title" />
-						<p className="card-text">Create a Children´s Savings Katching</p>
+						<p className="card-text">Create a Children´s Savings Kaching</p>
 						<p className="card-text">
 							{" "}
 							Fortunately, you can secure long-term savings for your kids with a few strategic methods and
 							accounts.
-							<small className="text-muted" />
+						</p>
+						<p className="card-text">
+							<small className="text-muted ">
+								Child: Mom, can you buy me this new toy? Mother: No, it’s too expensive. Money doesn’t
+								grow on trees!
+							</small>
 						</p>
 					</div>
 				</div>
@@ -101,9 +110,8 @@ export const Bienvenida = () => {
 							Whether you want to save up to buy your first home, jump start your retirement savings, or
 							pay off debt, there´s no better time to set some financial goals with us!
 						</p>
-						<p className="card-text">
-							<small className="text-muted" />
-						</p>
+						<p className="card-text" />
+						<small className="text-muted ">The best way to predict the future is to invent it</small>
 					</div>
 				</div>
 				<div className="card">
@@ -122,9 +130,52 @@ export const Bienvenida = () => {
 						<p className="card-text">
 							<small className="text-muted" />
 						</p>
+						<p className="card-text">
+							<small className="text-muted ">
+								Trust in dreams, for in them is hidden the gate to eternity
+							</small>
+						</p>
 					</div>
 				</div>
 			</div>
+
+			<Carousel>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						alt="First step"
+					/>
+					<Carousel.Caption>
+						<h3>1° STEP</h3>
+						<p>Create an account.</p>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="https://images.pexels.com/photos/4968663/pexels-photo-4968663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						alt="Second slide"
+					/>
+
+					<Carousel.Caption>
+						<h3>Second slide label</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="https://images.pexels.com/photos/4968663/pexels-photo-4968663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						alt="Third slide"
+					/>
+
+					<Carousel.Caption>
+						<h3>Third slide label</h3>
+						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+					</Carousel.Caption>
+				</Carousel.Item>
+			</Carousel>
 			<div className="posicionFooter" />
 		</div>
 	);
