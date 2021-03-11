@@ -24,8 +24,8 @@ export const ResetPass = () => {
 		const data = {
 			email: email,
 			password: password2,
-			securityA: securityA,
-			securityQ: securityQ
+			security_answer: securityA,
+			security_question: securityQ
 		};
 		console.log(data);
 

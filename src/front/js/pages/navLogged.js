@@ -26,7 +26,7 @@ export function NavLogged() {
 		return (
 			<div className="dropdown d-flex justify-content-end" id="dropdownDiv">
 				<button
-					className="btn btn-dark dropdown-toggle"
+					className="btn btn-primary dropdown-toggle"
 					data-boundary="window"
 					type="button"
 					id="dropdownMenuButton"
@@ -38,7 +38,7 @@ export function NavLogged() {
 				<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 					<Link to={"/expenses"}>
 						<span className="dropdown-item d-flex flex-grow-1" role="button">
-							Expenses
+							My Transactions
 						</span>
 					</Link>
 					<Link to={"/finances"}>

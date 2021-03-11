@@ -36,8 +36,8 @@ export const Register = () => {
 			password: password2,
 			first_name: first_name,
 			last_name: last_name,
-			securityA: securityA,
-			securityQ: securityQ
+			security_answer: securityA,
+			security_question: securityQ
 		};
 		console.log(data);
 
