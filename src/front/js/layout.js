@@ -12,6 +12,7 @@ import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
 import { Welcome } from "./pages/welcome";
 import { IncExp } from "./pages/inc-exp";
+import { Profile } from "./pages/profileMain";
 import { Perfil } from "./pages/perfil";
 
 //create your first component
@@ -26,6 +27,8 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
+
+
 						<Route exact path="/" component={Welcome} />
 						<Route exact path="/expenses" component={Expenses} />
 						<Route exact path="/register" component={Register} />
@@ -34,6 +37,8 @@ const Layout = () => {
 						<Route exact path="/finances" component={Finances} />
 						<Route exact path="/incexp" component={IncExp} />
 						<Route exact path="/profile" component={Perfil} />
+            <Route exact path="/profileMain" component={Profile} />
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
