@@ -43,7 +43,7 @@ export const Expenses = () => {
 				{/* --------------Here is initial form----------------------- */}
 				<form onSubmit={e => agregarTarea(e)}>
 					<div className="col-lg-4 form-group d-flex flex-column">
-						<label string="">Choose a Category:</label>
+						<label htmlFor="category">Choose a Category:</label>
 						<select
 							className="form-control"
 							name="category"
@@ -62,7 +62,7 @@ export const Expenses = () => {
 						</select>
 					</div>
 					<div className="col-lg-4 form-group d-flex flex-column">
-						<label string="cars">Payment method:</label>
+						<label htmlFor="Payment">Payment method:</label>
 						<select
 							className="form-control"
 							name="payment"
@@ -79,7 +79,7 @@ export const Expenses = () => {
 					</div>
 
 					<div className="col-lg-4 form-group d-flex flex-column">
-						<label string="cars">Payment Amount*:</label>
+						<label htmlFor="amount">Payment Amount*:</label>
 						<input
 							onChange={e => setAmount(e.target.value)}
 							value={amount}
@@ -92,7 +92,7 @@ export const Expenses = () => {
 						/>
 					</div>
 					<div className="col-lg-4 form-group d-flex flex-column">
-						<label string="cars">Some Description*:</label>
+						<label htmlFor="description">Some Description*:</label>
 						<input
 							onChange={e => setDescription(e.target.value)}
 							value={description}
