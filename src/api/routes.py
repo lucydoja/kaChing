@@ -61,7 +61,8 @@ def login():
         
         if not check_password_hash(user.password, password):
             return jsonify({"error": "Invalid"}), 400
-        
+    
+
         # Create Token
         access_token = create_access_token(identity=email)
 
@@ -76,6 +77,9 @@ def create_user_income():
     amount = request.json["amount"]
     detail = request.json["detail"]
     date = datetime.datetime.now()
+
+    if not (amount and detail):
+        return jsonify({"error": "Invalid"}), 400
 
     new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date)
 
@@ -104,6 +108,9 @@ def delete_user_income():
     current_user_email = get_jwt_identity()
     income_id = request.json["id"]
 
+    if not income_id:
+        return jsonify({"error": "Missing parameter"}), 400
+
     income_to_delete = Income.query.filter_by(user_email=current_user_email, id=income_id).first()
 
     if not income_to_delete:
@@ -125,6 +132,9 @@ def create_user_expense():
     amount = request.json["amount"]
     detail = request.json["detail"]
     date = datetime.datetime.now()
+
+    if not (category and payment_method and amount and detail):
+        return jsonify({"error": "Missing parameter"})
 
     new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, date=date)
 
@@ -152,6 +162,9 @@ def delete_expense_data():
 
     current_user_email = get_jwt_identity()
     expense_id = request.json["id"]
+
+    if not expense_id:
+        return jsonify({"error": "Missing parameter"}), 400
 
     expense_to_delete = Expense.query.filter_by(user_email=current_user_email, id=expense_id).first()
 
