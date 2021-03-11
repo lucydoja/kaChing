@@ -14,7 +14,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
-import { Bienvenida, Welcome } from "./pages/welcome";
+import { Welcome } from "./pages/welcome";
 import { IncExp } from "./pages/inc-exp";
 
 import { Perfil } from "./pages/perfil";
