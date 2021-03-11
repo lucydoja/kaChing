@@ -11,12 +11,12 @@ export const BarGraph = props => {
 				label: "Expenses",
 				data: props.datos,
 				backgroundColor: [
-					"rgba(0,255,255, 0.2)",
-					"rgba(0,255,255, 0.2)",
-					"rgba(0,255,255, 0.2)",
-					"rgba(0,255,255, 0.2)"
+					"rgba(18,144,151,1)",
+					"rgba(18,144,151,1)",
+					"rgba(18,144,151,1)",
+					"rgba(18,144,151,1)"
 				],
-				borderColor: ["rgba(0,0,255, 1)", "rgba(0,0,255, 1)", "rgba(0,0,255, 1)", "rgba(0,0,255, 1)"],
+				borderColor: ["rgba(18,144,151,1)", "rgba(18,144,151,1)", "rgba(18,144,151,1)", "rgba(18,144,151,1)"],
 				borderWidth: 1
 			}
 		]

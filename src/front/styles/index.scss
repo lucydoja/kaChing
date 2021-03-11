@@ -99,13 +99,20 @@ margin: 0px;
     min-width: 100%;
     
     border-radius: 50px;
-    border: 1px solid #333;
+    border: 1px solid black;
     background-color: white;
+    //background: rgb(255,255,255);
+    //background: radial-gradient(circle, rgba(255,255,255,1) 38%, rgba(207,207,209,1) 100%);
+    
+ 
 }
 
 .filler{
-    background: #1DA598;
+    
     height: 100%;
     border-radius: inherit;
     transition: width .2 ease-in;
+    
+    background: rgb(151,18,18);
+background: radial-gradient(circle, rgba(151,18,18,0.9756945014333859) 38%, rgba(221,174,108,1) 100%);
 }

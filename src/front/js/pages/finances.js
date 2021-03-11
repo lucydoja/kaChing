@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
 import { BarGraph } from "../component/bar";
-import { BarHorGraph } from "../component/bar_hor";
+import { ProgressBar } from "../component/progressBar";
 import { PieGraph } from "../component/pie";
 
 export const Finances = () => {
@@ -120,7 +120,7 @@ export const Finances = () => {
 						</div>
 					</form>
 				</div>
-				<BarHorGraph datos={[80]} dato={80} />
+				<ProgressBar dato={30} />
 				<BarGraph datos={[90000, 49000, 50000, 10000]} />
 				<PieGraph datos={[90000, 49000, 50000, 10000, 234234, 234234, 11210]} />
 			</div>
