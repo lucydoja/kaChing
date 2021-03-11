@@ -7,19 +7,21 @@ export const Welcome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container mb-2">
+		<div className="container mb-2 " id="box-principal">
 			<div className="alert alert-primary" role="alert">
-				<h4 className="alert-heading text-warning">What is kaChing?</h4>
-				<p>
+				<h4 className="alert-heading ">What is kaChing?</h4>
+				<p className="font-italic">
 					Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help you
 					to save your money and make a budget to how you should spend your money Saving money is at the heart
 					of all good financial plans. Learn how to save money consistently even when it seems like there
 					isn´t any money left to spare.
 				</p>
-				Here are smart financial steps to take if you need help overcoming your barriers to saving.
+				<p className="font-italic">
+					Here are smart financial steps to take if you need help overcoming your barriers to saving.
+				</p>
 				<p className="mb-0" />
 			</div>
-			<div className="alert alert-warning " role="alert">
+			<div className="alert alert-warning font-italic" role="alert">
 				<h5 className="alert-heading">Benefits of KaChing</h5>
 				<p />
 				You open your account free in less than 3 minutes and you can close it with a single click., No

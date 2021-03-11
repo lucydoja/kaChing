@@ -61,13 +61,14 @@ def login():
         
         if not check_password_hash(user.password, password):
             return jsonify({"error": "Invalid"}), 400
-        
+    
+
         # Create Token
         access_token = create_access_token(identity=email)
 
         return jsonify({"access_token": access_token}), 200
 
-# Receive Income Data
+# Add Income Data
 @api.route("/income", methods=["POST"])
 @jwt_required()
 def create_user_income():
@@ -77,9 +78,100 @@ def create_user_income():
     detail = request.json["detail"]
     date = datetime.datetime.now()
 
+    if not (amount and detail):
+        return jsonify({"error": "Invalid"}), 400
+
     new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date)
 
     db.session.add(new_income)
     db.session.commit()
 
     return jsonify({"msg": "accepted"}), 200
+
+# Get Income Data
+@api.route("/income", methods=["GET"])
+@jwt_required()
+def get_income_data():
+
+    current_user_email = get_jwt_identity()
+
+    current_user_income = Income.query.filter_by(user_email=current_user_email).all()
+    income_list = list(map(lambda income: income.serialize(), current_user_income))
+
+    return jsonify({"data": income_list}), 200
+
+# Delete Income Data
+@api.route("/income", methods=["DELETE"])
+@jwt_required()
+def delete_user_income():
+
+    current_user_email = get_jwt_identity()
+    income_id = request.json["id"]
+
+    if not income_id:
+        return jsonify({"error": "Missing parameter"}), 400
+
+    income_to_delete = Income.query.filter_by(user_email=current_user_email, id=income_id).first()
+
+    if not income_to_delete:
+        return jsonify({"error": "data not found"}), 400
+
+    db.session.delete(income_to_delete)
+    db.session.commit()
+
+    return jsonify({"msg": "income deleted"}), 200
+
+# Add Expense Data
+@api.route("/expense", methods=["POST"])
+@jwt_required()
+def create_user_expense():
+
+    current_user_email = get_jwt_identity()
+    category = request.json["category"]
+    payment_method = request.json["payment_method"]
+    amount = request.json["amount"]
+    detail = request.json["detail"]
+    date = datetime.datetime.now()
+
+    if not (category and payment_method and amount and detail):
+        return jsonify({"error": "Missing parameter"})
+
+    new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, date=date)
+
+    db.session.add(new_expense)
+    db.session.commit()
+
+    return jsonify({"msg": "accepted"}), 200
+
+# Get Expense Data
+@api.route("/expense", methods=["GET"])
+@jwt_required()
+def get_expense_data():
+
+    current_user_email = get_jwt_identity()
+
+    current_user_expense = Expense.query.filter_by(user_email=current_user_email).all()
+    expense_list = list(map(lambda expense: expense.serialize(), current_user_expense))
+
+    return jsonify({"data": expense_list}), 200
+
+# Delete Expense Data
+@api.route("/expense", methods=["DELETE"])
+@jwt_required()
+def delete_expense_data():
+
+    current_user_email = get_jwt_identity()
+    expense_id = request.json["id"]
+
+    if not expense_id:
+        return jsonify({"error": "Missing parameter"}), 400
+
+    expense_to_delete = Expense.query.filter_by(user_email=current_user_email, id=expense_id).first()
+
+    if not expense_to_delete:
+        return jsonify({"error": "data not found"}), 400
+
+    db.session.delete(expense_to_delete)
+    db.session.commit()
+
+    return jsonify({"msg": "expense deleted"}), 200
