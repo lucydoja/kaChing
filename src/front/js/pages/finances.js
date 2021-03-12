@@ -5,26 +5,53 @@ import { Bar } from "react-chartjs-2";
 import { BarGraph } from "../component/bar";
 import { ProgressBar } from "../component/progressBar";
 import { PieGraph } from "../component/pie";
+import { string } from "prop-types";
 
 export const Finances = () => {
 	const { store, actions } = useContext(Context);
 
-	const [month, setMonth] = useState("");
-	const [year, setYear] = useState("");
 	const [category, setCategory] = useState("");
+	const [submit, setSubmit] = useState(false);
 
-	const handleSubmit = e => {
+	var date = new Date();
+	let current_month_num = date.getMonth();
+	let months = [
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December"
+	];
+	let current_month = months[current_month_num];
+	const [month, setMonth] = useState(current_month);
+
+	let current_year = date.getFullYear();
+	const [year, setYear] = useState(current_year);
+	//to match with python current time standar
+
+	{
+		/*const handleSubmit = e => {
 		e.preventDefault();
 		if (year === "" || month === "" || category === "") {
 			alert("Please fill all the entries");
 		}
+
+		setSubmit(true);
+
+		///ESTO NO NECESITA UN FETCH JAJA
 		const data = {
 			year: year,
 			month: month,
 			category: category
 		};
-
-		fetch(process.env.BACKEND_URL + "/finances", {
+		fetch(process.env.BACKEND_URL + "", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -44,23 +71,24 @@ export const Finances = () => {
 			.catch(error => {
 				console.error("Error:", error);
 			});
-	};
+	};*/
+	}
 
 	return (
 		<div className="container d-flex justify-content-center mt-2">
 			<div className="formulario2 mb-5 row">
 				<h3 className="mt-2">Your Finances</h3>
 				<div>
-					<form onSubmit={e => handleSubmit(e)}>
+					<form /*onSubmit={e => handleSubmit(e}*/>
 						<div className="form-row mt-3">
 							<label htmlFor="month">Select Year</label>
 							<select
-								onChange={e => setYear(e.target.value)}
+								onChange={e => setYear(parseInt(e.target.value))}
 								className="form-control"
 								name="month"
 								id="month">
 								<option value="" selected disabled hidden>
-									Year
+									current_year
 								</option>
 								<option value="2020">2020</option>
 								<option value="2021">2021</option>
@@ -70,12 +98,12 @@ export const Finances = () => {
 						<div className="form-row mt-3">
 							<label htmlFor="month">Select Month</label>
 							<select
-								onChange={e => setMonth(e.target.value)}
+								onChange={e => setMonth(parseInt(e.target.value))}
 								className="form-control"
 								name="month"
 								id="month">
 								<option value="" selected disabled hidden>
-									Month
+									current_month
 								</option>
 								<option value="1">January</option>
 								<option value="2">February</option>
@@ -91,7 +119,6 @@ export const Finances = () => {
 								<option value="12">December</option>
 							</select>
 						</div>
-
 						<div className="form-row mt-3">
 							<label htmlFor="category">Select Category</label>
 
@@ -113,16 +140,21 @@ export const Finances = () => {
 								<option value="Entertainment">Entertainment</option>
 							</select>
 						</div>
-						<div className="form-row mt-3 justify-content-center">
-							<button className="btn btn-primary" type="submit">
-								Show me my money!
-							</button>
-						</div>
+						\
 					</form>
 				</div>
-				<ProgressBar dato={30} />
-				<BarGraph datos={[90000, 49000, 50000, 10000]} />
-				<PieGraph datos={[90000, 49000, 50000, 10000, 234234, 234234, 11210]} />
+				{category == "All" ? (
+					<div>
+						<ProgressBar dato={30} />
+						<BarGraph datos={[90000, 49000, 50000, 10000]} />
+						<PieGraph datos={[90000, 49000, 50000, 10000, 234234, 234234, 11210]} />
+					</div>
+				) : (
+					<div>
+						<ProgressBar dato={30} />
+						<BarGraph datos={[90000, 49000, 50000, 10000]} />
+					</div>
+				)}
 			</div>
 
 			<div className="posicionFooter" />
