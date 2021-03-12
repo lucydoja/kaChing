@@ -45,7 +45,10 @@ export const Finances = () => {
             incomes: total,
             expenses: total,
             category:{
-                Entertainment : total expenses,
+                Entertainment : {total: total en el mes,
+            week: { 1: total semana 1 ,
+            2:total semana 2,
+        }}
                 Food: ,
                 ....
             },
@@ -62,6 +65,7 @@ export const Finances = () => {
                 },
                 2: ....
             }
+            
         }
 		let datos = store.resume.filter(item => item.year === year);
 		datos = datos.filter(item => item.month === month);
@@ -82,21 +86,36 @@ export const Finances = () => {
 		if (income == 0) {
 			return (
 				<div className="alert alert-danger mt-3" role="alert">
-					It looks like you didn&apos;t upload any incomes for this month! Be more consistent to take full
-					advantage of the whole <strong>kaChing!</strong> experience.
+					<p>
+						It looks like you didn&apos;t upload any incomes for this month! Be more consistent to take full
+						advantage of the whole <strong>kaChing!</strong> experience.
+					</p>
+					<hr />
+					<p className="mb-0">
+						You spent {expense} in {category}
+					</p>
+					<p className="mb-0">You earned {income} in total</p>
 				</div>
 			);
 		}
 
 		console.log(income);
 		//meterle un math floor al porcentaje
-		let porcentaje = (100 * expense) / income;
+		let porcentaje = Math.round((100 * expense) / income);
 		if (porcentaje == 100) {
 			return (
 				<div>
 					<div className="alert alert-danger mt-3" role="alert">
-						This isn&apos;t looking good, you spent <strong>ALL</strong> your money in {category}! Someone
-						is not taking care of their finances, try to save some money!
+						<p>
+							This isn&apos;t looking good, you spent <strong>ALL</strong> your money in {category}!
+							Someone is not taking care of their finances, try to save some money!{" "}
+						</p>
+						<hr />
+						<p className="mb-0">
+							You spent {expense} in {category}
+						</p>
+
+						<p className="mb-0">You earned {income} in total</p>
 					</div>
 					<ProgressBar dato={porcentaje} />
 				</div>
@@ -105,9 +124,18 @@ export const Finances = () => {
 			return (
 				<div>
 					<div className="alert alert-danger mt-3" role="alert">
-						WOW! It looks like you&apos;re in <strong>DEBT</strong>! You spent <strong>MORE</strong> than
-						your income in {category} ({porcentaje / 100} times more!!) ... You seriously need to reduce
-						your expenses.
+						<p>
+							{" "}
+							WOW! It looks like you&apos;re in <strong>DEBT</strong>! You spent <strong>MORE</strong>{" "}
+							than your income in {category} ({Math.round(porcentaje / 100)} times more!!) ... You
+							seriously need to reduce your expenses.
+						</p>
+						<hr />
+						<p className="mb-0">
+							You spent {expense} in {category}
+						</p>
+
+						<p className="mb-0">You earned {income} in total</p>
 					</div>
 					<ProgressBar dato={300} />
 				</div>
@@ -116,8 +144,16 @@ export const Finances = () => {
 
 		return (
 			<div>
-				<div className="alert alert-warning mt-3" role="alert">
-					It looks like you spent {porcentaje}% of your incomes in {category}! For a total of {expense} !
+				<div className="alert alert-warning" role="alert">
+					<p>
+						It looks like you spent {porcentaje}% of your incomes in {category}!
+					</p>
+					<hr />
+					<p className="mb-0">
+						You spent {expense} in {category}
+					</p>
+
+					<p className="mb-0">You earned {income} in total</p>
 				</div>
 				<ProgressBar dato={porcentaje} />
 			</div>
