@@ -89,11 +89,35 @@ export const Finances = () => {
 		}
 
 		console.log(income);
+		//meterle un math floor al porcentaje
 		let porcentaje = (100 * expense) / income;
+		if (porcentaje == 100) {
+			return (
+				<div>
+					<div className="alert alert-danger mt-3" role="alert">
+						This isn&apos;t looking good, you spent <strong>ALL</strong> your money in {category}! Someone
+						is not taking care of their finances, try to save some money!
+					</div>
+					<ProgressBar dato={porcentaje} />
+				</div>
+			);
+		} else if (porcentaje > 100) {
+			return (
+				<div>
+					<div className="alert alert-danger mt-3" role="alert">
+						WOW! It looks like you&apos;re in <strong>DEBT</strong>! You spent <strong>MORE</strong> than
+						your income in {category}
+						... You seriously need to reduce your expenses.
+					</div>
+					<ProgressBar dato={300} />
+				</div>
+			);
+		}
+
 		return (
 			<div>
 				<div className="alert alert-warning mt-3" role="alert">
-					It looks like you spent {porcentaje}% of your salary in {category}! For a total of {expense} !
+					It looks like you spent {porcentaje}% of your incomes in {category}! For a total of {expense} !
 				</div>
 				<ProgressBar dato={porcentaje} />
 			</div>
