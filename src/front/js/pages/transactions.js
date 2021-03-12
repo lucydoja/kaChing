@@ -1,5 +1,5 @@
 import { Context } from "../store/appContext";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import shortid from "shortid";
@@ -11,7 +11,13 @@ export const Transactions = () => {
 	const [payment, setPayment] = useState("");
 	const [amount, setAmount] = useState("");
 	const [description, setDescription] = useState("");
+
 	const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		actions.getIncome();
+		actions.getExpense();
+	}, []);
 
 	const handleExpense = e => {
 		e.preventDefault();

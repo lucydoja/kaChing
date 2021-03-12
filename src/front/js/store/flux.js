@@ -22,16 +22,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addExpense: datos => {
-				///ESTO SE TIENE QUE QUITAR DESPUES DE UNIR ENDPOINTS
-				let data = datos;
-				let expense = getStore().expenses;
-				expense = expense.concat(data);
-				setStore({ expenses: [...expense] });
-				///
-
+				const data = datos;
 				let user_token = sessionStorage.getItem("user_token");
 
-				fetch(process.env.BACKEND_URL + "/expense", {
+				fetch(process.env.BACKEND_URL + "/api/expense", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -44,9 +38,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 							response.text().then(text => alert(text));
 							throw Error(response.statusText);
 						} else {
-							let expense = getStore().expenses;
-							expense = expense.concat(data);
-							setStore({ expenses: [...expense] });
+							const expense = getStore().expenses;
+							const updExpense = expense.concat(data);
+							setStore({ expenses: [...updExpense] });
 						}
 						return response.json();
 					})
@@ -61,13 +55,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addIncome: datos => {
 				let data = datos;
 				let user_token = sessionStorage.getItem("user_token");
-				///ESTO SE TIENE QUE QUITAR DESPUES DE UNIR ENDPOINTS
-				let income = getStore().incomes;
-				income = income.concat(data);
-				setStore({ incomes: [...income] });
-				///
 
-				fetch(process.env.BACKEND_URL + "/income", {
+				fetch(process.env.BACKEND_URL + "/api/income", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -80,9 +69,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 							response.text().then(text => alert(text));
 							throw Error(response.statusText);
 						} else {
-							let income = getStore().incomes;
-							income = income.concat(data);
-							setStore({ incomes: [...income] });
+							const income = getStore().incomes;
+							const updIncome = income.concat(data);
+							setStore({ incomes: [...updIncome] });
 						}
 						return response.json();
 					})
@@ -96,26 +85,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteExpense: variable => {
 				let user_token = sessionStorage.getItem("user_token");
-				///ESTO SE TIENE QUE QUITAR DESPUES DE UNIR ENDPOINTS
-				let expense = getStore().expenses;
-				expense = expense.filter(item => item.id !== variable);
-				setStore({ expenses: [...expense] });
-				///
 
-				fetch(process.env.BACKEND_URL + "/expense", {
+				fetch(process.env.BACKEND_URL + "/api/expense", {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",
 						Authorization: "Bearer " + user_token
-					}
+					},
+					body: JSON.stringify({ id: variable })
 				})
 					.then(response => {
 						if (!response.ok) {
 							throw Error(response.statusText);
 						} else {
-							let expense = getStore().expenses;
-							expense = expense.filter(item => item.id !== variable);
-							setStore({ expenses: [...expense] });
+							const expense = getStore().expenses;
+							const updExpense = expense.filter(item => item.id !== variable);
+							setStore({ expenses: [...updExpense] });
 						}
 						return response.json();
 					})
@@ -130,26 +115,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteIncome: variable => {
 				let user_token = sessionStorage.getItem("user_token");
-				///ESTO SE TIENE QUE QUITAR DESPUES DE UNIR ENDPOINTS
-				let income = getStore().incomes;
-				income = income.filter(item => item.id !== variable);
-				setStore({ incomes: [...income] });
-				///
 
-				fetch(process.env.BACKEND_URL + "/expense", {
+				fetch(process.env.BACKEND_URL + "/api/income", {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",
 						Authorization: "Bearer " + user_token
-					}
+					},
+					body: JSON.stringify({ id: variable })
 				})
 					.then(response => {
 						if (!response.ok) {
 							throw Error(response.statusText);
 						} else {
-							let income = getStore().incomes;
-							income = income.filter(item => item.id !== variable);
-							setStore({ incomes: [...income] });
+							const income = getStore().incomes;
+							const updIncome = income.filter(item => item.id !== variable);
+							setStore({ incomes: [...updIncome] });
 						}
 						return response.json();
 					})
@@ -159,6 +140,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => {
 						console.error("Error:", error);
+					});
+			},
+			getIncome: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/api/income", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						return response.json();
+					})
+					.then(data => {
+						const updIncome = data.data;
+						setStore({ incomes: [...updIncome] });
+					});
+			},
+			getExpense: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/api/expense", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						return response.json();
+					})
+					.then(data => {
+						const updExpense = data.data;
+						setStore({ expenses: [...updExpense] });
 					});
 			}
 		}
