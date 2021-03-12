@@ -9,10 +9,9 @@ import { string } from "prop-types";
 
 export const Finances = () => {
 	const { store, actions } = useContext(Context);
+	const [category, setCategory] = useState("Total");
 
-	const [category, setCategory] = useState("");
-	const [submit, setSubmit] = useState(false);
-
+	// esto es para que siempre le salga el resumen del mes actual
 	var date = new Date();
 	let current_month_num = date.getMonth();
 	let months = [
@@ -30,49 +29,76 @@ export const Finances = () => {
 		"December"
 	];
 	let current_month = months[current_month_num];
-	const [month, setMonth] = useState(current_month);
+	// +1 porque en javascript los meses empiezan en 0 y en python en 1!
+	const [month, setMonth] = useState(current_month_num + 1);
 
 	let current_year = date.getFullYear();
 	const [year, setYear] = useState(current_year);
-	//to match with python current time standar
 
-	{
-		/*const handleSubmit = e => {
-		e.preventDefault();
-		if (year === "" || month === "" || category === "") {
-			alert("Please fill all the entries");
+	// llamar a la funcion de get informacion aqui para que tome en cuenta los datos recientemente agregados en el view de trans
+
+	const dato_progressBar = () => {
+		/*
+        monthly={
+            year: "",
+            month: 1-12,
+            incomes: total,
+            expenses: total,
+            category:{
+                Entertainment : total expenses,
+                Food: ,
+                ....
+            },
+            method:{
+                credit: veces usadas,
+                card: ,
+                ...
+            },
+            week : {
+                1 : {
+                Entertainment : total expenses,
+                Food: ,
+                ....
+                },
+                2: ....
+            }
+        }
+		let datos = store.resume.filter(item => item.year === year);
+		datos = datos.filter(item => item.month === month);
+		if (category != "Total") {
+			datos = datos.filter(item => item.category === category);
+        }*/
+		let data = store.expenses;
+		let expense = 0;
+		//borrar la de data y datos , cambiar data por datos, amount por expenses o incomes
+		for (let i = 0; i < data.length; i++) {
+			expense = expense + data[i].amount;
+		}
+		let datos = store.incomes;
+		let income = 0;
+		for (let i = 0; i < datos.length; i++) {
+			income = income + datos[i].amount;
+		}
+		if (income == 0) {
+			return (
+				<div className="alert alert-danger mt-3" role="alert">
+					It looks like you didn&apos;t upload any incomes for this month! Be more consistent to take full
+					advantage of the whole <strong>kaChing!</strong> experience.
+				</div>
+			);
 		}
 
-		setSubmit(true);
-
-		///ESTO NO NECESITA UN FETCH JAJA
-		const data = {
-			year: year,
-			month: month,
-			category: category
-		};
-		fetch(process.env.BACKEND_URL + "", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(data)
-		})
-			.then(response => {
-				if (!response.ok) {
-					response.text().then(text => alert(text));
-					throw Error(response.statusText);
-				}
-				return response.json();
-			})
-			.then(data => {
-				console.log("Succesfull data recovery");
-			})
-			.catch(error => {
-				console.error("Error:", error);
-			});
-	};*/
-	}
+		console.log(income);
+		let porcentaje = (100 * expense) / income;
+		return (
+			<div>
+				<div className="alert alert-warning mt-3" role="alert">
+					It looks like you spent {porcentaje}% of your salary in {category}! For a total of {expense} !
+				</div>
+				<ProgressBar dato={porcentaje} />
+			</div>
+		);
+	};
 
 	return (
 		<div className="container d-flex justify-content-center mt-2">
@@ -88,7 +114,7 @@ export const Finances = () => {
 								name="month"
 								id="month">
 								<option value="" selected disabled hidden>
-									current_year
+									{year}
 								</option>
 								<option value="2020">2020</option>
 								<option value="2021">2021</option>
@@ -103,7 +129,7 @@ export const Finances = () => {
 								name="month"
 								id="month">
 								<option value="" selected disabled hidden>
-									current_month
+									{current_month}
 								</option>
 								<option value="1">January</option>
 								<option value="2">February</option>
@@ -127,10 +153,7 @@ export const Finances = () => {
 								className="form-control"
 								name="category"
 								id="category">
-								<option value="" selected disabled hidden>
-									Category
-								</option>
-								<option value="All">All</option>
+								<option value="Total">All</option>
 								<option value="Home">Home</option>
 								<option value="Food">Food</option>
 								<option value="Transport">Transport</option>
@@ -140,21 +163,46 @@ export const Finances = () => {
 								<option value="Entertainment">Entertainment</option>
 							</select>
 						</div>
-						\
 					</form>
 				</div>
+				<h5 className="text-center mt-5">
+					<strong>Porcentage of income spent</strong>
+				</h5>
+				{dato_progressBar()}
+				<h5 className="col text-center mt-3 ">
+					<strong>Monthly expenses per week</strong>
+				</h5>
+				<BarGraph datos={[90000, 49000, 50000, 10000]} />
 				{category == "All" ? (
 					<div>
-						<ProgressBar dato={30} />
-						<BarGraph datos={[90000, 49000, 50000, 10000]} />
-						<PieGraph datos={[90000, 49000, 50000, 10000, 234234, 234234, 11210]} />
+						<h5 className="col text-center mt-4">
+							<strong>Monthly expenses per category</strong>
+						</h5>
+						<PieGraph
+							datos={[90000, 49000, 50000, 10000, 234234, 234234, 11210]}
+							labels={["Home", "Food", "Transport", "Services", "Education", "Clothing", "Entertainment"]}
+							colors={[
+								"rgba(231,155,222,1)",
+								"rgba(99,223,238,1)",
+								"rgba(128,127,192,1)",
+								"rgba(167,65,65,1)",
+								"rgba(18,144,151,1)",
+								"rgba(221,219,108,1)",
+								"rgba(15,68,121,1)"
+							]}
+						/>{" "}
+						{/*Por categoria */}
 					</div>
-				) : (
-					<div>
-						<ProgressBar dato={30} />
-						<BarGraph datos={[90000, 49000, 50000, 10000]} />
-					</div>
-				)}
+				) : null}
+				<h5 className="col text-center mt-4">
+					<strong>Types of payment methods used</strong>
+				</h5>
+				<PieGraph
+					datos={[90000, 49000, 50000]}
+					labels={["Card", "Debit", "Cash"]}
+					colors={["rgba(231,155,222,1)", "rgba(221,219,108,1)", "rgba(18,144,151,1)"]}
+				/>{" "}
+				{/*Por modo de pago */}
 			</div>
 
 			<div className="posicionFooter" />

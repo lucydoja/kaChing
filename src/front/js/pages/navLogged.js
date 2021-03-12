@@ -6,7 +6,7 @@ export function NavLogged() {
 	const { store, actions } = useContext(Context);
 	let logged = store.isLogged;
 	//cambiar condicion a != despues de unir con el back
-	if (logged != "true") {
+	if (logged == "true") {
 		return (
 			<div className="d-flex justify-content-end">
 				{" "}
@@ -19,7 +19,7 @@ export function NavLogged() {
 					<button type="button" className="btn btn-secondary">
 						<Link to={"/login"}>Log in</Link>
 					</button>
-				</div>
+				</div>*/}
 				<Link to={"/register"}>
 					<span className="btn btn-outline-dark ml-2 mr-2" href="#" role="button">
 						Register
@@ -29,7 +29,7 @@ export function NavLogged() {
 					<span className="btn btn-outline-dark" href="#" role="button">
 						Log in
 					</span>
-        </Link>{" "}*/}
+				</Link>{" "}
 			</div>
 		);
 	} else {

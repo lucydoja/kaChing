@@ -132,7 +132,7 @@ export const Transactions = () => {
 											pattern="^[0-9]+"
 											placeholder="Amount"
 											onChange={e => {
-												setAmount(e.target.value);
+												setAmount(parseInt(e.target.value));
 											}}
 											required
 										/>
@@ -228,7 +228,7 @@ export const Transactions = () => {
 											pattern="^[0-9]+"
 											placeholder="Amount"
 											onChange={e => {
-												setAmount(e.target.value);
+												setAmount(parseInt(e.target.value));
 											}}
 											required
 										/>
