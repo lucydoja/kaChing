@@ -106,8 +106,8 @@ export const Finances = () => {
 				<div>
 					<div className="alert alert-danger mt-3" role="alert">
 						WOW! It looks like you&apos;re in <strong>DEBT</strong>! You spent <strong>MORE</strong> than
-						your income in {category}
-						... You seriously need to reduce your expenses.
+						your income in {category} ({porcentaje / 100} times more!!) ... You seriously need to reduce
+						your expenses.
 					</div>
 					<ProgressBar dato={300} />
 				</div>
