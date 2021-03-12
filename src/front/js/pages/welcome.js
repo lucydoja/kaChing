@@ -150,18 +150,18 @@ export const Welcome = () => {
 				<Carousel.Item>
 					<img
 						className="d-block w-100"
-						src="https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-						alt="First step"
+						src="https://images.pexels.com/photos/826349/pexels-photo-826349.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						alt="First slide"
 					/>
 					<Carousel.Caption>
-						<h3>1° STEP</h3>
-						<p>Create an account.</p>
+						<h3>First slide label</h3>
+						<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
 					<img
 						className="d-block w-100"
-						src="https://i.giphy.com/media/3dB5OgH1xd4je/giphy.webp"
+						src="https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
 						alt="Second slide"
 					/>
 
@@ -171,7 +171,11 @@ export const Welcome = () => {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<img className="d-block w-100" src="" alt="Third slide" />
+					<img
+						className="d-block w-100"
+						src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						alt="Third slide"
+					/>
 
 					<Carousel.Caption>
 						<h3>Third slide label</h3>
