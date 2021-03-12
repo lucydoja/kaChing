@@ -11,7 +11,7 @@ export const Welcome = () => {
 	return (
 		<div className="container mb-2 " id="box-principal">
 			<Image
-				src="https://lh3.googleusercontent.com/proxy/th92mr_P_E8V4-zYCGfd6OtVfLIHJPTEBQ5U0pD8GrXmfp6BaNnvTdkpCF8V9ROhBZRwzlwJBIPOsJTyiDXlBSZW54A4JIiZAhGj8_A9iJLILZTGKhPcVg"
+				src="https://lh3.googleusercontent.com/proxy/JJ1-aef2DlMLsFOkuurSGjnR80oJEXMT7DI5tl01-hmstUCu5dJvI701mroD-MD_4yb6PzbkHAHuUX5YKn5n_KE-BU_NZi5SFCaiZPGqhH1Yr4OYDjyhmA"
 				style={{ width: "100%", height: "250px" }}
 			/>
 			<Spinner animation="grow" variant="warning" /> ARE YOU READY?
@@ -161,7 +161,7 @@ export const Welcome = () => {
 				<Carousel.Item>
 					<img
 						className="d-block w-100"
-						src="https://images.pexels.com/photos/4968663/pexels-photo-4968663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						src="https://i.giphy.com/media/3dB5OgH1xd4je/giphy.webp"
 						alt="Second slide"
 					/>
 
@@ -171,11 +171,7 @@ export const Welcome = () => {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src="https://images.pexels.com/photos/4968663/pexels-photo-4968663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-						alt="Third slide"
-					/>
+					<img className="d-block w-100" src="" alt="Third slide" />
 
 					<Carousel.Caption>
 						<h3>Third slide label</h3>
