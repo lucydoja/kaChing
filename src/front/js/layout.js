@@ -12,7 +12,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
-import { Expenses2 } from "./pages/expenses_copy";
+
 import { Welcome } from "./pages/welcome";
 import { Transactions } from "./pages/transactions";
 
@@ -37,9 +37,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/expenses">
 							<Expenses />
-						</Route>
-						<Route exact path="/expensescopy">
-							<Expenses2 />
 						</Route>
 						<Route exact path="/register">
 							<Register />

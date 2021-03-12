@@ -115,6 +115,64 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.error("Error:", error);
 					});
+			},
+
+			deleteExpense: variable => {
+				let user_token = sessionStorage.getItem("user_token");
+				///ESTO SE TIENE QUE QUITAR AL FINAL Y DESCOMENTAR EL DE ABAJO
+				let expense = getStore().expenses;
+				expense = expense.filter(item => item.id !== variable);
+				setStore({ expenses: [...expense] });
+
+				fetch(process.env.BACKEND_URL + "/expense", {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ favorites: data });
+						console.log("Expense deleted");
+					})
+					.catch(error => {
+						console.error("Error:", error);
+					});
+			},
+
+			deleteIncome: variable => {
+				let user_token = sessionStorage.getItem("user_token");
+				///ESTO SE TIENE QUE QUITAR AL FINAL Y DESCOMENTAR EL DE ABAJO
+				let income = getStore().incomes;
+				income = income.filter(item => item.id !== variable);
+				setStore({ incomes: [...income] });
+
+				fetch(process.env.BACKEND_URL + "/expense", {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ favorites: data });
+						console.log("Income deleted");
+					})
+					.catch(error => {
+						console.error("Error:", error);
+					});
 			}
 		}
 	};

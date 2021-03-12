@@ -282,7 +282,7 @@ export const Transactions = () => {
 													<td className="columna-tabla2">
 														<i
 															className="fas fa-times fa-sm"
-															onClick={() => actions.deleteExpense(item.id)}
+															onClick={() => actions.deleteIncome(item.id)}
 														/>
 													</td>
 												</tr>
