@@ -40,7 +40,6 @@ nav{
     min-width: 150px;
     max-width: 600px;
     height: auto;
-    
     margin: 10px;
     
 }
@@ -69,20 +68,19 @@ nav{
 }
 
 .boton-link{
-    
-  color: #FFF;
-padding: 0px;
-margin: 0px;
+    color: #FFF;
+    padding: 0px;
+    margin: 0px;
 }
 .boton-link:hover {
-   color: white;
+    color: white;
 }
 
 .boton-link2{
     
-  color:black;
-padding: 0px;
-margin: 0px;
+    color:black;
+    padding: 0px;
+    margin: 0px;
 }
 
 .far, .fas{
@@ -113,13 +111,16 @@ margin: 0px;
     height: 100%;
     border-radius: inherit;
     transition: width .2 ease-in;
-    
-    background: rgb(151,18,18);
-background: radial-gradient(circle, rgba(151,18,18,0.9756945014333859) 38%, rgba(221,174,108,1) 100%);
+    color: black;
+    font-weight: 800;
+    font-size: 15px;
+    margin: 0px;
+    background: rgb(224,226,144);
+    background: linear-gradient(90deg, rgba(224,226,144,1) 0%, rgba(253,205,29,1) 45%, rgba(227,56,0,1) 82%);
 }
 
 
 #box-principal{
     background: rgb(34,83,195);
-background: linear-gradient(0deg, rgba(34,83,195,1) 0%, rgba(215,226,144,0.9335084375547094) 76%);
-font-style: italic;}
+    background: linear-gradient(0deg, rgba(34,83,195,1) 0%, rgba(215,226,144,0.9335084375547094) 76%);
+    font-style: italic;}

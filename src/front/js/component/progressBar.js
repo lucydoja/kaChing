@@ -6,7 +6,7 @@ export const ProgressBar = props => {
 		<div className=" mb-5">
 			<div className="progress-bar mt-2 ">
 				<div className="filler" style={{ width: `${props.dato}%` }}>
-					<span className="mb-1">
+					<span className="m-0 p-0">
 						<strong>{props.dato}%</strong>
 					</span>
 				</div>

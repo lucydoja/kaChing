@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
-import { Bar } from "react-chartjs-2";
 import { BarGraph } from "../component/bar";
-import { ProgressBar } from "../component/progressBar";
 import { PieGraph } from "../component/pie";
 import { string } from "prop-types";
+import { ProgressBar_function2, BarGraph_function } from "./Utils";
 
 export const Finances = () => {
 	const { store, actions } = useContext(Context);
@@ -37,128 +35,21 @@ export const Finances = () => {
 
 	// llamar a la funcion de get informacion aqui para que tome en cuenta los datos recientemente agregados en el view de trans
 
-	const dato_progressBar = () => {
-		/*
-        monthly={
-            year: "",
-            month: 1-12,
-            incomes: total,
-            expenses: total,
-            category:{
-                Entertainment : {total: total en el mes,
-            week: { 1: total semana 1 ,
-            2:total semana 2,
-        }}
-                Food: ,
-                ....
-            },
-            method:{
-                credit: veces usadas,
-                card: ,
-                ...
-            },
-            week : {
-                1 : {
-                Entertainment : total expenses,
-                Food: ,
-                ....
-                },
-                2: ....
-            }
-            
-        }
-		let datos = store.resume.filter(item => item.year === year);
-		datos = datos.filter(item => item.month === month);
-		if (category != "Total") {
-			datos = datos.filter(item => item.category === category);
-        }*/
-		let data = store.expenses;
-		let expense = 0;
-		//borrar la de data y datos , cambiar data por datos, amount por expenses o incomes
-		for (let i = 0; i < data.length; i++) {
-			expense = expense + data[i].amount;
-		}
-		let datos = store.incomes;
-		let income = 0;
-		for (let i = 0; i < datos.length; i++) {
-			income = income + datos[i].amount;
-		}
-		if (income == 0) {
-			return (
-				<div className="alert alert-danger mt-3" role="alert">
-					<p>
-						It looks like you didn&apos;t upload any incomes for this month! Be more consistent to take full
-						advantage of the whole <strong>kaChing!</strong> experience.
-					</p>
-					<hr />
-					<p className="mb-0">
-						You spent {expense} in {category}
-					</p>
-					<p className="mb-0">You earned {income} in total</p>
-				</div>
-			);
-		}
+	let datos = store.resume.filter(item => item.year === year);
+	datos = datos.filter(item => item.month === month);
+	// poner un if datos undefined  no muestre nada, you dont have records por this specific date
 
-		console.log(income);
-		//meterle un math floor al porcentaje
-		let porcentaje = Math.round((100 * expense) / income);
-		if (porcentaje == 100) {
-			return (
-				<div>
-					<div className="alert alert-danger mt-3" role="alert">
-						<p>
-							This isn&apos;t looking good, you spent <strong>ALL</strong> your money in {category}!
-							Someone is not taking care of their finances, try to save some money!{" "}
-						</p>
-						<hr />
-						<p className="mb-0">
-							You spent {expense} in {category}
-						</p>
+	let monthly_data = datos[0];
 
-						<p className="mb-0">You earned {income} in total</p>
-					</div>
-					<ProgressBar dato={porcentaje} />
-				</div>
-			);
-		} else if (porcentaje > 100) {
-			return (
-				<div>
-					<div className="alert alert-danger mt-3" role="alert">
-						<p>
-							{" "}
-							WOW! It looks like you&apos;re in <strong>DEBT</strong>! You spent <strong>MORE</strong>{" "}
-							than your income in {category} ({Math.round(porcentaje / 100)} times more!!) ... You
-							seriously need to reduce your expenses.
-						</p>
-						<hr />
-						<p className="mb-0">
-							You spent {expense} in {category}
-						</p>
+	//poner condicional que si expenses es igual a 0 entonces no muestre ni picha porque no tiene sentido
 
-						<p className="mb-0">You earned {income} in total</p>
-					</div>
-					<ProgressBar dato={300} />
-				</div>
-			);
-		}
-
-		return (
-			<div>
-				<div className="alert alert-warning" role="alert">
-					<p>
-						It looks like you spent {porcentaje}% of your incomes in {category}!
-					</p>
-					<hr />
-					<p className="mb-0">
-						You spent {expense} in {category}
-					</p>
-
-					<p className="mb-0">You earned {income} in total</p>
-				</div>
-				<ProgressBar dato={porcentaje} />
-			</div>
-		);
-	};
+	/*
+    if (category == "Total"){
+        let weekly_data = monthly_data["expenses"]["week"];
+    }else{
+        let weekly_data = monthly_data["category"][category]["week"]
+    }
+    */
 
 	return (
 		<div className="container d-flex justify-content-center mt-2">
@@ -228,12 +119,16 @@ export const Finances = () => {
 				<h5 className="text-center mt-5">
 					<strong>Porcentage of income spent</strong>
 				</h5>
-				{dato_progressBar()}
+				<ProgressBar_function2 category={category} />
+				{/*<ProgressBar_function category={category} monthly_data={monthly_data} /> */}
 				<h5 className="col text-center mt-3 ">
 					<strong>Monthly expenses per week</strong>
 				</h5>
 				<BarGraph datos={[90000, 49000, 50000, 10000]} />
-				{category == "All" ? (
+				{/*
+                <BarGraph_function category={category} weekly_data={weekly_data} />
+                */}
+				{category == "Total" ? (
 					<div>
 						<h5 className="col text-center mt-4">
 							<strong>Monthly expenses per category</strong>
@@ -259,7 +154,7 @@ export const Finances = () => {
 				</h5>
 				<PieGraph
 					datos={[90000, 49000, 50000]}
-					labels={["Card", "Debit", "Cash"]}
+					labels={["Credit", "Debit", "Cash"]}
 					colors={["rgba(231,155,222,1)", "rgba(221,219,108,1)", "rgba(18,144,151,1)"]}
 				/>{" "}
 				{/*Por modo de pago */}
