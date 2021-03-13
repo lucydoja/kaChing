@@ -10,31 +10,6 @@ export const Welcome = () => {
 
 	return (
 		<div className="container mb-2 " id="box-principal">
-			<Image
-				src="https://lh3.googleusercontent.com/proxy/JJ1-aef2DlMLsFOkuurSGjnR80oJEXMT7DI5tl01-hmstUCu5dJvI701mroD-MD_4yb6PzbkHAHuUX5YKn5n_KE-BU_NZi5SFCaiZPGqhH1Yr4OYDjyhmA"
-				style={{ width: "100%", height: "250px" }}
-			/>
-			<Spinner animation="grow" variant="warning" /> ARE YOU READY?
-			<div className="alert alert-primary" role="alert">
-				<h4 className="alert-heading ">What is kaChing?</h4>
-				<p className="font-italic">
-					Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help you
-					to save your money and make a budget to how you should spend your money Saving money is at the heart
-					of all good financial plans. Learn how to save money consistently even when it seems like there
-					isn´t any money left to spare.
-				</p>
-				<p className="font-italic">
-					Here are smart financial steps to take if you need help overcoming your barriers to saving.
-				</p>
-				<p className="mb-0" />
-			</div>
-			<div className="alert alert-warning font-italic" role="alert">
-				<h5 className="alert-heading">Benefits of KaChing</h5>
-				<p />
-				You open your account free in less than 3 minutes and you can close it with a single click., No
-				commissions. No strings attached. No surprises.
-				<p className="mb-0" />
-			</div>
 			<div className="card-group">
 				<div className="card">
 					<img
@@ -183,6 +158,32 @@ export const Welcome = () => {
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
+			<Image
+				src="https://lh3.googleusercontent.com/proxy/JJ1-aef2DlMLsFOkuurSGjnR80oJEXMT7DI5tl01-hmstUCu5dJvI701mroD-MD_4yb6PzbkHAHuUX5YKn5n_KE-BU_NZi5SFCaiZPGqhH1Yr4OYDjyhmA"
+				style={{ width: "100%", height: "250px" }}
+			/>
+			<Spinner animation="grow" variant="warning" />
+
+			<div className="alert alert-primary" role="alert">
+				<h4 className="alert-heading ">What is kaChing?</h4>
+				<p className="font-italic">
+					Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help you
+					to save your money and make a budget to how you should spend your money Saving money is at the heart
+					of all good financial plans. Learn how to save money consistently even when it seems like there
+					isn´t any money left to spare.
+				</p>
+				<p className="font-italic">
+					Here are smart financial steps to take if you need help overcoming your barriers to saving.
+				</p>
+				<p className="mb-0" />
+			</div>
+			<div className="alert alert-warning font-italic" role="alert">
+				<h5 className="alert-heading">Benefits of KaChing</h5>
+				<p />
+				You open your account free in less than 3 minutes and you can close it with a single click., No
+				commissions. No strings attached. No surprises.
+				<p className="mb-0" />
+			</div>
 			<div className="posicionFooter" />
 		</div>
 	);

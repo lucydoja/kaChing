@@ -14,6 +14,7 @@ import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
 import { Welcome } from "./pages/welcome";
 import { IncExp } from "./pages/inc-exp";
+import { Faqs } from "./pages/faqs";
 
 import { Perfil } from "./pages/perfil";
 //create your first component
@@ -57,6 +58,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/profile">
 							<Perfil />
+						</Route>
+						<Route exact path="/faqs">
+							<Faqs />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
