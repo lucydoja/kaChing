@@ -287,16 +287,16 @@ export const PieGraphCategory_function = props => {
 	}
 
 	// Encontrar el maximo
-	let maximo = Math.max(data);
+	let maximo = Math.max(...data);
 	let index_max = data.indexOf(maximo);
 	let cat_max = categories[index_max];
 
 	//Encontrar el minimo
-	let minimo = Math.min(data);
+	let minimo = Math.min(...data);
 	let index_min = data.indexOf(minimo);
 	let cat_min = categories[index_min];
 
-	let porc_max = (100 * maximo) / sum;
+	let porc_max = Math.round((100 * maximo) / sum);
 
 	return (
 		<div>
@@ -311,7 +311,7 @@ export const PieGraphCategory_function = props => {
 				{categories.map((item, index) => {
 					return (
 						<p className="mb-0" key={index}>
-							{item}: {(data[categories.indexOf(item)] * 100) / sum}%
+							{item}: {Math.round((data[categories.indexOf(item)] * 100) / sum)}%
 						</p>
 					);
 				})}
@@ -366,7 +366,7 @@ export const PieGraphMethod_function = props => {
 	let index_min = data.indexOf(minimo);
 	let met_min = methods[index_min];
 
-	let porc_max = (100 * maximo) / sum;
+	let porc_max = Math.round((100 * maximo) / sum);
 
 	return (
 		<div>
