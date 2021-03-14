@@ -232,12 +232,12 @@ export const BarGraph_function = props => {
 	}
 
 	// Encontrar el maximo
-	let maximo = Math.max(weekly_data);
+	let maximo = Math.max(...weekly_data);
 	let index_max = weekly_data.indexOf(maximo);
 	let week_max = index_max + 1;
 
 	//Encontrar el minimo
-	let minimo = Math.min(weekly_data);
+	let minimo = Math.min(...weekly_data);
 	let index_min = weekly_data.indexOf(minimo);
 	let week_min = index_min + 1;
 
@@ -357,12 +357,12 @@ export const PieGraphMethod_function = props => {
 	}
 
 	// Encontrar el maximo
-	let maximo = Math.max(data);
+	let maximo = Math.max(...data);
 	let index_max = data.indexOf(maximo);
 	let met_max = methods[index_max];
 
 	//Encontrar el minimo
-	let minimo = Math.min(data);
+	let minimo = Math.min(...data);
 	let index_min = data.indexOf(minimo);
 	let met_min = methods[index_min];
 
