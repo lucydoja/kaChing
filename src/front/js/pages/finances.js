@@ -3,11 +3,13 @@ import { Context } from "../store/appContext";
 import { BarGraph } from "../component/bar";
 import { PieGraph } from "../component/pie";
 import { string } from "prop-types";
-import { ProgressBar_function2, BarGraph_function } from "./Utils";
+import { ProgressBar_function, BarGraph_function, PieGraphCategory_function, PieGraphMethod_function } from "./Utils";
 
 export const Finances = () => {
 	const { store, actions } = useContext(Context);
 	const [category, setCategory] = useState("Total");
+
+	// llamar a la funcion de get informacion aqui para que tome en cuenta los datos recientemente agregados en el view de trans
 
 	// esto es para que siempre le salga el resumen del mes actual
 	var date = new Date();
@@ -33,23 +35,18 @@ export const Finances = () => {
 	let current_year = date.getFullYear();
 	const [year, setYear] = useState(current_year);
 
-	// llamar a la funcion de get informacion aqui para que tome en cuenta los datos recientemente agregados en el view de trans
-
 	let datos = store.resume.filter(item => item.year === year);
 	datos = datos.filter(item => item.month === month);
-	// poner un if datos undefined  no muestre nada, you dont have records por this specific date
 
 	let monthly_data = datos[0];
 
-	//poner condicional que si expenses es igual a 0 entonces no muestre ni picha porque no tiene sentido
+	let weekly_data;
 
-	/*
-    if (category == "Total"){
-        let weekly_data = monthly_data["expenses"]["week"];
-    }else{
-        let weekly_data = monthly_data["category"][category]["week"]
-    }
-    */
+	if (category == "Total") {
+		weekly_data = monthly_data["expenses"]["week"];
+	} else {
+		weekly_data = monthly_data["category"][category]["week"];
+	}
 
 	return (
 		<div className="container d-flex justify-content-center mt-2">
@@ -116,48 +113,30 @@ export const Finances = () => {
 						</div>
 					</form>
 				</div>
-				<h5 className="text-center mt-5">
-					<strong>Porcentage of income spent</strong>
-				</h5>
-				<ProgressBar_function2 category={category} />
-				{/*<ProgressBar_function category={category} monthly_data={monthly_data} /> */}
-				<h5 className="col text-center mt-3 ">
-					<strong>Monthly expenses per week</strong>
-				</h5>
-				<BarGraph datos={[90000, 49000, 50000, 10000]} />
-				{/*
-                <BarGraph_function category={category} weekly_data={weekly_data} />
-                */}
-				{category == "Total" ? (
+				{monthly_data ? (
 					<div>
-						<h5 className="col text-center mt-4">
-							<strong>Monthly expenses per category</strong>
+						<h5 className="text-center mt-5">
+							<strong>Porcentage of income spent</strong>
 						</h5>
-						<PieGraph
-							datos={[90000, 49000, 50000, 10000, 234234, 234234, 11210]}
-							labels={["Home", "Food", "Transport", "Services", "Education", "Clothing", "Entertainment"]}
-							colors={[
-								"rgba(231,155,222,1)",
-								"rgba(99,223,238,1)",
-								"rgba(128,127,192,1)",
-								"rgba(167,65,65,1)",
-								"rgba(18,144,151,1)",
-								"rgba(221,219,108,1)",
-								"rgba(15,68,121,1)"
-							]}
-						/>{" "}
-						{/*Por categoria */}
+
+						<ProgressBar_function category={category} monthly_data={monthly_data} />
+
+						<BarGraph_function category={category} weekly_data={weekly_data} />
+
+						{category == "Total" ? (
+							<div>
+								<PieGraphCategory_function monthly_data={monthly_data} />
+								{/*Por categoria */}
+							</div>
+						) : null}
+						<PieGraphMethod_function monthly_data={monthly_data} />
+						{/*Por modo de pago */}
 					</div>
-				) : null}
-				<h5 className="col text-center mt-4">
-					<strong>Types of payment methods used</strong>
-				</h5>
-				<PieGraph
-					datos={[90000, 49000, 50000]}
-					labels={["Credit", "Debit", "Cash"]}
-					colors={["rgba(231,155,222,1)", "rgba(221,219,108,1)", "rgba(18,144,151,1)"]}
-				/>{" "}
-				{/*Por modo de pago */}
+				) : (
+					<div className="alert alert-danger mt-3 text-center pt-2" role="alert">
+						<p>You have no transactions registered for this specific date, please choose another one.</p>
+					</div>
+				)}
 			</div>
 
 			<div className="posicionFooter" />
