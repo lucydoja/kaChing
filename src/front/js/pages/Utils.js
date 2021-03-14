@@ -209,7 +209,7 @@ ProgressBar_function.propTypes = {
 };
 
 export const BarGraph_function = props => {
-	let categoria = props.category;
+	let category = props.category;
 	let weekly_data = props.weekly_data;
 
 	// hacer la suma
@@ -219,9 +219,13 @@ export const BarGraph_function = props => {
 		return (
 			<div className="alert alert-warning mt-3" role="alert">
 				<p>
-					It looks like you did&apos;t register any expenses in {categoty} this month! Try to keep up your
-					finances up to date for a better experience or maybe you just didn&apos;t want to expend in{" "}
-					{category} which is a great way to save money!
+					It looks like you did&apos;t register any expenses in {categoty} this month! So there&apos;s really
+					not much to see here! I hope this means you are saving money!!
+				</p>
+				<hr />
+				<p>
+					Else, try to keep your finances up to date for a better experience or maybe you just didn&apos;t
+					want to expend in {category} which is a great way to save money!
 				</p>
 			</div>
 		);
@@ -253,6 +257,9 @@ export const BarGraph_function = props => {
 				<p className="mb-0">Minimum spent per week: {minimo}</p>
 				<p className="mb-0">Average spent per week: {average}</p>
 			</div>
+			<h5 className="col text-center mt-3 ">
+				<strong>Monthly expenses per week</strong>
+			</h5>
 			<BarGraph datos={weekly_data} />
 		</div>
 	);
@@ -276,29 +283,121 @@ export const PieGraphCategory_function = props => {
 	let sum = data.reduce((a, b) => a + b);
 
 	if (sum == 0) {
-		<div className="alert alert-warning mt-3" role="alert">
-			<p>
-				It looks seems that you did&apos;t register any expenses this month! Try to keep up your finances up to
-				date for a better experience in <strong>kaChing!</strong>
-			</p>
-		</div>;
+		return null;
 	}
 
-	<PieGraph
-		datos={data}
-		labels={categories}
-		colors={[
-			"rgba(231,155,222,1)",
-			"rgba(99,223,238,1)",
-			"rgba(128,127,192,1)",
-			"rgba(167,65,65,1)",
-			"rgba(18,144,151,1)",
-			"rgba(221,219,108,1)",
-			"rgba(15,68,121,1)"
-		]}
-	/>;
+	// Encontrar el maximo
+	let maximo = Math.max(data);
+	let index_max = data.indexOf(maximo);
+	let cat_max = categories[index_max];
+
+	//Encontrar el minimo
+	let minimo = Math.min(data);
+	let index_min = data.indexOf(minimo);
+	let cat_min = categories[index_min];
+
+	let porc_max = (100 * maximo) / sum;
+
+	return (
+		<div>
+			<div className="alert alert-dark mt-3" role="alert">
+				<p>
+					This month you spent most of your money in {cat_max} for a total of {maximo}, which represents a{" "}
+					{porc_max}% of your expenses! The least expenses where made in {cat_min}.
+				</p>
+				<hr />
+				<p className="mb-0">Most expenses made in {cat_max}</p>
+				<p className="mb-0">Porcentage expent per category:</p>
+				{categories.map((item, index) => {
+					return (
+						<p className="mb-0" key={index}>
+							{item}: {(data[categories.indexOf(item)] * 100) / sum}%
+						</p>
+					);
+				})}
+			</div>
+			<h5 className="col text-center mt-4">
+				<strong>Monthly expenses per category</strong>
+			</h5>
+			<PieGraph
+				datos={data}
+				labels={categories}
+				colors={[
+					"rgba(231,155,222,1)",
+					"rgba(99,223,238,1)",
+					"rgba(128,127,192,1)",
+					"rgba(167,65,65,1)",
+					"rgba(18,144,151,1)",
+					"rgba(221,219,108,1)",
+					"rgba(15,68,121,1)"
+				]}
+			/>
+		</div>
+	);
 };
 
-ProgressBar_function.propTypes = {
+PieGraphCategory_function.propTypes = {
+	monthly_data: PropTypes.any
+};
+
+export const PieGraphMethod_function = props => {
+	let monthly_data = props.monthly_data;
+	let data = [];
+	let methods = ["Credit", "Debit", "Cash"];
+	methods.forEach(item => {
+		let valor = monthly_data["method"][item];
+		data.push(valor);
+	});
+
+	// hacer la suma
+	let sum = data.reduce((a, b) => a + b);
+
+	if (sum == 0) {
+		return null;
+	}
+
+	// Encontrar el maximo
+	let maximo = Math.max(data);
+	let index_max = data.indexOf(maximo);
+	let met_max = methods[index_max];
+
+	//Encontrar el minimo
+	let minimo = Math.min(data);
+	let index_min = data.indexOf(minimo);
+	let met_min = methods[index_min];
+
+	let porc_max = (100 * maximo) / sum;
+
+	return (
+		<div>
+			<div className="alert alert-dark mt-3" role="alert">
+				<p>
+					Most of your transactions where made with {met_max}, you used this method {porc_max}% of the time!
+					Your least used method is {met_min}.
+				</p>
+				<hr />
+				<p className="mb-0">Most expenses made with {met_max}</p>
+				<p className="mb-0">Times used per method:</p>
+				{methods.map((item, index) => {
+					return (
+						<p className="mb-0" key={index}>
+							{item}: {data[methods.indexOf(item)]}
+						</p>
+					);
+				})}
+			</div>
+			<h5 className="col text-center mt-4">
+				<strong>Types of payment methods used</strong>
+			</h5>
+			<PieGraph
+				datos={data}
+				labels={methods}
+				colors={["rgba(231,155,222,1)", "rgba(221,219,108,1)", "rgba(18,144,151,1)"]}
+			/>
+		</div>
+	);
+};
+
+PieGraphMethod_function.propTypes = {
 	monthly_data: PropTypes.any
 };
