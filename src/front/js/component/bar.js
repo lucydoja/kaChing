@@ -22,10 +22,7 @@ export const BarGraph = props => {
 		]
 	};
 	return (
-		<div className="mt-3 ">
-			<h5 className="col text-center">
-				<strong>Monthly expenses per week</strong>
-			</h5>
+		<div className="">
 			<div className="row ">
 				<div className="col graficos">
 					<Bar

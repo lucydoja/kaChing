@@ -5,50 +5,22 @@ import PropTypes from "prop-types";
 
 export const PieGraph = props => {
 	const data = {
-		labels: ["Home", "Food", "Transport", "Services", "Education", "Clothing", "Entertainment"],
+		labels: props.labels,
 		datasets: [
 			{
 				label: "Expenses",
 				data: props.datos,
-				backgroundColor: [
-					"rgba(231,155,222,1)",
-					"rgba(99,223,238,1)",
-					"rgba(128,127,192,1)",
-					"rgba(167,65,65,1)",
-					"rgba(18,144,151,1)",
-					"rgba(221,219,108,1)",
-					"rgba(15,68,121,1)"
-				],
-				borderColor: [
-					"rgba(231,155,222,1)",
-					"rgba(99,223,238,1)",
-					"rgba(128,127,192,1)",
-					"rgba(167,65,65,1)",
-					"rgba(124,160,64,1)",
-					"rgba(221,219,108,1)",
-					"rgba(15,68,121,1)"
-				],
+				backgroundColor: props.colors,
+				borderColor: props.colors,
 				borderWidth: 1
 			}
 		]
 	};
 	return (
-		<div className="mt-3 ">
-			<h5 className="col text-center">
-				<strong>Monthly expenses per category</strong>
-			</h5>
+		<div className=" ">
 			<div className="row mt-3 ">
 				<div className="col graficos">
-					<Pie
-						data={data}
-						height={200}
-						width={250}
-						options={
-							{
-								//title: { display: true, text: "Monthly expenses per category", fontSize: 20 }
-							}
-						}
-					/>
+					<Pie data={data} height={200} width={250} />
 				</div>
 			</div>
 		</div>
@@ -56,5 +28,7 @@ export const PieGraph = props => {
 };
 
 PieGraph.propTypes = {
-	datos: PropTypes.any
+	datos: PropTypes.any,
+	labels: PropTypes.any,
+	colors: PropTypes.any
 };

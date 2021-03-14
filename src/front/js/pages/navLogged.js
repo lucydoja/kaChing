@@ -10,6 +10,16 @@ export function NavLogged() {
 		return (
 			<div className="d-flex justify-content-end">
 				{" "}
+				{/*
+				<div className="btn-group" role="group" aria-label="Basic example">
+					<button type="button" className="btn btn-secondary">
+						<Link to={"/register"}>Register</Link>
+					</button>
+
+					<button type="button" className="btn btn-secondary">
+						<Link to={"/login"}>Log in</Link>
+					</button>
+				</div>*/}
 				<Link to={"/register"}>
 					<span className="btn btn-outline-dark ml-2 mr-2" href="#" role="button">
 						Register
@@ -36,7 +46,7 @@ export function NavLogged() {
 					Menu
 				</button>
 				<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-					<Link to={"/expenses"}>
+					<Link to={"/transactions"}>
 						<span className="dropdown-item d-flex flex-grow-1" role="button">
 							My Transactions
 						</span>
