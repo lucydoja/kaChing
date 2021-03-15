@@ -5,7 +5,233 @@ const getState = ({ getStore, getActions, setStore }) => {
 			expenses: [],
 			incomes: [],
 			user: [],
-			resume: []
+			resume: [
+				{
+					year: 2021,
+					month: 3,
+					incomes: 50000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						Entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						Food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						Services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						Transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						Credit: 12,
+						Debit: 6,
+						Cash: 5
+					}
+				},
+				{
+					year: 2020,
+					month: 3,
+					incomes: 50000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						Entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						Food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						Services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						Transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						Credit: 12,
+						Debit: 6,
+						Cash: 5
+					}
+				},
+				{
+					year: 2021,
+					month: 2,
+					incomes: 50000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						Entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						Food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						Services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						Transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						Credit: 12,
+						Debit: 6,
+						Cash: 5
+					}
+				},
+				{
+					year: 2021,
+					month: 1,
+					incomes: 50000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						Entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						Food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						Services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						Transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						Credit: 12,
+						Debit: 6,
+						Cash: 5
+					}
+				},
+				{
+					year: 2020,
+					month: 12,
+					incomes: 100000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						Entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						Food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						Services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						Transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						Clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						Credit: 12,
+						Debit: 6,
+						Cash: 5
+					}
+				}
+			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
