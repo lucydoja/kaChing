@@ -23,11 +23,11 @@ export const Welcome = () => {
 						{" "}
 						<i className="far fa-piggy-bank" />
 					</h5>
-					<p className="font-italic" style={{ color: "#AEB6BF"  }}>
+					<p className="font-italic" style={{ color: "#AEB6BF" }}>
 						<img
 							width={1000}
 							height={400}
-                            className="ml-12"
+							className="ml-12"
 							src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 							alt="Generic placeholder"
 						/>
