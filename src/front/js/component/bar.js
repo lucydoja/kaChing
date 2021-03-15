@@ -27,7 +27,7 @@ export const BarGraph = props => {
 				<div className="col graficos">
 					<Bar
 						data={data}
-						height={250}
+						height={270}
 						options={{
 							//title: { display: true, text: "Monthly expenses per week", fontSize: 20 },
 							scales: {
