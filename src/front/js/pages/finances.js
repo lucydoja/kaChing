@@ -110,24 +110,47 @@ export const Finances = () => {
 						</div>
 					</form>
 				</div>
+
 				{monthly_data ? (
-					<div>
-						<h5 className="text-center mt-5">
-							<strong>Porcentage of income spent</strong>
-						</h5>
-
-						<ProgressBar_function category={category} monthly_data={monthly_data} />
-
-						<BarGraph_function category={category} weekly_data={weekly_data} />
-
-						{category == "Total" ? (
-							<div>
-								<PieGraphCategory_function monthly_data={monthly_data} />
-								{/*Por categoria */}
+					<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+						<div className="carousel-inner">
+							<div className="carousel-item active p-3">
+								<h5 className="text-center mt-4">
+									<strong>Porcentage of income spent</strong>
+								</h5>
+								<ProgressBar_function category={category} monthly_data={monthly_data} />
 							</div>
-						) : null}
-						<PieGraphMethod_function monthly_data={monthly_data} />
-						{/*Por modo de pago */}
+							<div className="carousel-item  p-3">
+								<BarGraph_function category={category} weekly_data={weekly_data} />
+							</div>
+
+							{category == "Total" ? (
+								<div className="carousel-item  p-3">
+									<PieGraphCategory_function monthly_data={monthly_data} />
+									{/*Por categoria */}
+								</div>
+							) : null}
+
+							<div className="carousel-item  p-3">
+								<PieGraphMethod_function monthly_data={monthly_data} />
+							</div>
+						</div>
+						<a
+							className="carousel-control-prev"
+							href="#carouselExampleIndicators"
+							role="button"
+							data-slide="prev">
+							<span className="carousel-control-prev-icon" aria-hidden="true" />
+							<span className="sr-only">Previous</span>
+						</a>
+						<a
+							className="carousel-control-next"
+							href="#carouselExampleIndicators"
+							role="button"
+							data-slide="next">
+							<span className="carousel-control-next-icon" aria-hidden="true" />
+							<span className="sr-only">Next</span>
+						</a>
 					</div>
 				) : (
 					<div className="alert alert-danger mt-3 text-center pt-2" role="alert">
@@ -135,7 +158,6 @@ export const Finances = () => {
 					</div>
 				)}
 			</div>
-
 			<div className="posicionFooter" />
 		</div>
 	);
