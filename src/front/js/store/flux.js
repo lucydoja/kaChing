@@ -4,7 +4,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			isLogged: "false",
 			expenses: [],
 			incomes: [],
-			user: [],
+			user: {
+				first_name: "Lucia",
+				last_name: "Dominguez"
+			},
 			resume: [
 				{
 					year: 2021,

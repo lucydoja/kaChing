@@ -141,7 +141,7 @@ export const BarGraph_function = props => {
 			<h5 className="col text-center mt-3 ">
 				<strong>Monthly expenses per week</strong>
 			</h5>
-			<div className="alert alert-dark mt-3" role="alert">
+			<div className="alert alert-secondary mt-3" role="alert">
 				<p>
 					It looks like <strong>week {week_max}</strong> was a tough week! That week you spent{" "}
 					<strong>{maximo}</strong> in <strong>{category}</strong>. Meanwhile,{" "}
@@ -203,7 +203,7 @@ export const PieGraphCategory_function = props => {
 			<h5 className="col text-center mt-3">
 				<strong>Monthly expenses per category</strong>
 			</h5>
-			<div className="alert alert-dark mt-3" role="alert">
+			<div className="alert alert-secondary mt-3" role="alert">
 				<p>
 					This month you spent <strong>most</strong> of your money in {cat_max} for a total of{" "}
 					<strong>{maximo}</strong>, which represents the <strong>{porc_max}%</strong> of your expenses! The
@@ -277,7 +277,7 @@ export const PieGraphMethod_function = props => {
 			<h5 className="col text-center mt-4">
 				<strong>Types of payment methods used</strong>
 			</h5>
-			<div className="alert alert-dark mt-2" role="alert">
+			<div className="alert alert-secondary mt-2" role="alert">
 				<p>
 					<strong>Most</strong> of your transactions where made with <strong>{met_max}</strong>, you used this
 					method <strong>{porc_max}% </strong>
