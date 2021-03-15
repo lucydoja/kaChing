@@ -41,7 +41,7 @@ export const Register = () => {
 		};
 		console.log(data);
 
-		fetch(process.env.BACKEND_URL + "/register", {
+		fetch(process.env.BACKEND_URL + "/api/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

@@ -21,7 +21,7 @@ export const Login = () => {
 			email: email
 		};
 
-		fetch(process.env.BACKEND_URL + "/login", {
+		fetch(process.env.BACKEND_URL + "/api/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -38,7 +38,7 @@ export const Login = () => {
 				return response.json();
 			})
 			.then(data => {
-				sessionStorage.setItem("user_token", data.token);
+				sessionStorage.setItem("user_token", data.access_token);
 				sessionStorage.setItem("is_logged", "true");
 				actions.logged();
 				console.log("Succesful log in");
