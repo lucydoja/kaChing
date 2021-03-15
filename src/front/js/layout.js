@@ -10,11 +10,11 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
 import { Expenses } from "./pages/expenses";
-
 import { Welcome } from "./pages/welcome";
 import { Transactions } from "./pages/transactions";
 import { Profile } from "./pages/profileMain";
 import { Perfil } from "./pages/perfil";
+import { Faqs } from "./pages/faqs";
 
 //create your first component
 const Layout = () => {
@@ -37,6 +37,8 @@ const Layout = () => {
 						<Route exact path="/transactions" component={Transactions} />
 						<Route exact path="/profile" component={Perfil} />
 						<Route exact path="/profileMain" component={Profile} />
+						<Route exact path="/faqs" component={Faqs} />
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
