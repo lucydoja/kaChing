@@ -109,7 +109,7 @@ export const Login = () => {
 				</div>
 			</div>
 
-			{redirect ? <Redirect to="/finances" /> : ""}
+			{redirect ? <Redirect to="/" /> : ""}
 		</div>
 	);
 };
