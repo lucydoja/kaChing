@@ -5,37 +5,83 @@ import Carousel from "react-bootstrap/Carousel";
 import Spinner from "react-bootstrap/Spinner";
 import Image from "react-bootstrap/Image";
 import { Media } from "react-bootstrap";
+import { Card, Container, Row, Col, Toast, Badge } from "react-bootstrap";
 
 export const Welcome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container mb-2 " id="box-principal">
+			<Image
+				src="https://media.giphy.com/media/13ln9K5TWkNTLa/giphy.gif"
+				style={{ width: "100%", height: "250px" }}
+			/>
+
 			<Media style={{ background: "#B9DCDC" }}>
 				<Media.Body>
-					<h5 style={{ color: "#33C6FF" }}>kaChing </h5>
-					<p className="font-italic" style={{ color: "#AEB6BF" }}>
+					<h5 style={{ color: "B9DCDC" }}>
+						{" "}
+						<i className="far fa-piggy-bank" />
+					</h5>
+					<p className="font-italic" style={{ color: "#AEB6BF"  }}>
 						<img
-							width={400}
+							width={1000}
 							height={400}
-							className="ml-6"
+                            className="ml-12"
 							src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 							alt="Generic placeholder"
 						/>
+
+						<Media style={{ background: "#FCF3CF" }}>
+							<Media.Body>
+								<h5 style={{ color: "#33C6FF" }}>What is kaChing?</h5>
+								<p className="font-italic" style={{ color: "#AEB6BF" }}>
+									Remember the days when you dropped your spare change into a piggy bank or a jar? Now
+									Let us help you to save your money and make a budget to how you should spend your
+									money Saving money is at the heart of all good financial plans. Learn how to save
+									money consistently even when it seems like there isn´t any money left to spare.
+								</p>
+								<p className="font-italic" style={{ color: "#AEB6BF " }}>
+									Here are smart financial steps to take if you need help overcoming your barriers to
+									saving. <i className="fas fa-hand-holding-usd" />{" "}
+								</p>
+							</Media.Body>
+							<img
+								width={270}
+								height={270}
+								className="ml-3"
+								src="https://browser-pink-marmoset-rq234xd1.ws-us03.gitpod.io/workspace/Proyecto-Final-4Geeks/src/front/img/logo.jpg"
+								alt="Generic placeholder"
+							/>
+						</Media>
+						<div>
+							<h1>
+								Example heading <Badge variant="secondary">First</Badge>
+							</h1>
+							<h2>
+								Example heading <Badge variant="secondary">Second</Badge>
+							</h2>
+							<h3>
+								Example heading <Badge variant="secondary">Third</Badge>
+							</h3>
+							<h4>
+								Example heading <Badge variant="secondary">Fourth</Badge>
+							</h4>
+							<h5>
+								Example heading <Badge variant="secondary">Fifth</Badge>
+							</h5>
+							<h6>
+								Example heading <Badge variant="secondary">Go ahead</Badge>
+							</h6>
+						</div>
 					</p>
 					<p className="font-italic" style={{ color: "#AEB6BF" }}>
 						Here are smart financial steps to take if you need help overcoming your barriers to saving.{" "}
 						<i className="fas fa-hand-holding-usd" />{" "}
 					</p>
 				</Media.Body>
-				<img
-					width={350}
-					height={400}
-					className="ml-3"
-					src="https://images.pexels.com/photos/5849566/pexels-photo-5849566.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-					alt="Generic placeholder"
-				/>
 			</Media>
+
 			<Media style={{ background: "#FCF3CF" }}>
 				<Media.Body>
 					<h5 style={{ color: "#33C6FF" }}>What is kaChing?</h5>
@@ -58,6 +104,7 @@ export const Welcome = () => {
 					alt="Generic placeholder"
 				/>
 			</Media>
+
 			<Media style={{ background: "#FCF3CF" }}>
 				<img
 					width={250}
@@ -74,10 +121,7 @@ export const Welcome = () => {
 					</p>
 				</Media.Body>
 			</Media>
-			<Image
-				src="https://media.giphy.com/media/13ln9K5TWkNTLa/giphy.gif"
-				style={{ width: "100%", height: "250px" }}
-			/>
+
 			<Spinner animation="grow" variant="warning" />
 
 			<Spinner animation="grow" variant="primary" />
@@ -220,7 +264,7 @@ export const Welcome = () => {
 				<Carousel.Item>
 					<img
 						className="d-block w-100"
-						src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						img="https://browser-pink-marmoset-rq234xd1.ws-us03.gitpod.io/workspace/Proyecto-Final-4Geeks/src/front/img/grafico.png"
 						alt="Third slide"
 					/>
 
