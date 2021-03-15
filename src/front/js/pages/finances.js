@@ -1,8 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { BarGraph } from "../component/bar";
-import { PieGraph } from "../component/pie";
-import { string } from "prop-types";
 import { ProgressBar_function, BarGraph_function, PieGraphCategory_function, PieGraphMethod_function } from "./Utils";
 
 export const Finances = () => {
@@ -39,14 +36,14 @@ export const Finances = () => {
 	datos = datos.filter(item => item.month === month);
 
 	let monthly_data = datos[0];
-
 	let weekly_data;
 
-	if (category == "Total") {
-		weekly_data = monthly_data["expenses"]["week"];
-	} else {
-		weekly_data = monthly_data["category"][category]["week"];
-	}
+	///DEFINIR CONDICION PARA UNDEFINED
+	monthly_data
+		? category == "Total"
+			? (weekly_data = monthly_data["expenses"]["week"])
+			: (weekly_data = monthly_data["category"][category]["week"])
+		: null;
 
 	return (
 		<div className="container d-flex justify-content-center mt-2">

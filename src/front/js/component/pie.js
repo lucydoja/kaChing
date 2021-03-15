@@ -20,7 +20,7 @@ export const PieGraph = props => {
 		<div className=" ">
 			<div className="row mt-3 ">
 				<div className="col graficos">
-					<Pie data={data} height={200} width={250} />
+					<Pie data={data} height={props.height} width={200} />
 				</div>
 			</div>
 		</div>
@@ -30,5 +30,6 @@ export const PieGraph = props => {
 PieGraph.propTypes = {
 	datos: PropTypes.any,
 	labels: PropTypes.any,
-	colors: PropTypes.any
+	colors: PropTypes.any,
+	height: PropTypes.integer
 };
