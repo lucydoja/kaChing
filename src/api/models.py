@@ -42,6 +42,8 @@ class Expense(db.Model):
     amount = db.Column(db.Integer, unique=False, nullable=False)
     detail = db.Column(db.String(280), unique=False, nullable=True)
     date = db.Column(db.DateTime, unique=False, nullable=False)
+    year = db.Column(db.Integer, unique=False, nullable=False)
+    month = db.Column(db.Integer, unique=False, nullable=False)
 
     def __repr__(self):
         return '<Expense %r>' % self.id
@@ -64,6 +66,8 @@ class Income(db.Model):
     amount = db.Column(db.Integer, unique=False, nullable=False)
     detail = db.Column(db.String(280), unique=False, nullable=True)
     date = db.Column(db.DateTime, unique=False, nullable=False)
+    year = db.Column(db.Integer, unique=False, nullable=False)
+    month = db.Column(db.Integer, unique=False, nullable=False)
 
     def __repr__(self):
         return '<Income %r>' % self.id

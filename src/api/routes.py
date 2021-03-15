@@ -79,6 +79,8 @@ def create_user_income():
     amount = request.json["amount"]
     detail = request.json["detail"]
     date = datetime.datetime.now()
+    year = date.year
+    month = date.month
 
     if not (amount and detail):
         return jsonify({"error": "Invalid"}), 400
@@ -134,6 +136,8 @@ def create_user_expense():
     amount = request.json["amount"]
     detail = request.json["detail"]
     date = datetime.datetime.now()
+    year = date.year
+    month = date.month
 
     if not (category and payment_method and amount and detail):
         return jsonify({"error": "Missing parameter"})
@@ -229,8 +233,12 @@ def get_transaction_data():
 
     # Get Income by Month
     years_and_months = get_months_and_years_ytd(most_recent_year, most_recent_month)
-
     month_income_qry = income_qry_ytd.filter(cast(Income.date, DATE)<=datetime.datetime(year=2021,month=3, day=31)).all()
+
+    for each in years_and_months:
+        month_qry = income_qry_ytd.filter(cast(Income.date, DATE)<=datetime.datetime(year=each["year"],month=each["month"], day=1)).filter(cast(Income.date, DATE)<=datetime.datetime(year=each["year"],month=each["month"], day=31)).all()
+        for month in month_qry:
+            print(month.amount)
 
     income_qry_month_list = list(map(lambda x: x.serialize(), month_income_qry))
 
