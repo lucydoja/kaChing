@@ -7,7 +7,8 @@ from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import datetime
-from sqlalchemy import cast, DATE, func, and_, select
+from sqlalchemy import cast, DATE, func
+from api.analysisutils import get_months_and_years_ytd
 
 api = Blueprint('api', __name__)
 
@@ -218,8 +219,19 @@ def get_transaction_data():
     today = datetime.datetime.now()
     one_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
     
-    income_qry = Income.query.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago).all()
+    # Get All Incomes Year to Date
+    income_qry_ytd = Income.query.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago)
 
-    income_qry_list = list(map(lambda x: x.serialize(), income_qry))
+    # Get Most Recent Income
+    last = income_qry_ytd.order_by(Income.date.desc()).first()
+    most_recent_month = last.date.month
+    most_recent_year = last.date.year
 
-    return jsonify({"time": income_qry_list}), 200
+    # Get Income by Month
+    years_and_months = get_months_and_years_ytd(most_recent_year, most_recent_month)
+
+    month_income_qry = income_qry_ytd.filter(cast(Income.date, DATE)<=datetime.datetime(year=2021,month=3, day=31)).all()
+
+    income_qry_month_list = list(map(lambda x: x.serialize(), month_income_qry))
+
+    return jsonify({"time": years_and_months}), 200
