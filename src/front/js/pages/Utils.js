@@ -59,15 +59,17 @@ export const ProgressBar_function = props => {
 					<p>
 						{" "}
 						WOW! It looks like you&apos;re in <strong>DEBT</strong>! You spent <strong>MORE</strong> than
-						your income in {categoria} ({Math.round(porcentaje / 100)} times more!!) ... You seriously need
-						to reduce your expenses.
+						your income in {categoria} (<strong>{Math.round(porcentaje / 100)}</strong> times more!!) ...
+						You seriously need to reduce your expenses.
 					</p>
 					<hr />
 					<p className="mb-0">
-						You spent {expense} in {categoria}
+						You spent <strong>{expense}</strong> in {categoria}
 					</p>
 
-					<p className="mb-0">You earned {income} in total</p>
+					<p className="mb-0">
+						You earned <strong>{income}</strong> in total
+					</p>
 				</div>
 				<ProgressBar dato={300} />
 			</div>
@@ -77,14 +79,16 @@ export const ProgressBar_function = props => {
 		<div>
 			<div className="alert alert-warning" role="alert">
 				<p>
-					It looks like you spent {porcentaje}% of your incomes in {categoria}!
+					It looks like you spent <strong>{porcentaje}%</strong> of your incomes in {categoria}!
 				</p>
 				<hr />
 				<p className="mb-0">
-					You spent {expense} in {categoria}
+					You spent <strong>{expense}</strong> in {categoria}
 				</p>
 
-				<p className="mb-0">You earned {income} in total</p>
+				<p className="mb-0">
+					You earned <strong>{income}</strong> in total
+				</p>
 			</div>
 			<ProgressBar dato={porcentaje} />
 		</div>
@@ -105,9 +109,9 @@ export const BarGraph_function = props => {
 
 	if (sum == 0) {
 		return (
-			<div className="alert alert-warning mt-3" role="alert">
+			<div className="alert alert-info mt-3" role="alert">
 				<p>
-					It looks like you did&apos;t register any expenses in {categoty} this month! So there&apos;s really
+					It looks like you didn&apos;t register any expenses in {category} this month! So there&apos;s really
 					not much to see here! I hope this means you are saving money!!
 				</p>
 				<hr />
@@ -139,14 +143,21 @@ export const BarGraph_function = props => {
 			</h5>
 			<div className="alert alert-dark mt-3" role="alert">
 				<p>
-					It looks like week {week_max} was a though week! That week you spent {maximo} in {category}.
-					Meanwhile, week {week_min} was the one with the least expenses, with a total of {minimo}. In average
-					you are spending {average} in {category} per week!
+					It looks like <strong>week {week_max}</strong> was a though week! That week you spent{" "}
+					<strong>{maximo}</strong> in <strong>{category}</strong>. Meanwhile,{" "}
+					<strong>week {week_min}</strong> was the one with the least expenses, with a total of{" "}
+					<strong>{minimo}</strong>. In average you are spending {average} in {category} per week!
 				</p>
 				<hr />
-				<p className="mb-0">Maximum spent per week : {maximo}</p>
-				<p className="mb-0">Minimum spent per week: {minimo}</p>
-				<p className="mb-0">Average spent per week: {average}</p>
+				<p className="mb-0">
+					<strong>Maximum</strong> spent per week : <strong>{maximo}</strong>
+				</p>
+				<p className="mb-0">
+					<strong>Minimum</strong> spent per week: <strong>{minimo}</strong>
+				</p>
+				<p className="mb-0">
+					<strong>Average</strong> spent per week: <strong>{average}</strong>
+				</p>
 			</div>
 
 			<BarGraph datos={weekly_data} />
@@ -194,16 +205,19 @@ export const PieGraphCategory_function = props => {
 			</h5>
 			<div className="alert alert-dark mt-3" role="alert">
 				<p>
-					This month you spent most of your money in {cat_max} for a total of {maximo}, which represents a{" "}
-					{porc_max}% of your expenses! The least expenses where made in {cat_min}.
+					This month you spent <strong>most</strong> of your money in {cat_max} for a total of{" "}
+					<strong>{maximo}</strong>, which represents the <strong>{porc_max}%</strong> of your expenses! The
+					least expenses where made in {cat_min}.
 				</p>
 				<hr />
 				<p className="mb-0">Most expenses made in {cat_max}</p>
-				<p className="mb-0">Porcentage expent per category:</p>
+				<p className="mb-0">
+					<strong>Porcentage</strong> expent per category:
+				</p>
 				{categories.map((item, index) => {
 					return (
 						<p className="mb-0" key={index}>
-							{item}: {Math.round((data[categories.indexOf(item)] * 100) / sum)}%
+							{item}: <strong>{Math.round((data[categories.indexOf(item)] * 100) / sum)}%</strong>
 						</p>
 					);
 				})}
@@ -266,16 +280,19 @@ export const PieGraphMethod_function = props => {
 			</h5>
 			<div className="alert alert-dark mt-2" role="alert">
 				<p>
-					Most of your transactions where made with {met_max}, you used this method {porc_max}% of the time!
-					Your least used method is {met_min}.
+					<strong>Most</strong> of your transactions where made with <strong>{met_max}</strong>, you used this
+					method <strong>{porc_max}% </strong>
+					of the time! Your least used method is {met_min}.
 				</p>
 				<hr />
 				<p className="mb-0">Most expenses made with {met_max}</p>
-				<p className="mb-0">Times used per method:</p>
+				<p className="mb-0">
+					<strong>Times</strong> used per method:
+				</p>
 				{methods.map((item, index) => {
 					return (
 						<p className="mb-0" key={index}>
-							{item}: {data[methods.indexOf(item)]}
+							{item}: <strong>{data[methods.indexOf(item)]}</strong>
 						</p>
 					);
 				})}

@@ -11,7 +11,6 @@ export const Welcome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-
 		<div className="container mb-2 " id="box-principal">
 			<Image
 				src="https://media.giphy.com/media/13ln9K5TWkNTLa/giphy.gif"
@@ -24,11 +23,11 @@ export const Welcome = () => {
 						{" "}
 						<i className="far fa-piggy-bank" />
 					</h5>
-					<p className="font-italic" style={{ color: "#AEB6BF"  }}>
+					<p className="font-italic" style={{ color: "#AEB6BF" }}>
 						<img
 							width={1000}
 							height={400}
-                            className="ml-12"
+							className="ml-12"
 							src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 							alt="Generic placeholder"
 						/>
@@ -87,8 +86,6 @@ export const Welcome = () => {
 				<Media.Body>
 					<h5 style={{ color: "#33C6FF" }}>What is kaChing?</h5>
 					<p className="font-italic" style={{ color: "#AEB6BF" }}>
-
-	
 						Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help
 						you to save your money and make a budget to how you should spend your money Saving money is at
 						the heart of all good financial plans. Learn how to save money consistently even when it seems
@@ -149,7 +146,6 @@ export const Welcome = () => {
 						Here are smart financial steps to take if you need help overcoming your barriers to saving.
 					</p>
 					<p className="mb-0" />
-
 				</div>
 				<div className="alert alert-warning font-italic" role="alert">
 					<h5 className="alert-heading">Benefits of KaChing</h5>
@@ -270,7 +266,6 @@ export const Welcome = () => {
 						</div>
 					</div>
 				</div>
-
 			</div>
 			<Carousel>
 				<Carousel.Item>
