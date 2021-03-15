@@ -7,6 +7,7 @@ from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import datetime
+from sqlalchemy import cast, DATE, func, and_, select
 
 api = Blueprint('api', __name__)
 
@@ -207,3 +208,18 @@ def reset_password():
         db.session.commit()
 
         return jsonify({"msg": "Password changed successfully"}), 200
+
+@api.route("/transactions", methods=["GET"])
+@jwt_required()
+def get_transaction_data():
+
+    current_user_email = get_jwt_identity()
+
+    today = datetime.datetime.now()
+    one_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
+    
+    income_qry = Income.query.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago).all()
+
+    income_qry_list = list(map(lambda x: x.serialize(), income_qry))
+
+    return jsonify({"time": income_qry_list}), 200
