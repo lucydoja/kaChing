@@ -70,6 +70,41 @@ def login():
 
         return jsonify({"access_token": access_token}), 200
 
+# Reset Password
+@api.route("reset", methods=["POST"])
+def reset_password():
+    if request.method == "POST":
+
+        email = request.json["email"]
+        new_password = request.json["password"]
+        security_question = request.json["security_question"]
+        security_answer = request.json["security_answer"]
+
+        # Validate
+        if not (email and new_password and security_question and security_answer):
+            return jsonify({"error": "Invalid parameter"}), 400
+        
+        user = User.query.filter_by(email=email).first()
+
+        if not user:
+            return jsonify({"error": "Invalid parameter"}), 400
+
+        if user.security_question != security_question:
+            return jsonify({"error": "Invalid parameter"}), 400
+
+        if not check_password_hash(user.security_answer, security_answer):
+            return jsonify({"error": "Invalid parameter"}), 400
+        
+        # Create and set new password
+        new_password_hashed = generate_password_hash(new_password)
+        user.password = new_password_hashed
+        db.session.commit()
+
+        return jsonify({"msg": "Password changed successfully"}), 200
+
+# Change first and last name
+
+
 # Add Income Data
 @api.route("/income", methods=["POST"])
 @jwt_required()
@@ -190,39 +225,7 @@ def delete_expense_data():
 
     return jsonify({"msg": "expense deleted"}), 200
 
-# Reset Password
-@api.route("reset", methods=["POST"])
-def reset_password():
-    if request.method == "POST":
-
-        email = request.json["email"]
-        new_password = request.json["password"]
-        security_question = request.json["security_question"]
-        security_answer = request.json["security_answer"]
-
-        # Validate
-        if not (email and new_password and security_question and security_answer):
-            return jsonify({"error": "Invalid parameter"}), 400
-        
-        user = User.query.filter_by(email=email).first()
-
-        if not user:
-            return jsonify({"error": "Invalid parameter"}), 400
-
-        if user.security_question != security_question:
-            return jsonify({"error": "Invalid parameter"}), 400
-
-        if not check_password_hash(user.security_answer, security_answer):
-            return jsonify({"error": "Invalid parameter"}), 400
-        
-        # Create and set new password
-        new_password_hashed = generate_password_hash(new_password)
-        user.password = new_password_hashed
-        db.session.commit()
-
-        return jsonify({"msg": "Password changed successfully"}), 200
-
-@api.route("/transactions", methods=["GET"])
+@api.route("/finances", methods=["GET"])
 @jwt_required()
 def get_transaction_data():
 
