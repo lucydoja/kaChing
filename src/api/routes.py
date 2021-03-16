@@ -7,7 +7,7 @@ from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import datetime
-from sqlalchemy import cast, DATE, INT
+from sqlalchemy import cast, DATE, INT, String
 from api.analysisutils import get_months_and_years_ytd, accumulate
 
 api = Blueprint('api', __name__)
@@ -260,6 +260,11 @@ def get_transaction_data():
         total_expense_week_2 = accumulate(expense_week_2, "amount")
         total_expense_week_3 = accumulate(expense_week_3, "amount")
         total_expense_week_4 = accumulate(expense_week_4, "amount")
+
+        # Get Expenses by Category
+        food_expense = month_expense_qry.filter(cast(Expense.category, String)=="food").all()
+        entertainment_expense = month_expense_qry.filter(cast(Expense.category, String)=="entertainment").all()
+
 
         monthly_data = {
             "year": each["year"],
