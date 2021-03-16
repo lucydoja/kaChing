@@ -29,10 +29,7 @@ export const Welcome = () => {
 					</h5>
 
 					<p className="font-italic" style={{ color: "black" }}>
-						
-
 						<Media style={{ background: "#white", padding: "3%" }}>
-
 							<Media.Body>
 								<h1 style={{ color: "black" }}>
 									Welcome to KaChing! the app that allows you to take control over your finances.{" "}
