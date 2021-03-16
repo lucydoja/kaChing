@@ -14,8 +14,8 @@ def get_months_and_years_ytd(init_year, init_month):
     
     return years_and_months
 
-def accumulate(list, value_to_accumulate):
+def accumulate(list, attribute):
     accumulator = 0
     for item in list:
-        accumulator = accumulator + item.value_to_accumulate
+        accumulator = accumulator + getattr(item, attribute)
     return accumulator

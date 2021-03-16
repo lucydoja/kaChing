@@ -7,7 +7,7 @@ from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import datetime
-from sqlalchemy import cast, DATE, func
+from sqlalchemy import cast, DATE, INT
 from api.analysisutils import get_months_and_years_ytd, accumulate
 
 api = Blueprint('api', __name__)
@@ -229,21 +229,63 @@ def get_transaction_data():
     income_qry_ytd = Income.query.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago)
 
     # Get Most Recent Income
-    last = income_qry_ytd.order_by(Income.date.desc()).first()
-    most_recent_year = last.date.year
-    most_recent_month = last.date.month
+    last_income = income_qry_ytd.order_by(Income.date.desc()).first()
+    income_most_recent_year = last_income.date.year
+    income_most_recent_month = last_income.date.month
 
     # years_and_months returns a list of objects: {year, month}
-    years_and_months = get_months_and_years_ytd(most_recent_year, most_recent_month)
+    income_years_and_months = get_months_and_years_ytd(income_most_recent_year, income_most_recent_month)
     
     # Get Total Income by Month on Year to Date basis
     income_resume = []
-    for each in years_and_months:
+    for each in income_years_and_months:
         month_income_qry = income_qry_ytd.filter_by(year=each["year"], month=each["month"]).all()
-        # accumulate(list, value_to_accumulate)
-        total_income_of_month = accumulate(month_income_qry, amount)
+        # accumulate(list, attribute)
+        total_income_of_month = accumulate(month_income_qry, "amount")
         monthly_income = {"year": each["year"], "month": each["month"], "incomes": total_income_of_month}
         income_resume.append(monthly_income)
 
+    # Get All Expenses Year to Date
+    expense_qry_ytd = Expense.query.filter(cast(Expense.date, DATE)<=today).filter(cast(Expense.date, DATE)>=one_year_ago)
 
-    return jsonify({"time": income_resume}), 200
+    # Get Most Recent Expense
+    last_expense = expense_qry_ytd.order_by(Expense.date.desc()).first()
+    expense_most_recent_year = last_expense.date.year
+    expense_most_recent_month = last_expense.date.month
+
+    # Get years_and_months
+    expense_years_and_months = get_months_and_years_ytd(expense_most_recent_year, expense_most_recent_month)
+
+    # Get Total Expense by Month on Year to Date basis
+    expense_resume = []
+    for each in expense_years_and_months:
+        month_expense_qry = expense_qry_ytd.filter_by(year=each["year"], month=each["month"])
+        month_expense_qry_list = month_expense_qry.all()
+        total_expense_of_month = accumulate(month_expense_qry_list, "amount")
+
+        # Get Weekly Expenses by Month
+        expense_week_1 = month_expense_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        expense_week_2 = month_expense_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        expense_week_3 = month_expense_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        expense_week_4 = month_expense_qry.filter(cast(Expense.day, INT)>=23).all()
+
+        # Sum Total Expenses per Week
+        total_expense_week_1 = accumulate(expense_week_1, "amount")
+        total_expense_week_2 = accumulate(expense_week_2, "amount")
+        total_expense_week_3 = accumulate(expense_week_3, "amount")
+        total_expense_week_4 = accumulate(expense_week_4, "amount")
+        print(total_expense_week_3)
+
+        monthly_expense = {
+            "year": each["year"], 
+            "month": each["month"], 
+            "expenses": {"total": total_expense_of_month,
+                        "week": [total_expense_week_1, total_expense_week_2, total_expense_week_3, total_expense_week_4]
+            }   
+            }
+        expense_resume.append(monthly_expense)
+
+    
+
+
+    return jsonify({"income": income_resume,"expense": expense_resume}), 200
