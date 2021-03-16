@@ -287,11 +287,41 @@ def get_transaction_data():
         entertainment_week_4 = entertainment_qry.filter(cast(Expense.day, INT)>=23).all()
 
         food_qry = month_expense_qry.filter(cast(Expense.category, String)=="food")
+        food_week_1 = food_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        food_week_2 = food_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        food_week_3 = food_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        food_week_4 = food_qry.filter(cast(Expense.day, INT)>=23).all()
+
+
         services_qry = month_expense_qry.filter(cast(Expense.category, String)=="services")
+        services_week_1 = services_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        services_week_2 = services_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        services_week_3 = services_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        services_week_4 = services_qry.filter(cast(Expense.day, INT)>=23).all()
+
         transport_qry = month_expense_qry.filter(cast(Expense.category, String)=="transport")
+        transport_week_1 = transport_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        transport_week_2 = transport_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        transport_week_3 = transport_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        transport_week_4 = transport_qry.filter(cast(Expense.day, INT)>=23).all()
+
         home_qry = month_expense_qry.filter(cast(Expense.category, String)=="home")
+        home_week_1 = home_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        home_week_2 = home_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        home_week_3 = home_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        home_week_4 = home_qry.filter(cast(Expense.day, INT)>=23).all()
+
         education_qry = month_expense_qry.filter(cast(Expense.category, String)=="education")
+        education_week_1 = education_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        education_week_2 = education_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        education_week_3 = education_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        education_week_4 = education_qry.filter(cast(Expense.day, INT)>=23).all()
+
         clothing_qry = month_expense_qry.filter(cast(Expense.category, String)=="clothing")
+        clothing_week_1 = clothing_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        clothing_week_2 = clothing_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        clothing_week_3 = clothing_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        clothing_week_4 = clothing_qry.filter(cast(Expense.day, INT)>=23).all()
 
 
         monthly_data = {
