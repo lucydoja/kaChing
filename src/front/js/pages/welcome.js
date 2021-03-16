@@ -27,8 +27,10 @@ export const Welcome = () => {
 						{" "}
 						<i className="far fa-piggy-bank" />
 					</h5>
+
 					<p className="font-italic" style={{ color: "black" }}>
 						<Media style={{ background: "#white" }}>
+
 							<Media.Body>
 								<h1 style={{ color: "black" }}>
 									Welcome to KaChing! the app that allows you to take control over your finances.{" "}
@@ -81,9 +83,12 @@ export const Welcome = () => {
 
 			<Media style={{ background: "white" }}>
 				<Media.Body>
+
+
 					<h5 style={{ color: "black" }} /> <i className="fas fa-comment-dollar" />{" "}
 					<h5 style={{ color: "black" }}>What is KaChing? </h5>
 					<p className="font-italic" style={{ color: "black" }}>
+
 						Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help
 						you to save your money and make a budget to how you should spend your money Saving money is at
 						the heart of all good financial plans. Learn how to save money consistently even when it seems
