@@ -55,7 +55,7 @@ export const Transactions = () => {
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
 			<div className="formulario mb-5 mt-3">
-				<h3 className="mt-2">Transactions</h3>
+				<h3 className="mt-2">TRANSACTIONS</h3>
 				<div className="alert alert-info" role="alert">
 					This step is very important! Don&apos;t forget to upload your <strong>expenses</strong> and{" "}
 					<strong>incomes</strong> so you can keep track of your money here in <strong>KaChing! </strong>

@@ -48,7 +48,7 @@ export const Finances = () => {
 	return (
 		<div className="container d-flex justify-content-center mt-2">
 			<div className="formulario2 mb-5 mt-3 row">
-				<h3 className="mt-2">Your Finances</h3>
+				<h3 className="mt-2">YOUR FINANCES</h3>
 				<div>
 					<form /*onSubmit={e => handleSubmit(e}*/>
 						<div className="form-row mt-3">

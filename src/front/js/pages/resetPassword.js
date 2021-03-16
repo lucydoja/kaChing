@@ -57,11 +57,11 @@ export const ResetPass = () => {
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
 			<div className="formulario mb-5">
+				<h3 className="mt-2">RESET PASSWORD</h3>
 				<div className="alert alert-info" role="alert">
 					Oh! It seems that you need to reset your <strong>KaChing! </strong>
 					password, please fill the information bellow to set a new one!
 				</div>
-				<h3 className="mt-2">Reset Password</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
 						<div className="form-row mt-3">

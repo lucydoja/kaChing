@@ -41,7 +41,7 @@ export const Perfil = () => {
 	return editar ? (
 		<div className="container d-flex justify-content-center mt-2">
 			<div className="formulario2 my-5 rounded shadow p-2">
-				<h3 className="mt-2">Profile</h3>
+				<h3 className="mt-2">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Name</label>
