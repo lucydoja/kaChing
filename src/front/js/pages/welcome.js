@@ -50,6 +50,7 @@ export const Welcome = () => {
 								width={270}
 								height={270}
 								className="ml-3 rounded-circle"
+								id="userphone"
 								src="http://media.bizj.us/view/img/3490261/cell-phone*1200xx3867-2175-0-202.jpg"
 							/>
 						</Media>
@@ -98,6 +99,7 @@ export const Welcome = () => {
 					width={270}
 					height={270}
 					className="ml-3 rounded-circle"
+					id="hand"
 					src="https://www.kindpng.com/picc/m/111-1111080_computer-icons-money-cash-bank-funding-transparent-background.png"
 					alt="Generic placeholder"
 				/>
@@ -107,11 +109,11 @@ export const Welcome = () => {
 				<img
 					width={250}
 					height={250}
-					className="mr-3 rounded-circle botton margin "
+					className="mr-3 rounded-circle"
 					src="https://images.all-free-download.com/images/graphicthumb/practical_business_financial_picture_01_hd_pictures_170385.jpg"
 					alt="Generic placeholder"
 				/>
-				<Media.Body>
+				<Media.Body style={{ background: "white" }}>
 					<h5 style={{ color: "black" }}>Benefits of KaChing</h5>
 					<p style={{ color: "black" }}>
 						You open your account free in less than 3 minutes and you can close it with a single click., No
