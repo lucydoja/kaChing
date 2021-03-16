@@ -334,7 +334,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						setStore({ favorites: data });
 						console.log("Expense deleted");
 					})
 					.catch(error => {
@@ -364,7 +363,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						setStore({ favorites: data });
 						console.log("Income deleted");
 					})
 					.catch(error => {
@@ -381,12 +379,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
 						return response.json();
 					})
 					.then(data => {
-						const updIncome = data.data;
-						setStore({ incomes: [...updIncome] });
-					});
+						setStore({ incomes: data.data });
+					})
+					.catch(err => console.error(err));
 			},
 			getExpense: () => {
 				let user_token = sessionStorage.getItem("user_token");
@@ -398,12 +399,57 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
 						return response.json();
 					})
 					.then(data => {
-						const updExpense = data.data;
-						setStore({ expenses: [...updExpense] });
-					});
+						setStore({ expenses: data.data });
+					})
+					.catch(err => console.error(err));
+			},
+
+			getResume: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/transactions", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ resume: data.data });
+					})
+					.catch(err => console.error(err));
+			},
+
+			getUser: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/user", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ user: data.data });
+					})
+					.catch(err => console.error(err));
 			}
 		}
 	};

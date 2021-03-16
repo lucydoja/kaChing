@@ -14,11 +14,6 @@ export const Transactions = () => {
 
 	const { store, actions } = useContext(Context);
 
-	useEffect(() => {
-		actions.getIncome();
-		actions.getExpense();
-	}, []);
-
 	const handleExpense = e => {
 		e.preventDefault();
 		if (amount === "" || category === "" || payment === "") {

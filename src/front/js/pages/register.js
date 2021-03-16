@@ -32,11 +32,11 @@ export const Register = () => {
 
 		// FETCH
 		const data = {
-			email: email,
+			email: email.toLowerCase(),
 			password: password2,
-			first_name: first_name,
-			last_name: last_name,
-			security_answer: securityA,
+			first_name: first_name.toLowerCase(),
+			last_name: last_name.toLowerCase(),
+			security_answer: securityA.toLowerCase(),
 			security_question: securityQ
 		};
 		console.log(data);

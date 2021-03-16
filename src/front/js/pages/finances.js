@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { ProgressBar_function, BarGraph_function, PieGraphCategory_function, PieGraphMethod_function } from "./Utils";
 
@@ -7,6 +7,9 @@ export const Finances = () => {
 	const [category, setCategory] = useState("Total");
 
 	// llamar a la funcion de get informacion aqui para que tome en cuenta los datos recientemente agregados en el view de trans
+	useEffect(() => {
+		actions.getResume();
+	}, []);
 
 	// esto es para que siempre le salga el resumen del mes actual
 	var date = new Date();
@@ -38,7 +41,7 @@ export const Finances = () => {
 	let monthly_data = datos[0];
 	let weekly_data;
 
-	///DEFINIR CONDICION PARA UNDEFINED
+	///DEFINIR CONDICION PARA UNDEFINED POR SI NO TIENE REGISTROS EN UN MES
 	monthly_data
 		? category == "Total"
 			? (weekly_data = monthly_data["expenses"]["week"])
@@ -50,7 +53,7 @@ export const Finances = () => {
 			<div className="formulario2 mb-5 mt-3 row">
 				<h3 className="mt-2">YOUR FINANCES</h3>
 				<div>
-					<form /*onSubmit={e => handleSubmit(e}*/>
+					<form>
 						<div className="form-row mt-3">
 							<label htmlFor="month">Select Year</label>
 							<select
