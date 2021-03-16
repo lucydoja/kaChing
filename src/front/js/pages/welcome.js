@@ -28,7 +28,7 @@ export const Welcome = () => {
 						<i className="far fa-piggy-bank" />
 					</h5>
 					<p className="font-italic" style={{ color: "black" }}>
-						<Media style={{ background: "#white" }}>
+						<Media style={{ background: "#white", padding: "3%" }}>
 							<Media.Body>
 								<h1 style={{ color: "black" }}>
 									Welcome to KaChing! the app that allows you to take control over your finances.{" "}
@@ -55,9 +55,9 @@ export const Welcome = () => {
 							/>
 						</Media>
 						<div>
-							<h1>Get the most benefit from your KaChing account.</h1>
+							<h1 style={{ marginLeft: "25px" }}>Get the most benefit from your KaChing account.</h1>
 
-							<ol>
+							<ol style={{ marginLeft: "25px" }}>
 								<li>Think Beyond Income and Expenses</li>
 								<li>
 									Don´t have an account? Register One!{" "}
@@ -72,14 +72,14 @@ export const Welcome = () => {
 							</ol>
 						</div>
 					</p>
-					<p className="font-italic" style={{ color: "black" }}>
+					<p className="font-italic" style={{ color: "black", marginLeft: "25px" }}>
 						The easiest and safest way to save and manage your finances.{" "}
 						<i className="fas fa-hand-holding-usd" />{" "}
 					</p>
 				</Media.Body>
 			</Media>
 
-			<Media style={{ background: "white" }}>
+			<Media style={{ background: "white", padding: "3%" }}>
 				<Media.Body>
 					<h5 style={{ color: "black" }} /> <i className="fas fa-comment-dollar" />{" "}
 					<h5 style={{ color: "black" }}>What is KaChing? </h5>
@@ -105,7 +105,7 @@ export const Welcome = () => {
 				/>
 			</Media>
 
-			<Media style={{ background: "white" }}>
+			<Media style={{ background: "white", padding: "5%" }}>
 				<img
 					width={250}
 					height={250}
@@ -122,7 +122,7 @@ export const Welcome = () => {
 				</Media.Body>
 			</Media>
 
-			<div className="card-group" style={{ marginTop: 30 }}>
+			<div className="card-group" style={{ marginTop: "0px" }}>
 				<div className="card">
 					<img
 						src="https://images.pexels.com/photos/4475523/pexels-photo-4475523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
