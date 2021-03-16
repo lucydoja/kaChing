@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import datetime
 from sqlalchemy import cast, DATE, func
-from api.analysisutils import get_months_and_years_ytd
+from api.analysisutils import get_months_and_years_ytd, accumulate
 
 api = Blueprint('api', __name__)
 
@@ -230,17 +230,17 @@ def get_transaction_data():
 
     # Get Most Recent Income
     last = income_qry_ytd.order_by(Income.date.desc()).first()
-    most_recent_month = last.date.month
     most_recent_year = last.date.year
+    most_recent_month = last.date.month
 
     # Get Incomes by Months
     # years_and_months returns a list of objects: {year, month}
     years_and_months = get_months_and_years_ytd(most_recent_year, most_recent_month)
+
     for each in years_and_months:
         month_income_qry = income_qry_ytd.filter_by(year=each["year"], month=each["month"]).all()
-        accumulator = 0
-        for qry in month_income_qry:
-            accumulator = accumulator + qry.amount
+        # Accumulate(list, value_to_accumulate)
+        total_income_month = accumulate(month_income_qry, amount)
         
 
     month_income_qry_list = list(map(lambda x: x.serialize(), month_income_qry))

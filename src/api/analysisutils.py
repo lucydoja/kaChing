@@ -13,3 +13,9 @@ def get_months_and_years_ytd(init_year, init_month):
         years_and_months.append({"year": last_year, "month": current_month})
     
     return years_and_months
+
+def accumulate(list, value_to_accumulate):
+    accumulator = 0
+    for item in list:
+        accumulator = accumulator + item.value_to_accumulate
+    return accumulator
