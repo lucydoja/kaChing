@@ -230,11 +230,9 @@ def get_transaction_data():
 
     # Get Most Recent Income
     last_income = income_qry_ytd.order_by(Income.date.desc()).first()
-    income_most_recent_year = last_income.date.year
-    income_most_recent_month = last_income.date.month
 
     # years_and_months returns a list of objects: {year, month}
-    income_years_and_months = get_months_and_years_ytd(income_most_recent_year, income_most_recent_month)
+    income_years_and_months = get_months_and_years_ytd(today.year, today.month)
     
     # Get Total Income by Month on Year to Date basis
     income_resume = []
@@ -250,11 +248,9 @@ def get_transaction_data():
 
     # Get Most Recent Expense
     last_expense = expense_qry_ytd.order_by(Expense.date.desc()).first()
-    expense_most_recent_year = last_expense.date.year
-    expense_most_recent_month = last_expense.date.month
 
     # Get years_and_months
-    expense_years_and_months = get_months_and_years_ytd(expense_most_recent_year, expense_most_recent_month)
+    expense_years_and_months = get_months_and_years_ytd(today.year, today.month)
 
     # Get Total Expense by Month on Year to Date basis
     expense_resume = []
@@ -274,15 +270,14 @@ def get_transaction_data():
         total_expense_week_2 = accumulate(expense_week_2, "amount")
         total_expense_week_3 = accumulate(expense_week_3, "amount")
         total_expense_week_4 = accumulate(expense_week_4, "amount")
-        print(total_expense_week_3)
 
         monthly_expense = {
             "year": each["year"], 
             "month": each["month"], 
             "expenses": {"total": total_expense_of_month,
                         "week": [total_expense_week_1, total_expense_week_2, total_expense_week_3, total_expense_week_4]
-            }   
-            }
+                        }   
+                    }
         expense_resume.append(monthly_expense)
 
     
