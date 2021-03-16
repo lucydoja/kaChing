@@ -6,6 +6,10 @@ import Spinner from "react-bootstrap/Spinner";
 import Image from "react-bootstrap/Image";
 import { Media } from "react-bootstrap";
 import { Card, Container, Row, Col, Toast, Badge } from "react-bootstrap";
+import grafico from "../../img/grafico.png";
+import finances from "../../img/finances.png";
+import registro from "../../img/registro.png";
+import logo from "../../img/logo.jpg";
 
 export const Welcome = () => {
 	const { store, actions } = useContext(Context);
@@ -17,31 +21,27 @@ export const Welcome = () => {
 				style={{ width: "100%", height: "250px" }}
 			/>
 
-			<Media style={{ background: "#B9DCDC" }}>
+			<Media style={{ background: "white" }}>
 				<Media.Body>
-					<h5 style={{ color: "B9DCDC" }}>
+					<h5 style={{ color: "black" }}>
 						{" "}
 						<i className="far fa-piggy-bank" />
 					</h5>
-					<p className="font-italic" style={{ color: "#AEB6BF" }}>
-						<img
-							width={1000}
-							height={400}
-							className="ml-12"
-							src="https://images.pexels.com/photos/1602726/pexels-photo-1602726.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-							alt="Generic placeholder"
-						/>
-
-						<Media style={{ background: "#FCF3CF" }}>
+					<p className="font-italic" style={{ color: "black" }}>
+						<Media style={{ background: "#white" }}>
 							<Media.Body>
-								<h5 style={{ color: "#33C6FF" }}>What is kaChing?</h5>
-								<p className="font-italic" style={{ color: "#AEB6BF" }}>
-									Remember the days when you dropped your spare change into a piggy bank or a jar? Now
-									Let us help you to save your money and make a budget to how you should spend your
-									money Saving money is at the heart of all good financial plans. Learn how to save
-									money consistently even when it seems like there isn´t any money left to spare.
+								<h1 style={{ color: "black" }}>
+									Welcome to KaChing! the app that allows you to take control over your finances.{" "}
+								</h1>
+								<p className="font-italic" style={{ color: "black" }}>
+									Protection you need, peace of mind you deserve. Keeping your financial information
+									secure is absolutely essential for us. Synonymous with security and simplicity.
+									Maintaining the trust of our customers and partners is our top priority. Our
+									commitment to information security for online control of their expenses is the
+									reason why customers choose kaChing when it comes to saving. Password & Security
+									Question Best practices for protecting your sensitive data.
 								</p>
-								<p className="font-italic" style={{ color: "#AEB6BF " }}>
+								<p className="font-italic" style={{ color: "black" }}>
 									Here are smart financial steps to take if you need help overcoming your barriers to
 									saving. <i className="fas fa-hand-holding-usd" />{" "}
 								</p>
@@ -49,84 +49,80 @@ export const Welcome = () => {
 							<img
 								width={270}
 								height={270}
-								className="ml-3"
-								src="https://browser-pink-marmoset-rq234xd1.ws-us03.gitpod.io/workspace/Proyecto-Final-4Geeks/src/front/img/logo.jpg"
-								alt="Generic placeholder"
+								className="ml-3 rounded-circle"
+								id="userphone"
+								src="http://media.bizj.us/view/img/3490261/cell-phone*1200xx3867-2175-0-202.jpg"
 							/>
 						</Media>
 						<div>
-							<h1>
-								Example heading <Badge variant="secondary">First</Badge>
-							</h1>
-							<h2>
-								Example heading <Badge variant="secondary">Second</Badge>
-							</h2>
-							<h3>
-								Example heading <Badge variant="secondary">Third</Badge>
-							</h3>
-							<h4>
-								Example heading <Badge variant="secondary">Fourth</Badge>
-							</h4>
-							<h5>
-								Example heading <Badge variant="secondary">Fifth</Badge>
-							</h5>
-							<h6>
-								Example heading <Badge variant="secondary">Go ahead</Badge>
-							</h6>
+							<h1>Get the most benefit from your KaChing account.</h1>
+
+							<ol>
+								<li>Think Beyond Income and Expenses</li>
+								<li>
+									Don´t have an account? Register One!{" "}
+									<a href="https://3000-tomato-marmot-hr9sbumu.ws-us03.gitpod.io/register">
+										Create a New Account It’s quick and easy.
+									</a>
+								</li>
+								<li>Record your expenses</li>
+								<li>Create a Children´s Savings Kaching </li>
+								<li>Project your goals</li>
+								<li>Time to celebrate your achievements</li>
+							</ol>
 						</div>
 					</p>
-					<p className="font-italic" style={{ color: "#AEB6BF" }}>
-						Here are smart financial steps to take if you need help overcoming your barriers to saving.{" "}
+					<p className="font-italic" style={{ color: "black" }}>
+						The easiest and safest way to save and manage your finances.{" "}
 						<i className="fas fa-hand-holding-usd" />{" "}
 					</p>
 				</Media.Body>
 			</Media>
 
-			<Media style={{ background: "#FCF3CF" }}>
+			<Media style={{ background: "white" }}>
 				<Media.Body>
-					<h5 style={{ color: "#33C6FF" }}>What is kaChing?</h5>
-					<p className="font-italic" style={{ color: "#AEB6BF" }}>
+					<h5 style={{ color: "black" }} /> <i className="fas fa-comment-dollar" />{" "}
+					<h5 style={{ color: "black" }}>What is KaChing? </h5>
+					<p className="font-italic" style={{ color: "black" }}>
 						Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help
 						you to save your money and make a budget to how you should spend your money Saving money is at
 						the heart of all good financial plans. Learn how to save money consistently even when it seems
 						like there isn´t any money left to spare.
 					</p>
-					<p className="font-italic" style={{ color: "#AEB6BF " }}>
-						Here are smart financial steps to take if you need help overcoming your barriers to saving.{" "}
-						<i className="fas fa-hand-holding-usd" />{" "}
+					<p className="font-italic" style={{ color: "black" }}>
+						The information on this site and the products and services offered are not intended for
+						distribution to any person in any country or jurisdiction where such distribution or use would
+						be contrary to local law or regulation. <i className="fas fa-hand-holding-usd" />{" "}
 					</p>
 				</Media.Body>
 				<img
 					width={270}
 					height={270}
-					className="ml-3"
-					src="https://images.pexels.com/photos/5849564/pexels-photo-5849564.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+					className="ml-3 rounded-circle"
+					id="hand"
+					src="https://www.kindpng.com/picc/m/111-1111080_computer-icons-money-cash-bank-funding-transparent-background.png"
 					alt="Generic placeholder"
 				/>
 			</Media>
 
-			<Media style={{ background: "#FCF3CF" }}>
+			<Media style={{ background: "white" }}>
 				<img
 					width={250}
 					height={250}
-					className="mr-3"
-					src="https://images.pexels.com/photos/5849556/pexels-photo-5849556.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+					className="mr-3 rounded-circle"
+					src="https://images.all-free-download.com/images/graphicthumb/practical_business_financial_picture_01_hd_pictures_170385.jpg"
 					alt="Generic placeholder"
 				/>
-				<Media.Body>
-					<h5 style={{ color: "#33C6FF" }}>Benefits of KaChing</h5>
-					<p style={{ color: "#AEB6BF " }}>
+				<Media.Body style={{ background: "white" }}>
+					<h5 style={{ color: "black" }}>Benefits of KaChing</h5>
+					<p style={{ color: "black" }}>
 						You open your account free in less than 3 minutes and you can close it with a single click., No
 						commissions. No strings attached. No surprises. <i className="fas fa-dollar-sign" />
 					</p>
 				</Media.Body>
 			</Media>
 
-			<Spinner animation="grow" variant="warning" />
-
-			<Spinner animation="grow" variant="primary" />
-
-			<div className="card-group">
+			<div className="card-group" style={{ marginTop: 30 }}>
 				<div className="card">
 					<img
 						src="https://images.pexels.com/photos/4475523/pexels-photo-4475523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -239,38 +235,26 @@ export const Welcome = () => {
 			</div>
 			<Carousel>
 				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src="https://images.pexels.com/photos/826349/pexels-photo-826349.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-						alt="First slide"
-					/>
+					<img className="d-block w-100" src={registro} alt="registro" />
 					<Carousel.Caption>
-						<h3>First slide label</h3>
-						<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+						<h3 style={{ color: "B9DCDC" }}>Registre</h3>
+						<p style={{ color: "B9DCDC" }}>One click away</p>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src="https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-						alt="Second slide"
-					/>
+					<img className="d-block w-100" src={finances} alt="finances" />
 
 					<Carousel.Caption>
-						<h3>Second slide label</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3 />
+						<p />
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						img="https://browser-pink-marmoset-rq234xd1.ws-us03.gitpod.io/workspace/Proyecto-Final-4Geeks/src/front/img/grafico.png"
-						alt="Third slide"
-					/>
+					<img className="d-block w-100" src={grafico} alt="grafico" />
 
 					<Carousel.Caption>
-						<h3>Third slide label</h3>
-						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+						<h3 />
+						<p />
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
