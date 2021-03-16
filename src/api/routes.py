@@ -70,8 +70,18 @@ def login():
 
         return jsonify({"access_token": access_token}), 200
 
+# Get User Data
+@api.route("/user", methods=["GET"])
+@jwt_required()
+def get_user():
+
+    current_user_email = get_jwt_identity()
+    user = User.query.filter_by(email=current_user_email).first()
+
+    return jsonify(user.serialize()), 200
+
 # Reset Password
-@api.route("reset", methods=["POST"])
+@api.route("/reset", methods=["POST"])
 def reset_password():
     if request.method == "POST":
 
