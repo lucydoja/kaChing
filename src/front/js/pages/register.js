@@ -68,12 +68,12 @@ export const Register = () => {
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
 			<div className="formulario mb-5">
+				<h3 className="mt-2">REGISTER</h3>
 				<div className="alert alert-info" role="alert">
 					Welcome to <strong>KaChing! </strong>
 					the app that allows you to take control over your finances. Please leave your information bellow to
 					be part of this awesome community!
 				</div>
-				<h3 className="mt-2">Register</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
 						<div className="form-row mt-3">

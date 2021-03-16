@@ -9,27 +9,22 @@ export function NavLogged() {
 	if (logged != "true") {
 		return (
 			<div className="d-flex justify-content-end">
-				{" "}
-				{/*
-				<div className="btn-group" role="group" aria-label="Basic example">
-					<button type="button" className="btn btn-secondary">
-						<Link to={"/register"}>Register</Link>
-					</button>
-
-					<button type="button" className="btn btn-secondary">
-						<Link to={"/login"}>Log in</Link>
-					</button>
-				</div>*/}
-				<Link to={"/register"}>
-					<span className="btn btn-outline-dark ml-2 mr-2" href="#" role="button">
-						Register
-					</span>
-				</Link>
-				<Link to={"/login"}>
-					<span className="btn btn-outline-dark" href="#" role="button">
-						Log in
-					</span>
-				</Link>{" "}
+				<ul className="navbar-nav mr-auto">
+					<li className="nav-item active">
+						<Link to={"/register"}>
+							<span className="mr-2 btn" href="#" role="button">
+								Register
+							</span>
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link to={"/login"}>
+							<span className="btn" href="#" role="button">
+								Log in
+							</span>
+						</Link>{" "}
+					</li>
+				</ul>
 			</div>
 		);
 	} else {
