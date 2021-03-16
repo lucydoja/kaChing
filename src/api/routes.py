@@ -93,14 +93,17 @@ def create_user_income():
 
     return jsonify({"msg": "accepted"}), 200
 
-# Get Income Data
+# Get Income Data from past 15 days
 @api.route("/income", methods=["GET"])
 @jwt_required()
 def get_income_data():
 
     current_user_email = get_jwt_identity()
 
-    current_user_income = Income.query.filter_by(user_email=current_user_email).all()
+    today = datetime.datetime.now()
+    two_weeks_ago = today - datetime.timedelta(days=15)
+
+    current_user_income = Income.query.filter_by(user_email=current_user_email).filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=two_weeks_ago).all()
     income_list = list(map(lambda income: income.serialize(), current_user_income))
 
     return jsonify({"data": income_list}), 200
@@ -151,14 +154,17 @@ def create_user_expense():
 
     return jsonify({"msg": "accepted"}), 200
 
-# Get Expense Data
+# Get Expense Data from past 15 days
 @api.route("/expense", methods=["GET"])
 @jwt_required()
 def get_expense_data():
 
     current_user_email = get_jwt_identity()
 
-    current_user_expense = Expense.query.filter_by(user_email=current_user_email).all()
+    today = datetime.datetime.now()
+    two_weeks_ago = today - datetime.timedelta(days=15)
+
+    current_user_expense = Expense.query.filter_by(user_email=current_user_email).filter(cast(Expense.date, DATE)<=today).filter(cast(Expense.date, DATE)>=two_weeks_ago)
     expense_list = list(map(lambda expense: expense.serialize(), current_user_expense))
 
     return jsonify({"data": expense_list}), 200
@@ -223,7 +229,7 @@ def get_transaction_data():
     current_user_email = get_jwt_identity()
 
     today = datetime.datetime.now()
-    one_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
+    one_year_ago = today - datetime.timedelta(days=365)
     
     # Get All Incomes and Expenses Year to Date
     income_qry_ytd = Income.query.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago)
