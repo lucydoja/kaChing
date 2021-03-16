@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 export const Perfil = () => {
 	const { store, actions } = useContext(Context);
-	const [name, setName] = useState("");
-	const [lastname, setLastname] = useState("");
+	const [name, setName] = useState(store.user.first_name);
+	const [lastname, setLastname] = useState(store.user.last_name);
 	const [editar, setEditar] = useState(false);
 
 	const handleSubmit = e => {
 		e.preventDefault();
 
 		const data = {
-			firt_name: name.toLowerCase(),
+			first_name: name.toLowerCase(),
 			last_name: lastname.toLowerCase()
 		};
 		// // fetch de metodo put
 
 		fetch(process.env.BACKEND_URL + "/profileMain", {
-			method: "PUT",
+			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
 			},
@@ -31,6 +31,7 @@ export const Perfil = () => {
 				}
 			})
 			.then(data => {
+				setEditar(false);
 				console.log("Succesful change in profile");
 			})
 			.catch(error => {
@@ -49,7 +50,7 @@ export const Perfil = () => {
 							type="text"
 							className="form-control"
 							maxLength="120"
-							placeholder={store.user.first_name}
+							placeholder={name}
 							onChange={e => setName(e.target.value)}
 							required
 						/>
@@ -62,13 +63,13 @@ export const Perfil = () => {
 							type="text"
 							className="form-control"
 							maxLength="120"
-							placeholder={store.user.last_name}
+							placeholder={lastname}
 							onChange={e => setLastname(e.target.value)}
 							required
 						/>
 					</div>
 				</div>
-				<p className="text-center">
+				<p className="text-center mt-2">
 					<Link to="/reset">Change Password</Link>
 				</p>
 				<div className="submit-row d-flex justify-content-center my-2">
@@ -76,7 +77,7 @@ export const Perfil = () => {
 						Cancel
 					</button>
 					<button type="submit" className="btn btn-outline-dark ml-2">
-						Accept
+						Change
 					</button>
 				</div>
 			</div>
@@ -90,16 +91,25 @@ export const Perfil = () => {
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Name</label>
-						<div className="form-control"> {store.user.first_name} </div>
+						<div className="form-control"> {name} </div>
 					</div>
 				</div>
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Last Name</label>
-						<div className="form-control"> {store.user.last_name} </div>
+						<div className="form-control"> {lastname} </div>
 					</div>
 				</div>
-				<p className="text-center">
+				<div className="form-row mt-2">
+					<div className="col-md">
+						<label className="ml-2">Email **</label>
+						<div className="form-control"> {store.user.email} </div>
+					</div>
+				</div>
+				<span className="ml-2 mt-0" style={{ fontSize: "12px" }}>
+					**It is not possible to edit your registered e-mail
+				</span>
+				<p className="text-center mt-2">
 					<Link to="/reset">Change Password</Link>
 				</p>
 				<div className="submit-row d-flex justify-content-center my-2">

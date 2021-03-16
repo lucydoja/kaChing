@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			incomes: [],
 			user: {
 				first_name: "Lucia",
-				last_name: "Dominguez"
+				last_name: "Dominguez",
+				email: "lucydoja@gmail.com"
 			},
 			resume: [
 				{
@@ -49,9 +50,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 
 					method: {
-						Credit: 0,
-						Debit: 0,
-						Cash: 0
+						credit: 0,
+						debit: 0,
+						cash: 0
 					}
 				},
 				{
@@ -63,40 +64,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				},
 				{
@@ -108,40 +109,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				},
 				{
@@ -153,40 +154,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				},
 				{
@@ -198,40 +199,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				}
 			]
