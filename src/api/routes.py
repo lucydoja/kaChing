@@ -371,8 +371,10 @@ def get_transaction_data():
         total_clothing_week_3 = accumulate(clothing_week_3, "amount")
         total_clothing_week_4 = accumulate(clothing_week_4, "amount")
 
-
-
+        # Payment Method Count
+        credit_count = len(month_expense_qry.filter(cast(Expense.payment_method, String)=="credit").all())
+        debit_count = len(month_expense_qry.filter(cast(Expense.payment_method, String)=="debit").all())
+        cash_count = len(month_expense_qry.filter(cast(Expense.payment_method, String)=="cash").all())
 
         monthly_data = {
             "year": each["year"],
@@ -411,6 +413,11 @@ def get_transaction_data():
                     "total": total_clothing_expense,
                     "week": [total_clothing_week_1, total_clothing_week_2, total_clothing_week_3, total_clothing_week_4]
                 }
+            },
+            "payment_method": {
+                "credit": credit_count,
+                "debit": debit_count,
+                "cash": cash_count
             }
             }
         resume.append(monthly_data)
