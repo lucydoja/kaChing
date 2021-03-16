@@ -15,6 +15,7 @@ import { Transactions } from "./pages/transactions";
 import { Profile } from "./pages/profileMain";
 import { Perfil } from "./pages/perfil";
 import { Faqs } from "./pages/faqs";
+import { Exchange } from "./pages/exchange";
 
 //create your first component
 const Layout = () => {
@@ -38,6 +39,7 @@ const Layout = () => {
 						<Route exact path="/profile" component={Perfil} />
 						<Route exact path="/profileMain" component={Profile} />
 						<Route exact path="/faqs" component={Faqs} />
+						<Route exact path="/exchange" component={Exchange} />
 
 						<Route>
 							<h1>Not found!</h1>
