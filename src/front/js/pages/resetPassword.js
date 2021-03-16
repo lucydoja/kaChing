@@ -1,5 +1,5 @@
 import { Context } from "../store/appContext";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useHistory } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -29,7 +29,7 @@ export const ResetPass = () => {
 		};
 		console.log(data);
 
-		fetch(process.env.BACKEND_URL + "/reset", {
+		fetch(process.env.BACKEND_URL + "/api/reset", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
