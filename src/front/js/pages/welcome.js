@@ -60,10 +60,12 @@ export const Welcome = () => {
 							<ol style={{ marginLeft: "25px" }}>
 								<li>Think Beyond Income and Expenses</li>
 								<li>
-									Don´t have an account? Register One!{" "}
-									<a href="https://3000-tomato-marmot-hr9sbumu.ws-us03.gitpod.io/register">
-										Create a New Account It’s quick and easy.
-									</a>
+									Don´t have an account?{" "}
+									<Link to={"/register"}>
+										<span className="mr-2 btn" style={{ color: "blue" }} href="#" role="button">
+											RegisterOne
+										</span>
+									</Link>
 								</li>
 								<li>Record your expenses</li>
 								<li>Create a Children´s Savings Kaching </li>
