@@ -80,6 +80,25 @@ def get_user():
 
     return jsonify(user.serialize()), 200
 
+# Change User Data
+@api.route("/change", methods=["POST"])
+@jwt_required()
+def change_user_data():
+
+    upd_first_name = request.json["first_name"]
+    upd_last_name = request.json["last_name"]
+
+    if not (upd_first_name and upd_last_name):
+        return jsonify({"error": "Invalid"}), 400
+
+    user = User.query.filter_by(email=email).first()
+
+    user.first_name = upd_first_name
+    user.last_name = upd_last_name
+    db.session.commit()
+
+    return jsonify({"msg": "Name changed successfully"}), 200
+
 # Reset Password
 @api.route("/reset", methods=["POST"])
 def reset_password():
