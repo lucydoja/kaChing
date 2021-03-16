@@ -85,7 +85,7 @@ def create_user_income():
     if not (amount and detail):
         return jsonify({"error": "Invalid"}), 400
 
-    new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date)
+    new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date, year=year, month=month)
 
     db.session.add(new_income)
     db.session.commit()
@@ -142,7 +142,7 @@ def create_user_expense():
     if not (category and payment_method and amount and detail):
         return jsonify({"error": "Missing parameter"})
 
-    new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, date=date)
+    new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, date=date, year=year, month=month)
 
     db.session.add(new_expense)
     db.session.commit()
@@ -231,15 +231,17 @@ def get_transaction_data():
     most_recent_month = last.date.month
     most_recent_year = last.date.year
 
-    # Get Income by Month
+    # Get Incomes by Months
+    # years_and_months returns a list of objects: {year, month}
     years_and_months = get_months_and_years_ytd(most_recent_year, most_recent_month)
-    month_income_qry = income_qry_ytd.filter(cast(Income.date, DATE)<=datetime.datetime(year=2021,month=3, day=31)).all()
-
     for each in years_and_months:
-        month_qry = income_qry_ytd.filter(cast(Income.date, DATE)<=datetime.datetime(year=each["year"],month=each["month"], day=1)).filter(cast(Income.date, DATE)<=datetime.datetime(year=each["year"],month=each["month"], day=31)).all()
-        for month in month_qry:
-            print(month.amount)
+        month_income_qry = income_qry_ytd.filter_by(year=each["year"], month=each["month"]).all()
+        accumulator = 0
+        for qry in month_income_qry:
+            accumulator = accumulator + qry.amount
+        
 
-    income_qry_month_list = list(map(lambda x: x.serialize(), month_income_qry))
+    month_income_qry_list = list(map(lambda x: x.serialize(), month_income_qry))
+    print(month_income_qry_list)
 
     return jsonify({"time": years_and_months}), 200
