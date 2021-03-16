@@ -423,4 +423,4 @@ def get_transaction_data():
         resume.append(monthly_data)
 
 
-    return jsonify({"resume": resume}), 200
+    return jsonify({"data": resume}), 200
