@@ -225,36 +225,26 @@ def get_transaction_data():
     today = datetime.datetime.now()
     one_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
     
-    # Get All Incomes Year to Date
+    # Get All Incomes and Expenses Year to Date
     income_qry_ytd = Income.query.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago)
-
-    # Get Most Recent Income
-    last_income = income_qry_ytd.order_by(Income.date.desc()).first()
-
-    # years_and_months returns a list of objects: {year, month}
-    income_years_and_months = get_months_and_years_ytd(today.year, today.month)
-    
-    # Get Total Income by Month on Year to Date basis
-    income_resume = []
-    for each in income_years_and_months:
-        month_income_qry = income_qry_ytd.filter_by(year=each["year"], month=each["month"]).all()
-        # accumulate(list, attribute)
-        total_income_of_month = accumulate(month_income_qry, "amount")
-        monthly_income = {"year": each["year"], "month": each["month"], "incomes": total_income_of_month}
-        income_resume.append(monthly_income)
-
-    # Get All Expenses Year to Date
     expense_qry_ytd = Expense.query.filter(cast(Expense.date, DATE)<=today).filter(cast(Expense.date, DATE)>=one_year_ago)
 
-    # Get Most Recent Expense
+    # Get Most Recent Income and Expense
+    last_income = income_qry_ytd.order_by(Income.date.desc()).first()
     last_expense = expense_qry_ytd.order_by(Expense.date.desc()).first()
 
-    # Get years_and_months
-    expense_years_and_months = get_months_and_years_ytd(today.year, today.month)
 
-    # Get Total Expense by Month on Year to Date basis
-    expense_resume = []
-    for each in expense_years_and_months:
+    # Get Year to Date list / years_and_months returns a list of objects: {year, month}
+    years_and_months = get_months_and_years_ytd(today.year, today.month)
+    
+    # Get Total Income and Expense by Month on Year to Date basis
+    resume = []
+    for each in years_and_months:
+        # Total Monthly Income
+        month_income_qry = income_qry_ytd.filter_by(year=each["year"], month=each["month"]).all()
+        total_income_of_month = accumulate(month_income_qry, "amount")
+
+        # Total Monthly Expense
         month_expense_qry = expense_qry_ytd.filter_by(year=each["year"], month=each["month"])
         month_expense_qry_list = month_expense_qry.all()
         total_expense_of_month = accumulate(month_expense_qry_list, "amount")
@@ -271,16 +261,16 @@ def get_transaction_data():
         total_expense_week_3 = accumulate(expense_week_3, "amount")
         total_expense_week_4 = accumulate(expense_week_4, "amount")
 
-        monthly_expense = {
-            "year": each["year"], 
-            "month": each["month"], 
-            "expenses": {"total": total_expense_of_month,
-                        "week": [total_expense_week_1, total_expense_week_2, total_expense_week_3, total_expense_week_4]
-                        }   
-                    }
-        expense_resume.append(monthly_expense)
+        monthly_data = {
+            "year": each["year"],
+            "month": each["month"],
+            "incomes": total_income_of_month,
+            "expenses": {
+                "total": total_expense_of_month,
+                "week": [total_expense_week_1, total_expense_week_2, total_expense_week_3, total_expense_week_4]
+                }
+            }
+        resume.append(monthly_data)
 
-    
 
-
-    return jsonify({"income": income_resume,"expense": expense_resume}), 200
+    return jsonify({"resume": resume}), 200
