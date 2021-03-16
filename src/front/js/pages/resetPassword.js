@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const ResetPass = () => {
 	const { store, actions } = useContext(Context);
-	const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [password1, setPassword1] = useState("");
 	const [password2, setPassword2] = useState("");
@@ -140,14 +139,12 @@ export const ResetPass = () => {
 							<div className="valid-feedback" />
 						</div>
 						<div className="mt-3 form-row justify-content-end">
-							<button
-								className="btn btn-secondary btn-md"
-								type="reset"
-								onClick={() => {
-									history.goBack();
-								}}>
-								Cancel
-							</button>
+							<Link to={"/login"}>
+								<button className="btn btn-secondary btn-md" type="reset">
+									<p className="boton-link"> Cancel</p>
+								</button>
+							</Link>
+
 							<button className="btn btn-primary ml-2 btn-md" type="submit">
 								Reset Password
 							</button>

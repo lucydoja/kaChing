@@ -38,7 +38,7 @@ export const Login = () => {
 				return response.json();
 			})
 			.then(data => {
-				sessionStorage.setItem("user_token", data.access_token);
+				sessionStorage.setItem("access_token", data.access_token);
 				sessionStorage.setItem("is_logged", "true");
 				actions.logged();
 				actions.getIncome();

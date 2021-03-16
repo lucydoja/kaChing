@@ -95,13 +95,13 @@ export const Transactions = () => {
 											<option value="" selected disabled hidden>
 												Category
 											</option>
-											<option value="Home">Home</option>
-											<option value="Food">Food</option>
-											<option value="Transport">Transport</option>
-											<option value="Services">Services</option>
-											<option value="Education">Education</option>
-											<option value="Clothing">Clothing</option>
-											<option value="Entertainment">Entertainment</option>
+											<option value="home">Home</option>
+											<option value="food">Food</option>
+											<option value="transport">Transport</option>
+											<option value="services">Services</option>
+											<option value="education">Education</option>
+											<option value="clothing">Clothing</option>
+											<option value="entertainment">Entertainment</option>
 										</select>
 									</div>
 									<div className="form-row mt-3">
@@ -117,9 +117,9 @@ export const Transactions = () => {
 											<option value="" selected disabled hidden>
 												Payment method
 											</option>
-											<option value="Credit">Credit</option>
-											<option value="Debit">Debit</option>
-											<option value="Cash">Cash</option>
+											<option value="credit">Credit</option>
+											<option value="debit">Debit</option>
+											<option value="cash">Cash</option>
 										</select>
 									</div>
 									<div className="form-row mt-3">

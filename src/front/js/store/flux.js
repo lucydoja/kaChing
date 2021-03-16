@@ -18,31 +18,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [0, 0, 0, 0]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Transport: {
+						transport: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Home: {
+						home: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Education: {
+						education: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						}
@@ -412,7 +412,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getResume: () => {
 				let user_token = sessionStorage.getItem("user_token");
-				fetch(process.env.BACKEND_URL + "/transactions", {
+				fetch(process.env.BACKEND_URL + "/finances", {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
