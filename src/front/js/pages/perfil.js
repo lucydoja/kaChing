@@ -12,8 +12,8 @@ export const Perfil = () => {
 		e.preventDefault();
 
 		const data = {
-			firt_name: name,
-			last_name: lastname
+			firt_name: name.toLowerCase(),
+			last_name: lastname.toLowerCase()
 		};
 		// // fetch de metodo put
 
@@ -31,7 +31,7 @@ export const Perfil = () => {
 				}
 			})
 			.then(data => {
-				console.log("Succesful change profile");
+				console.log("Succesful change in profile");
 			})
 			.catch(error => {
 				console.error("Error:", error);
@@ -41,16 +41,17 @@ export const Perfil = () => {
 	return editar ? (
 		<div className="container d-flex justify-content-center mt-2">
 			<div className="formulario2 my-5 rounded shadow p-2">
-				<h3 className="mt-2">PROFILE</h3>
+				<h3 className="mt-3">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Name</label>
 						<input
 							type="text"
 							className="form-control"
+							maxLength="120"
 							placeholder={store.user.first_name}
-							required
 							onChange={e => setName(e.target.value)}
+							required
 						/>
 					</div>
 				</div>
@@ -60,9 +61,10 @@ export const Perfil = () => {
 						<input
 							type="text"
 							className="form-control"
+							maxLength="120"
 							placeholder={store.user.last_name}
-							required
 							onChange={e => setLastname(e.target.value)}
+							required
 						/>
 					</div>
 				</div>
@@ -84,7 +86,7 @@ export const Perfil = () => {
 	) : (
 		<div className="container d-flex justify-content-center mt-2">
 			<form className="formulario2 my-5 rounded shadow p-2">
-				<h2 className="mt-2 text-center">Profile</h2>
+				<h3 className="mt-3">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Name</label>

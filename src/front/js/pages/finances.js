@@ -1,12 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { ProgressBar_function, BarGraph_function, PieGraphCategory_function, PieGraphMethod_function } from "./Utils";
 
 export const Finances = () => {
 	const { store, actions } = useContext(Context);
-	const [category, setCategory] = useState("Total");
+	const [category, setCategory] = useState("total");
 
 	// llamar a la funcion de get informacion aqui para que tome en cuenta los datos recientemente agregados en el view de trans
+	useEffect(() => {
+		actions.getResume();
+	}, []);
 
 	// esto es para que siempre le salga el resumen del mes actual
 	var date = new Date();
@@ -38,9 +41,9 @@ export const Finances = () => {
 	let monthly_data = datos[0];
 	let weekly_data;
 
-	///DEFINIR CONDICION PARA UNDEFINED
+	///DEFINIR CONDICION PARA UNDEFINED POR SI NO TIENE REGISTROS EN UN MES
 	monthly_data
-		? category == "Total"
+		? category == "total"
 			? (weekly_data = monthly_data["expenses"]["week"])
 			: (weekly_data = monthly_data["category"][category]["week"])
 		: null;
@@ -50,7 +53,7 @@ export const Finances = () => {
 			<div className="formulario2 mb-5 mt-3 row">
 				<h3 className="mt-2">YOUR FINANCES</h3>
 				<div>
-					<form /*onSubmit={e => handleSubmit(e}*/>
+					<form>
 						<div className="form-row mt-3">
 							<label htmlFor="month">Select Year</label>
 							<select
@@ -98,14 +101,14 @@ export const Finances = () => {
 								className="form-control"
 								name="category"
 								id="category">
-								<option value="Total">All</option>
-								<option value="Home">Home</option>
-								<option value="Food">Food</option>
-								<option value="Transport">Transport</option>
-								<option value="Services">Services</option>
-								<option value="Education">Education</option>
-								<option value="Clothing">Clothing</option>
-								<option value="Entertainment">Entertainment</option>
+								<option value="total">All</option>
+								<option value="home">Home</option>
+								<option value="food">Food</option>
+								<option value="transport">Transport</option>
+								<option value="services">Services</option>
+								<option value="education">Education</option>
+								<option value="clothing">Clothing</option>
+								<option value="entertainment">Entertainment</option>
 							</select>
 						</div>
 					</form>
@@ -124,7 +127,7 @@ export const Finances = () => {
 								<BarGraph_function category={category} weekly_data={weekly_data} />
 							</div>
 
-							{category == "Total" ? (
+							{category == "total" ? (
 								<div className="carousel-item  p-3">
 									<PieGraphCategory_function monthly_data={monthly_data} />
 									{/*Por categoria */}

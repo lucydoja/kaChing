@@ -10,7 +10,7 @@ export const ProgressBar_function = props => {
 	let categoria = props.category;
 	let monthly_data = props.monthly_data;
 	let expense;
-	if (categoria == "Total") {
+	if (categoria == "total") {
 		expense = monthly_data["expenses"]["total"];
 	} else {
 		expense = monthly_data["category"][categoria]["total"];
@@ -173,7 +173,7 @@ BarGraph_function.propTypes = {
 export const PieGraphCategory_function = props => {
 	let monthly_data = props.monthly_data;
 	let data = [];
-	let categories = ["Home", "Food", "Transport", "Services", "Education", "Clothing", "Entertainment"];
+	let categories = ["home", "food", "transport", "services", "education", "clothing", "entertainment"];
 	categories.forEach(item => {
 		let valor = monthly_data["category"][item]["total"];
 		data.push(valor);
@@ -247,7 +247,7 @@ PieGraphCategory_function.propTypes = {
 export const PieGraphMethod_function = props => {
 	let monthly_data = props.monthly_data;
 	let data = [];
-	let methods = ["Credit", "Debit", "Cash"];
+	let methods = ["credit", "debit", "cash"];
 	methods.forEach(item => {
 		let valor = monthly_data["method"][item];
 		data.push(valor);
