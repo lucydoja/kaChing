@@ -29,7 +29,8 @@ export const Welcome = () => {
 					</h5>
 
 					<p className="font-italic" style={{ color: "black" }}>
-						<Media style={{ background: "#white" }}>
+
+						<Media style={{ background: "#white", padding: "3%" }}>
 
 							<Media.Body>
 								<h1 style={{ color: "black" }}>
@@ -57,15 +58,17 @@ export const Welcome = () => {
 							/>
 						</Media>
 						<div>
-							<h1>Get the most benefit from your KaChing account.</h1>
+							<h1 style={{ marginLeft: "25px" }}>Get the most benefit from your KaChing account.</h1>
 
-							<ol>
+							<ol style={{ marginLeft: "25px" }}>
 								<li>Think Beyond Income and Expenses</li>
 								<li>
-									Don´t have an account? Register One!{" "}
-									<a href="https://3000-tomato-marmot-hr9sbumu.ws-us03.gitpod.io/register">
-										Create a New Account It’s quick and easy.
-									</a>
+									Don´t have an account?{" "}
+									<Link to={"/register"}>
+										<span className="mr-2 btn" style={{ color: "blue" }} href="#" role="button">
+											RegisterOne
+										</span>
+									</Link>
 								</li>
 								<li>Record your expenses</li>
 								<li>Create a Children´s Savings Kaching </li>
@@ -74,14 +77,14 @@ export const Welcome = () => {
 							</ol>
 						</div>
 					</p>
-					<p className="font-italic" style={{ color: "black" }}>
+					<p className="font-italic" style={{ color: "black", marginLeft: "25px" }}>
 						The easiest and safest way to save and manage your finances.{" "}
 						<i className="fas fa-hand-holding-usd" />{" "}
 					</p>
 				</Media.Body>
 			</Media>
 
-			<Media style={{ background: "white" }}>
+			<Media style={{ background: "white", padding: "3%" }}>
 				<Media.Body>
 
 
@@ -110,7 +113,7 @@ export const Welcome = () => {
 				/>
 			</Media>
 
-			<Media style={{ background: "white" }}>
+			<Media style={{ background: "white", padding: "5%" }}>
 				<img
 					width={250}
 					height={250}
@@ -127,7 +130,7 @@ export const Welcome = () => {
 				</Media.Body>
 			</Media>
 
-			<div className="card-group" style={{ marginTop: 30 }}>
+			<div className="card-group" style={{ marginTop: "0px" }}>
 				<div className="card">
 					<img
 						src="https://images.pexels.com/photos/4475523/pexels-photo-4475523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
