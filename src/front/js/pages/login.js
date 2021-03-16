@@ -51,11 +51,11 @@ export const Login = () => {
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
 			<div className="formulario mb-5">
+				<h3 className="mt-2">LOG IN</h3>
 				<div className="alert alert-info" role="alert">
 					Welcome back to <strong>KaChing! </strong>
 					we are so happy to see you again! Please log in to access your account.
 				</div>
-				<h3 className="mt-2">Log in</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
 						<div className="form-row mt-3">

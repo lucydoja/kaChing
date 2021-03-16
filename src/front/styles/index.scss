@@ -14,11 +14,11 @@ footer{
 }
 
 .posicionFooter{
-    height: 70px;
+    height: 80px;
 }
 
 nav{
-    width: 100vw;
+    
     background-color: white;
     box-shadow: 0px 0px 10px rgb(41, 41, 41);
 }
@@ -133,6 +133,7 @@ padding-left: 1%;
     
     
 }
+
 #pigblue {
     justify-content: center;
     text-align: center;
@@ -150,8 +151,20 @@ padding-left: 1%;
   #hand {
     margin-right: 30px;
 
+<<<<<<< HEAD
 }
 .page__Tittle {
       box-shadow: 5px 10px 18px  #f1bc26;
+=======
+
+.pieChart{
+    max-height: 500px;
+}
+
+h3{
+    font-weight: 999;
+    text-align: center;
+    font-size: 22px;
+>>>>>>> 4988211cc9a233d25205f82322edba4359618884
 
 }

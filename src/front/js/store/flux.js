@@ -4,51 +4,54 @@ const getState = ({ getStore, getActions, setStore }) => {
 			isLogged: "false",
 			expenses: [],
 			incomes: [],
-			user: [],
+			user: {
+				first_name: "Lucia",
+				last_name: "Dominguez"
+			},
 			resume: [
 				{
 					year: 2021,
 					month: 3,
 					incomes: 50000,
 					expenses: {
-						total: 25000,
-						week: [10000, 5000, 3000, 7000]
+						total: 0,
+						week: [0, 0, 0, 0]
 					},
 					category: {
 						Entertainment: {
-							total: 2000,
-							week: [0, 2000, 0, 0]
+							total: 0,
+							week: [0, 0, 0, 0]
 						},
 						Food: {
-							total: 4000,
-							week: [0, 4000, 0, 0]
+							total: 0,
+							week: [0, 0, 0, 0]
 						},
 						Services: {
-							total: 8000,
-							week: [2000, 4000, 0, 2000]
+							total: 0,
+							week: [0, 0, 0, 0]
 						},
 						Transport: {
-							total: 1000,
-							week: [500, 0, 500, 0]
+							total: 0,
+							week: [0, 0, 0, 0]
 						},
 						Home: {
-							total: 1000,
-							week: [500, 0, 500, 0]
+							total: 0,
+							week: [0, 0, 0, 0]
 						},
 						Education: {
-							total: 1000,
-							week: [500, 0, 500, 0]
+							total: 0,
+							week: [0, 0, 0, 0]
 						},
 						Clothing: {
-							total: 1000,
-							week: [500, 0, 500, 0]
+							total: 0,
+							week: [0, 0, 0, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						Credit: 0,
+						Debit: 0,
+						Cash: 0
 					}
 				},
 				{

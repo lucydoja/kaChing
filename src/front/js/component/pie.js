@@ -17,11 +17,9 @@ export const PieGraph = props => {
 		]
 	};
 	return (
-		<div className=" ">
-			<div className="row mt-3 ">
-				<div className="col graficos">
-					<Pie data={data} height={props.height} width={200} />
-				</div>
+		<div className="row mt-3 ">
+			<div className="col graficos">
+				<Pie data={data} height={props.height} width={200} />
 			</div>
 		</div>
 	);
