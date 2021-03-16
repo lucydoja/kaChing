@@ -262,8 +262,36 @@ def get_transaction_data():
         total_expense_week_4 = accumulate(expense_week_4, "amount")
 
         # Get Expenses by Category
-        food_expense = month_expense_qry.filter(cast(Expense.category, String)=="food").all()
         entertainment_expense = month_expense_qry.filter(cast(Expense.category, String)=="entertainment").all()
+        food_expense = month_expense_qry.filter(cast(Expense.category, String)=="food").all()
+        services_expense = month_expense_qry.filter(cast(Expense.category, String)=="services").all()
+        transport_expense = month_expense_qry.filter(cast(Expense.category, String)=="transport").all()
+        home_expense = month_expense_qry.filter(cast(Expense.category, String)=="home").all()
+        education_expense = month_expense_qry.filter(cast(Expense.category, String)=="education").all()
+        clothing_expense = month_expense_qry.filter(cast(Expense.category, String)=="clothing").all()
+
+        # Sum Total Expenses per Category
+        total_entertainment_expense = accumulate(entertainment_expense, "amount")
+        total_food_expense = accumulate(food_expense, "amount")
+        total_services_expense = accumulate(services_expense, "amount")
+        total_transport_expense = accumulate(transport_expense, "amount")
+        total_home_expense = accumulate(home_expense, "amount")
+        total_education_expense = accumulate(education_expense, "amount")
+        total_clothing_expense = accumulate(clothing_expense, "amount")
+
+        # Weekly Expenses per Category
+        entertainment_qry = month_expense_qry.filter(cast(Expense.category, String)=="entertainment")
+        entertainment_week_1 = entertainment_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
+        entertainment_week_2 = entertainment_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
+        entertainment_week_3 = entertainment_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
+        entertainment_week_4 = entertainment_qry.filter(cast(Expense.day, INT)>=23).all()
+
+        food_qry = month_expense_qry.filter(cast(Expense.category, String)=="food")
+        services_qry = month_expense_qry.filter(cast(Expense.category, String)=="services")
+        transport_qry = month_expense_qry.filter(cast(Expense.category, String)=="transport")
+        home_qry = month_expense_qry.filter(cast(Expense.category, String)=="home")
+        education_qry = month_expense_qry.filter(cast(Expense.category, String)=="education")
+        clothing_qry = month_expense_qry.filter(cast(Expense.category, String)=="clothing")
 
 
         monthly_data = {
