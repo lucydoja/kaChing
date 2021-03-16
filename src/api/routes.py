@@ -81,11 +81,12 @@ def create_user_income():
     date = datetime.datetime.now()
     year = date.year
     month = date.month
+    day = date.day
 
     if not (amount and detail):
         return jsonify({"error": "Invalid"}), 400
 
-    new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date, year=year, month=month)
+    new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date, year=year, month=month, day=day)
 
     db.session.add(new_income)
     db.session.commit()
@@ -138,11 +139,12 @@ def create_user_expense():
     date = datetime.datetime.now()
     year = date.year
     month = date.month
+    day = date.day
 
     if not (category and payment_method and amount and detail):
         return jsonify({"error": "Missing parameter"})
 
-    new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, date=date, year=year, month=month)
+    new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, date=date, year=year, month=month, day=day)
 
     db.session.add(new_expense)
     db.session.commit()
