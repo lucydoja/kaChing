@@ -32,7 +32,7 @@ export const Perfil = () => {
 					<h1 className="text-center">General Information</h1>
 				</div>
 			</div>
-			<hr />
+			<br />
 			<div className="d-flex justify-content-center">
 				<form className="rounded shadow p-2" style={{ width: "550px" }} onSubmit={e => handleSubmit(e)}>
 					<div className="form-row">
