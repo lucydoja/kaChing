@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export const BarGraph = props => {
 	const data = {
-		labels: [1, 2, 3, 4],
+		labels: ["week 1", "week 2", "week 3", "week 4"],
 		datasets: [
 			{
 				label: "Expenses",
@@ -31,14 +31,6 @@ export const BarGraph = props => {
 						options={{
 							//title: { display: true, text: "Monthly expenses per week", fontSize: 20 },
 							scales: {
-								xAxes: [
-									{
-										scaleLabel: {
-											display: true,
-											labelString: "Weeks"
-										}
-									}
-								],
 								yAxes: [
 									{
 										scaleLabel: {

@@ -109,7 +109,7 @@ export const BarGraph_function = props => {
 
 	if (sum == 0) {
 		return (
-			<div className="alert alert-info mt-3" role="alert">
+			<div className="alert alert-info mt-5 pt-4" role="alert">
 				<p>
 					It looks like you didn&apos;t register any expenses in {category} this month! So there&apos;s really
 					not much to see here! I hope this means you are saving money!!
@@ -141,9 +141,9 @@ export const BarGraph_function = props => {
 			<h5 className="col text-center mt-3 ">
 				<strong>Monthly expenses per week</strong>
 			</h5>
-			<div className="alert alert-dark mt-3" role="alert">
+			<div className="alert alert-secondary mt-3" role="alert">
 				<p>
-					It looks like <strong>week {week_max}</strong> was a though week! That week you spent{" "}
+					It looks like <strong>week {week_max}</strong> was a tough week! That week you spent{" "}
 					<strong>{maximo}</strong> in <strong>{category}</strong>. Meanwhile,{" "}
 					<strong>week {week_min}</strong> was the one with the least expenses, with a total of{" "}
 					<strong>{minimo}</strong>. In average you are spending {average} in {category} per week!
@@ -203,7 +203,7 @@ export const PieGraphCategory_function = props => {
 			<h5 className="col text-center mt-3">
 				<strong>Monthly expenses per category</strong>
 			</h5>
-			<div className="alert alert-dark mt-3" role="alert">
+			<div className="alert alert-secondary mt-3" role="alert">
 				<p>
 					This month you spent <strong>most</strong> of your money in {cat_max} for a total of{" "}
 					<strong>{maximo}</strong>, which represents the <strong>{porc_max}%</strong> of your expenses! The
@@ -222,7 +222,6 @@ export const PieGraphCategory_function = props => {
 					);
 				})}
 			</div>
-
 			<PieGraph
 				datos={data}
 				labels={categories}
@@ -278,7 +277,7 @@ export const PieGraphMethod_function = props => {
 			<h5 className="col text-center mt-4">
 				<strong>Types of payment methods used</strong>
 			</h5>
-			<div className="alert alert-dark mt-2" role="alert">
+			<div className="alert alert-secondary mt-2" role="alert">
 				<p>
 					<strong>Most</strong> of your transactions where made with <strong>{met_max}</strong>, you used this
 					method <strong>{porc_max}% </strong>
