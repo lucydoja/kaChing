@@ -280,48 +280,98 @@ def get_transaction_data():
         total_clothing_expense = accumulate(clothing_expense, "amount")
 
         # Weekly Expenses per Category
+        # Entertainment
         entertainment_qry = month_expense_qry.filter(cast(Expense.category, String)=="entertainment")
         entertainment_week_1 = entertainment_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
         entertainment_week_2 = entertainment_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
         entertainment_week_3 = entertainment_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
         entertainment_week_4 = entertainment_qry.filter(cast(Expense.day, INT)>=23).all()
 
+        # Weekly totals: Entertainment
+        total_entertainment_week_1 = accumulate(entertainment_week_1, "amount")
+        total_entertainment_week_2 = accumulate(entertainment_week_2, "amount")
+        total_entertainment_week_3 = accumulate(entertainment_week_3, "amount")
+        total_entertainment_week_4 = accumulate(entertainment_week_4, "amount")
+
+        # Food
         food_qry = month_expense_qry.filter(cast(Expense.category, String)=="food")
         food_week_1 = food_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
         food_week_2 = food_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
         food_week_3 = food_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
         food_week_4 = food_qry.filter(cast(Expense.day, INT)>=23).all()
 
+        # Weekly totals: Food
+        total_food_week_1 = accumulate(food_week_1, "amount")
+        total_food_week_2 = accumulate(food_week_2, "amount")
+        total_food_week_3 = accumulate(food_week_3, "amount")
+        total_food_week_4 = accumulate(food_week_4, "amount")
 
+        # Services
         services_qry = month_expense_qry.filter(cast(Expense.category, String)=="services")
         services_week_1 = services_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
         services_week_2 = services_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
         services_week_3 = services_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
         services_week_4 = services_qry.filter(cast(Expense.day, INT)>=23).all()
 
+        # Weekly totals: Services
+        total_services_week_1 = accumulate(services_week_1, "amount")
+        total_services_week_2 = accumulate(services_week_2, "amount")
+        total_services_week_3 = accumulate(services_week_3, "amount")
+        total_services_week_4 = accumulate(services_week_4, "amount")
+
+        # Transport
         transport_qry = month_expense_qry.filter(cast(Expense.category, String)=="transport")
         transport_week_1 = transport_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
         transport_week_2 = transport_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
         transport_week_3 = transport_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
         transport_week_4 = transport_qry.filter(cast(Expense.day, INT)>=23).all()
 
+        # Weekly totals: Transport
+        total_transport_week_1 = accumulate(transport_week_1, "amount")
+        total_transport_week_2 = accumulate(transport_week_2, "amount")
+        total_transport_week_3 = accumulate(transport_week_3, "amount")
+        total_transport_week_4 = accumulate(transport_week_4, "amount")
+
+        # Home
         home_qry = month_expense_qry.filter(cast(Expense.category, String)=="home")
         home_week_1 = home_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
         home_week_2 = home_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
         home_week_3 = home_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
         home_week_4 = home_qry.filter(cast(Expense.day, INT)>=23).all()
 
+        # Weekly totals: Home
+        total_home_week_1 = accumulate(home_week_1, "amount")
+        total_home_week_2 = accumulate(home_week_2, "amount")
+        total_home_week_3 = accumulate(home_week_3, "amount")
+        total_home_week_4 = accumulate(home_week_4, "amount")
+
+        # Education
         education_qry = month_expense_qry.filter(cast(Expense.category, String)=="education")
         education_week_1 = education_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
         education_week_2 = education_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
         education_week_3 = education_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
         education_week_4 = education_qry.filter(cast(Expense.day, INT)>=23).all()
 
+        # Weekly totals: Education
+        total_education_week_1 = accumulate(education_week_1, "amount")
+        total_education_week_2 = accumulate(education_week_2, "amount")
+        total_education_week_3 = accumulate(education_week_3, "amount")
+        total_education_week_4 = accumulate(education_week_4, "amount")
+
+        # Clothing
         clothing_qry = month_expense_qry.filter(cast(Expense.category, String)=="clothing")
         clothing_week_1 = clothing_qry.filter(cast(Expense.day, INT)>=1).filter(cast(Expense.day, INT)<=8).all()
         clothing_week_2 = clothing_qry.filter(cast(Expense.day, INT)>=9).filter(cast(Expense.day, INT)<=15).all()
         clothing_week_3 = clothing_qry.filter(cast(Expense.day, INT)>=16).filter(cast(Expense.day, INT)<=22).all()
         clothing_week_4 = clothing_qry.filter(cast(Expense.day, INT)>=23).all()
+
+        # Weekly totals: Clothing
+        total_clothing_week_1 = accumulate(clothing_week_1, "amount")
+        total_clothing_week_2 = accumulate(clothing_week_2, "amount")
+        total_clothing_week_3 = accumulate(clothing_week_3, "amount")
+        total_clothing_week_4 = accumulate(clothing_week_4, "amount")
+
+
 
 
         monthly_data = {
@@ -331,7 +381,37 @@ def get_transaction_data():
             "expenses": {
                 "total": total_expense_of_month,
                 "week": [total_expense_week_1, total_expense_week_2, total_expense_week_3, total_expense_week_4]
+                },
+            "category": {
+                "entertainment": {
+                    "total": total_entertainment_expense,
+                    "week": [total_entertainment_week_1, total_entertainment_week_2, total_entertainment_week_3, total_entertainment_week_4]
+                },
+                "food": {
+                    "total": total_food_expense,
+                    "week": [total_food_week_1, total_food_week_2, total_food_week_3, total_food_week_4]
+                },
+                "services": {
+                    "total": total_services_expense,
+                    "week": [total_services_week_1, total_services_week_2, total_services_week_3, total_services_week_4]
+                },
+                "transport": {
+                    "total": total_transport_expense,
+                    "week": [total_transport_week_1, total_transport_week_2, total_transport_week_3, total_transport_week_4]
+                },
+                "home": {
+                    "total": total_home_expense,
+                    "week": [total_home_week_1, total_home_week_2, total_home_week_3, total_home_week_4]
+                },
+                "education": {
+                    "total": total_education_expense,
+                    "week": [total_education_week_1, total_education_week_2, total_education_week_3, total_education_week_4]
+                },
+                "clothing": {
+                    "total": total_clothing_expense,
+                    "week": [total_clothing_week_1, total_clothing_week_2, total_clothing_week_3, total_clothing_week_4]
                 }
+            }
             }
         resume.append(monthly_data)
 
