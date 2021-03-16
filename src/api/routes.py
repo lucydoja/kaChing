@@ -233,17 +233,17 @@ def get_transaction_data():
     most_recent_year = last.date.year
     most_recent_month = last.date.month
 
-    # Get Incomes by Months
     # years_and_months returns a list of objects: {year, month}
     years_and_months = get_months_and_years_ytd(most_recent_year, most_recent_month)
-
+    
+    # Get Total Income by Month on Year to Date basis
+    income_resume = []
     for each in years_and_months:
         month_income_qry = income_qry_ytd.filter_by(year=each["year"], month=each["month"]).all()
-        # Accumulate(list, value_to_accumulate)
-        total_income_month = accumulate(month_income_qry, amount)
-        
+        # accumulate(list, value_to_accumulate)
+        total_income_of_month = accumulate(month_income_qry, amount)
+        monthly_income = {"year": each["year"], "month": each["month"], "incomes": total_income_of_month}
+        income_resume.append(monthly_income)
 
-    month_income_qry_list = list(map(lambda x: x.serialize(), month_income_qry))
-    print(month_income_qry_list)
 
-    return jsonify({"time": years_and_months}), 200
+    return jsonify({"time": income_resume}), 200
