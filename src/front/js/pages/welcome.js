@@ -99,7 +99,7 @@ export const Welcome = () => {
 						<h2 className="text-center mt-4">Quick Start</h2>
 						<div className="mx-auto">
 							<ol>
-								<li>Do you need help tracking your expenses?</li>
+								<li>Do you need help tracking your finances?</li>
 								<li>
 									<Link to={"/register"}>
 										<span className="" href="#" role="button">
@@ -115,7 +115,7 @@ export const Welcome = () => {
 										</span>
 									</Link>
 								</li>
-								<li>Record your expenses</li>
+								<li>Record your expenses and incomes</li>
 								<li>Watch your finances and set your goals</li>
 								<li>Time to celebrate your achievements</li>
 							</ol>
@@ -211,11 +211,8 @@ export const Welcome = () => {
 						/>
 					</Media.Body>
 				</Media>
-				<p className="font-italic" style={{ color: "black", fontSize: "15px" }}>
-					The information on this site and the products and services offered are not intended for distribution
-					to any person in any country or jurisdiction where such distribution or use would be contrary to
-					local law or regulation.{" "}
-				</p>
+
+				<h2 className="text-center mt-3">Getting Started</h2>
 				<div className="card-group mt-3">
 					<div className="card m-1">
 						<img
@@ -225,9 +222,14 @@ export const Welcome = () => {
 						/>
 						<div className="card-body ">
 							<h5 className="card-title">First step</h5>
-							<p className="card-text">Think Beyond Income and Expenses</p>
+							<p className="card-text text-justify">
+								Think Beyond Income and Expenses <br /> Do you need help tracking your finances? If the
+								answer is YES! this is the Web App for you.
+							</p>
 							<p className="card-text">
-								<small className="text-muted">Why don´t you save up for a real life-changer?</small>
+								<small className="text-muted">
+									Why don&apos;t you save up for a real life-changer?
+								</small>
 							</p>
 						</div>
 					</div>
@@ -238,29 +240,43 @@ export const Welcome = () => {
 						/>
 						<div className="card-body">
 							<h5 className="card-title">Second step</h5>
-							<p className="card-text">Don´t have an account? Register One!</p>
+							<p className="card-text text-justify">
+								Don&apos;t have an account?{" "}
+								<Link to={"/register"}>
+									<span className="" href="#" role="button">
+										Register One!
+									</span>
+								</Link>{" "}
+								<br /> It is really easy, our register is short and completely FREE! Don&apos;t miss out
+								on this on the kaChing! experience.
+							</p>
 							<p className="card-text">
-								<small className="text-muted">Trying to save up. It´s the easiest way to do it</small>
+								<small className="text-muted">
+									Trying to save up? It&apos;s the easiest way to do it
+								</small>
 							</p>
 						</div>
 					</div>
 					<div className="card m-1">
 						<img
-							src="https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+							src="https://images.pexels.com/photos/6194333/pexels-photo-6194333.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 							className="card-img-top"
 							alt="..."
 						/>
 						<div className="card-body">
-							<h5 className="card-title">Record your expenses</h5>
-							<p className="card-text">
-								This is a wider card with supporting text below as a natural lead-in to additional
-								content. This card has even longer content than the first to show that equal height
-								action.
+							<h5 className="card-title">Third step</h5>
+							<p className="card-text text-justify">
+								It is time to{" "}
+								<Link to={"/login"}>
+									<span className="" href="#" role="button">
+										Log in!
+									</span>
+								</Link>{" "}
+								<br /> WOW! You are now part of the kaChing! family. Thank you for giving us a chance.
 							</p>
 							<p className="card-text">
-								<small className="text-muted">
-									Every month, I transfer part of my salary into a savings account. I think it’s
-									important to save for a rainy day.
+								<small className="text-muted ">
+									If it comes back it&apos;s meant for you ... Doesn&apos;t apply for money!
 								</small>
 							</p>
 						</div>
@@ -269,22 +285,20 @@ export const Welcome = () => {
 				<div className="card-group">
 					<div className="card m-1">
 						<img
-							src="https://images.pexels.com/photos/6194333/pexels-photo-6194333.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+							src="https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
 							className="card-img-top"
 							alt="..."
 						/>
 						<div className="card-body">
-							<h5 className="card-title" />
-							<p className="card-text">Create a Children´s Savings Kaching</p>
-							<p className="card-text">
-								{" "}
-								Fortunately, you can secure long-term savings for your kids with a few strategic methods
-								and accounts.
+							<h5 className="card-title">Record your expenses and incomes</h5>
+							<p className="card-text text-justify">
+								Once you&apos;re logged in, just go to to <strong>transactions</strong> and add your
+								expenses and incomes. Then go to <strong>finances</strong> and see how you&apos;re
+								doing!
 							</p>
 							<p className="card-text">
-								<small className="text-muted ">
-									Child: Mom, can you buy me this new toy? Mother: No, it’s too expensive. Money
-									doesn’t grow on trees!
+								<small className="text-muted text-justify">
+									I think it’s important to save for a rainy day.
 								</small>
 							</p>
 						</div>
@@ -296,12 +310,14 @@ export const Welcome = () => {
 						/>
 						<div className="card-body">
 							<h5 className="card-title">Project your goals</h5>
-							<p className="card-text">
+							<p className="card-text text-justify">
 								Whether you want to save up to buy your first home, jump start your retirement savings,
-								or pay off debt, there´s no better time to set some financial goals with us!
+								or pay off debt, there&apos;s no better time to set some financial goals with us!
 							</p>
 							<p className="card-text" />
-							<small className="text-muted ">The best way to predict the future is to invent it</small>
+							<small className="text-muted text-justify mt-auto">
+								The best way to predict the future is to invent it
+							</small>
 						</div>
 					</div>
 					<div className="card m-1">
@@ -312,13 +328,10 @@ export const Welcome = () => {
 						/>
 						<div className="card-body">
 							<h5 className="card-title">Time to celebrate your achievements</h5>
-							<p className="card-text">
-								I´m hoping that I can teach you how to add a harvest season into your life and remember
-								to celebrate your successes instead of reaching milestones and just moving along to the
-								next one.
-							</p>
-							<p className="card-text">
-								<small className="text-muted" />
+							<p className="card-text text-justify">
+								I&apos;m hoping that I can teach you how to add a harvest season into your life and
+								remember to celebrate your successes instead of reaching milestones and just moving
+								along to the next one.
 							</p>
 							<p className="card-text">
 								<small className="text-muted ">
@@ -328,9 +341,13 @@ export const Welcome = () => {
 						</div>
 					</div>
 				</div>
-
-				<div className="posicionFooter" />
+				<p className="font-italic" style={{ color: "black", fontSize: "15px" }}>
+					The information on this site and the products and services offered are not intended for distribution
+					to any person in any country or jurisdiction where such distribution or use would be contrary to
+					local law or regulation.{" "}
+				</p>
 			</div>
+			<div className="posicionFooter" />
 		</div>
 	);
 };
