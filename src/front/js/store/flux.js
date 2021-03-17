@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			isLogged: "false",
+			isLogged: false,
 			expenses: [],
 			incomes: [],
 			user: null,
@@ -11,8 +11,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction
 
 			logged: () => {
-				let status = sessionStorage.getItem("is_logged");
-				status != "true" ? setStore({ isLogged: "false" }) : setStore({ isLogged: status });
+				let status = JSON.parse(sessionStorage.getItem("is_logged"));
+				status != true ? setStore({ isLogged: false }) : setStore({ isLogged: status });
 			},
 
 			logOut: () => {
