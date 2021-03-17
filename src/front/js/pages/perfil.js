@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 export const Perfil = () => {
 	const { store, actions } = useContext(Context);
-	const [name, setName] = useState("");
-	const [lastname, setLastname] = useState("");
+	const [name, setName] = useState(store.user.first_name);
+	const [lastname, setLastname] = useState(store.user.last_name);
 	const [editar, setEditar] = useState(false);
 
 	const handleSubmit = e => {
 		e.preventDefault();
 
 		const data = {
-			firt_name: name,
-			last_name: lastname
+			first_name: name.toLowerCase(),
+			last_name: lastname.toLowerCase()
 		};
 		// // fetch de metodo put
 
@@ -31,7 +31,8 @@ export const Perfil = () => {
 				}
 			})
 			.then(data => {
-				console.log("Succesful change profile");
+				setEditar(false);
+				console.log("Succesful change in profile");
 			})
 			.catch(error => {
 				console.error("Error:", error);
@@ -41,16 +42,17 @@ export const Perfil = () => {
 	return editar ? (
 		<div className="container d-flex justify-content-center mt-2">
 			<div className="formulario2 my-5 rounded shadow p-2">
-				<h3 className="mt-2">PROFILE</h3>
+				<h3 className="mt-3">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Name</label>
 						<input
 							type="text"
 							className="form-control"
-							placeholder={store.user.first_name}
-							required
+							maxLength="120"
+							placeholder={name}
 							onChange={e => setName(e.target.value)}
+							required
 						/>
 					</div>
 				</div>
@@ -60,13 +62,14 @@ export const Perfil = () => {
 						<input
 							type="text"
 							className="form-control"
-							placeholder={store.user.last_name}
-							required
+							maxLength="120"
+							placeholder={lastname}
 							onChange={e => setLastname(e.target.value)}
+							required
 						/>
 					</div>
 				</div>
-				<p className="text-center">
+				<p className="text-center mt-2">
 					<Link to="/reset">Change Password</Link>
 				</p>
 				<div className="submit-row d-flex justify-content-center my-2">
@@ -74,7 +77,7 @@ export const Perfil = () => {
 						Cancel
 					</button>
 					<button type="submit" className="btn btn-outline-dark ml-2">
-						Accept
+						Change
 					</button>
 				</div>
 			</div>
@@ -84,20 +87,29 @@ export const Perfil = () => {
 	) : (
 		<div className="container d-flex justify-content-center mt-2">
 			<form className="formulario2 my-5 rounded shadow p-2">
-				<h2 className="mt-2 text-center">Profile</h2>
+				<h3 className="mt-3">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Name</label>
-						<div className="form-control"> {store.user.first_name} </div>
+						<div className="form-control"> {name} </div>
 					</div>
 				</div>
 				<div className="form-row my-2">
 					<div className="col-md">
 						<label className="ml-2">Last Name</label>
-						<div className="form-control"> {store.user.last_name} </div>
+						<div className="form-control"> {lastname} </div>
 					</div>
 				</div>
-				<p className="text-center">
+				<div className="form-row mt-2">
+					<div className="col-md">
+						<label className="ml-2">Email **</label>
+						<div className="form-control"> {store.user.email} </div>
+					</div>
+				</div>
+				<span className="ml-2 mt-0" style={{ fontSize: "12px" }}>
+					**It is not possible to edit your registered e-mail
+				</span>
+				<p className="text-center mt-2">
 					<Link to="/reset">Change Password</Link>
 				</p>
 				<div className="submit-row d-flex justify-content-center my-2">

@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			incomes: [],
 			user: {
 				first_name: "Lucia",
-				last_name: "Dominguez"
+				last_name: "Dominguez",
+				email: "lucydoja@gmail.com"
 			},
 			resume: [
 				{
@@ -18,40 +19,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [0, 0, 0, 0]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Transport: {
+						transport: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Home: {
+						home: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Education: {
+						education: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 0,
 							week: [0, 0, 0, 0]
 						}
 					},
 
 					method: {
-						Credit: 0,
-						Debit: 0,
-						Cash: 0
+						credit: 0,
+						debit: 0,
+						cash: 0
 					}
 				},
 				{
@@ -63,40 +64,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				},
 				{
@@ -108,40 +109,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				},
 				{
@@ -153,40 +154,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				},
 				{
@@ -198,40 +199,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 						week: [10000, 5000, 3000, 7000]
 					},
 					category: {
-						Entertainment: {
+						entertainment: {
 							total: 2000,
 							week: [0, 2000, 0, 0]
 						},
-						Food: {
+						food: {
 							total: 4000,
 							week: [0, 4000, 0, 0]
 						},
-						Services: {
+						services: {
 							total: 8000,
 							week: [2000, 4000, 0, 2000]
 						},
-						Transport: {
+						transport: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Home: {
+						home: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Education: {
+						education: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						},
-						Clothing: {
+						clothing: {
 							total: 1000,
 							week: [500, 0, 500, 0]
 						}
 					},
 
 					method: {
-						Credit: 12,
-						Debit: 6,
-						Cash: 5
+						credit: 12,
+						debit: 6,
+						cash: 5
 					}
 				}
 			]
@@ -334,7 +335,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						setStore({ favorites: data });
 						console.log("Expense deleted");
 					})
 					.catch(error => {
@@ -364,7 +364,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						setStore({ favorites: data });
 						console.log("Income deleted");
 					})
 					.catch(error => {
@@ -381,12 +380,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
 						return response.json();
 					})
 					.then(data => {
-						const updIncome = data.data;
-						setStore({ incomes: [...updIncome] });
-					});
+						setStore({ incomes: data.data });
+					})
+					.catch(err => console.error(err));
 			},
 			getExpense: () => {
 				let user_token = sessionStorage.getItem("user_token");
@@ -398,12 +400,57 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
 						return response.json();
 					})
 					.then(data => {
-						const updExpense = data.data;
-						setStore({ expenses: [...updExpense] });
-					});
+						setStore({ expenses: data.data });
+					})
+					.catch(err => console.error(err));
+			},
+
+			getResume: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/finances", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ resume: data.data });
+					})
+					.catch(err => console.error(err));
+			},
+
+			getUser: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/user", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ user: data.data });
+					})
+					.catch(err => console.error(err));
 			}
 		}
 	};

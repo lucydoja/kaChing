@@ -1,6 +1,6 @@
 import { Context } from "../store/appContext";
 import React, { useState, useContext } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const ResetPass = () => {
@@ -11,6 +11,7 @@ export const ResetPass = () => {
 	const [securityQ, setSecurityQ] = useState("");
 	const [securityA, setSecurityA] = useState("");
 	const [redirect, setRedirect] = useState(false);
+	const history = useHistory();
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -139,12 +140,19 @@ export const ResetPass = () => {
 							<div className="valid-feedback" />
 						</div>
 						<div className="mt-3 form-row justify-content-end">
-							<Link to={"/login"}>
+							{/*<Link to={"/login"}>
 								<button className="btn btn-secondary btn-md" type="reset">
 									<p className="boton-link"> Cancel</p>
 								</button>
-							</Link>
-
+							</Link>*/}
+							<button
+								className="btn btn-secondary btn-md"
+								type="reset"
+								onClick={() => {
+									history.goBack();
+								}}>
+								<p className="boton-link"> Cancel</p>
+							</button>
 							<button className="btn btn-primary ml-2 btn-md" type="submit">
 								Reset Password
 							</button>
