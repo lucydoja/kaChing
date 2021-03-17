@@ -37,7 +37,11 @@ const Layout = () => {
 						<Route exact path="/profile" component={Perfil} />
 						<Route exact path="/faqs" component={Faqs} />
 						<Route exact path="/exchange" component={Exchange} />
+<<<<<<< HEAD
 						<Route exact path="/about" component={About} />
+=======
+						<Route exact path="/aboutUs" component={About} />
+>>>>>>> 78257a504c98ef208b2ccb67904fbd6c4c4e5cff
 
 						<Route>
 							<h1>Not found!</h1>
