@@ -17,7 +17,7 @@ export const Perfil = () => {
 		};
 		// // fetch de metodo put
 
-		fetch(process.env.BACKEND_URL + "/profileMain", {
+		fetch(process.env.BACKEND_URL + "/api/profile", {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json"
