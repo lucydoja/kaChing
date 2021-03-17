@@ -445,7 +445,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						console.log(data.data);
 						setStore({ user: data.data });
 					})
 					.catch(err => console.error(err));
