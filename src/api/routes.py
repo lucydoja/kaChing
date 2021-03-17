@@ -78,7 +78,7 @@ def get_user():
     current_user_email = get_jwt_identity()
     user = User.query.filter_by(email=current_user_email).first()
 
-    return jsonify(user.serialize()), 200
+    return jsonify({"data": user.serialize()}), 200
 
 # Change User Data
 @api.route("/profile", methods=["PUT"])

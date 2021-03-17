@@ -4,11 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			isLogged: "false",
 			expenses: [],
 			incomes: [],
-			user: {
-				first_name: "Lucia",
-				last_name: "Dominguez",
-				email: "lucydoja@gmail.com"
-			},
+			user: {},
 			resume: [
 				{
 					year: 2021,
@@ -449,6 +445,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
+						console.log(data.data);
 						setStore({ user: data.data });
 					})
 					.catch(err => console.error(err));
