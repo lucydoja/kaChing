@@ -247,20 +247,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			logOut: () => {
-				sessionStorage.removeItem("user_token");
+				sessionStorage.removeItem("access_token");
 				sessionStorage.removeItem("is_logged");
 				getActions().logged();
 			},
 
 			addExpense: datos => {
 				const data = datos;
-				let user_token = sessionStorage.getItem("user_token");
+				let access_token = sessionStorage.getItem("access_token");
+				console.log(access_token);
 
 				fetch(process.env.BACKEND_URL + "/api/expense", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					},
 					body: JSON.stringify(data)
 				})
@@ -285,13 +286,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			addIncome: datos => {
 				let data = datos;
-				let user_token = sessionStorage.getItem("user_token");
+				let access_token = sessionStorage.getItem("access_token");
 
 				fetch(process.env.BACKEND_URL + "/api/income", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					},
 					body: JSON.stringify(data)
 				})
@@ -315,13 +316,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deleteExpense: variable => {
-				let user_token = sessionStorage.getItem("user_token");
+				let access_token = sessionStorage.getItem("access_token");
 
 				fetch(process.env.BACKEND_URL + "/api/expense", {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					},
 					body: JSON.stringify({ id: variable })
 				})
@@ -344,13 +345,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deleteIncome: variable => {
-				let user_token = sessionStorage.getItem("user_token");
+				let access_token = sessionStorage.getItem("access_token");
 
 				fetch(process.env.BACKEND_URL + "/api/income", {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					},
 					body: JSON.stringify({ id: variable })
 				})
@@ -372,12 +373,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			getIncome: () => {
-				let user_token = sessionStorage.getItem("user_token");
+				let access_token = sessionStorage.getItem("access_token");
 				fetch(process.env.BACKEND_URL + "/api/income", {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					}
 				})
 					.then(response => {
@@ -392,12 +393,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error(err));
 			},
 			getExpense: () => {
-				let user_token = sessionStorage.getItem("user_token");
+				let access_token = sessionStorage.getItem("access_token");
 				fetch(process.env.BACKEND_URL + "/api/expense", {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					}
 				})
 					.then(response => {
@@ -413,12 +414,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getResume: () => {
-				let user_token = sessionStorage.getItem("user_token");
-				fetch(process.env.BACKEND_URL + "/finances", {
+				let access_token = sessionStorage.getItem("access_token");
+				fetch(process.env.BACKEND_URL + "/api/finances", {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					}
 				})
 					.then(response => {
@@ -434,12 +435,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getUser: () => {
-				let user_token = sessionStorage.getItem("user_token");
-				fetch(process.env.BACKEND_URL + "/user", {
+				let access_token = sessionStorage.getItem("access_token");
+				fetch(process.env.BACKEND_URL + "/api/user", {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + user_token
+						Authorization: "Bearer " + access_token
 					}
 				})
 					.then(response => {

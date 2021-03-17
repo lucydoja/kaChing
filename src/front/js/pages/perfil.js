@@ -54,7 +54,6 @@ export const Perfil = () => {
 							onChange={e => setName(e.target.value)}
 							required
 						/>
-
 					</div>
 				</div>
 				<div className="form-row my-2">

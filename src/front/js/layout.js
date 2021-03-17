@@ -28,7 +28,6 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-
 						<Route exact path="/" component={Welcome} />
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/reset" component={ResetPass} />
@@ -38,8 +37,7 @@ const Layout = () => {
 						<Route exact path="/profile" component={Perfil} />
 						<Route exact path="/faqs" component={Faqs} />
 						<Route exact path="/exchange" component={Exchange} />
-            <Route exact path="/about" component={About} />
-
+						<Route exact path="/about" component={About} />
 
 						<Route>
 							<h1>Not found!</h1>
