@@ -3,13 +3,10 @@ import PropTypes from "prop-types";
 
 export const ProgressBar = props => {
 	return (
-		<div className="mt-5 mb-5">
-			<h5 className="text-center">
-				<strong>Porcentage of income spent</strong>
-			</h5>
+		<div className=" mb-5">
 			<div className="progress-bar mt-2 ">
 				<div className="filler" style={{ width: `${props.dato}%` }}>
-					<span className="mb-1">
+					<span className="m-0 p-0">
 						<strong>{props.dato}%</strong>
 					</span>
 				</div>

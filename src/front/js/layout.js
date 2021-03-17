@@ -2,21 +2,20 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { Register } from "./pages/register";
 import { Login } from "./pages/login";
-import { View1 } from "./pages/view1";
 import { ResetPass } from "./pages/resetPassword";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
-import { Expenses } from "./pages/expenses";
 import { Welcome } from "./pages/welcome";
-import { IncExp } from "./pages/inc-exp";
-
+import { Transactions } from "./pages/transactions";
 import { Perfil } from "./pages/perfil";
 import { About } from "./pages/about";
+import { Faqs } from "./pages/faqs";
+import { Exchange } from "./pages/exchange";
+
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -29,39 +28,19 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/view1">
-							<View1 />
-						</Route>
-						<Route exact path="/expenses">
-							<Expenses />
-						</Route>
-						<Route exact path="/register">
-							<Register />
-						</Route>
-						<Route exact path="/reset">
-							<ResetPass />
-						</Route>
-						<Route exact path="/login">
-							<Login />
-						</Route>
-						<Route exact path="/finances">
-							<Finances />
-						</Route>
-						<Route exact path="/welcome">
-							<Welcome />
-						</Route>
-						<Route exact path="/incexp">
-							<IncExp />
-						</Route>
-						<Route exact path="/profile">
-							<Perfil />
-						</Route>
-						<Route exact path="/about">
-							<About />
-						</Route>
+
+						<Route exact path="/" component={Welcome} />
+						<Route exact path="/register" component={Register} />
+						<Route exact path="/reset" component={ResetPass} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/finances" component={Finances} />
+						<Route exact path="/transactions" component={Transactions} />
+						<Route exact path="/profile" component={Perfil} />
+						<Route exact path="/faqs" component={Faqs} />
+						<Route exact path="/exchange" component={Exchange} />
+            <Route exact path="/about" component={About} />
+
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

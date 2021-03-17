@@ -2,31 +2,130 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
+import Spinner from "react-bootstrap/Spinner";
+import Image from "react-bootstrap/Image";
+import { Media } from "react-bootstrap";
+import { Card, Container, Row, Col, Toast, Badge } from "react-bootstrap";
+import grafico from "../../img/grafico.png";
+import finances from "../../img/finances.png";
+import registro from "../../img/registro.png";
+import logo from "../../img/logo.jpg";
 
 export const Welcome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container mb-2">
-			<div className="alert alert-primary" role="alert">
-				<h4 className="alert-heading text-warning">What is kaChing?</h4>
-				<p>
-					Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help you
-					to save your money and make a budget to how you should spend your money Saving money is at the heart
-					of all good financial plans. Learn how to save money consistently even when it seems like there
-					isn´t any money left to spare.
-				</p>
-				Here are smart financial steps to take if you need help overcoming your barriers to saving.
-				<p className="mb-0" />
-			</div>
-			<div className="alert alert-warning " role="alert">
-				<h5 className="alert-heading">Benefits of KaChing</h5>
-				<p />
-				You open your account free in less than 3 minutes and you can close it with a single click., No
-				commissions. No strings attached. No surprises.
-				<p className="mb-0" />
-			</div>
-			<div className="card-group">
+		<div className="container mb-2 " id="box-principal">
+			<Image
+				src="https://media.giphy.com/media/13ln9K5TWkNTLa/giphy.gif"
+				style={{ width: "100%", height: "250px" }}
+			/>
+
+			<Media style={{ background: "white" }}>
+				<Media.Body>
+					<h5 style={{ color: "black" }}>
+						{" "}
+						<i className="far fa-piggy-bank" />
+					</h5>
+
+					<p className="font-italic" style={{ color: "black" }}>
+						<Media style={{ background: "#white", padding: "3%" }}>
+							<Media.Body>
+								<h1 style={{ color: "black" }}>
+									Welcome to KaChing! the app that allows you to take control over your finances.{" "}
+								</h1>
+								<p className="font-italic" style={{ color: "black" }}>
+									Protection you need, peace of mind you deserve. Keeping your financial information
+									secure is absolutely essential for us. Synonymous with security and simplicity.
+									Maintaining the trust of our customers and partners is our top priority. Our
+									commitment to information security for online control of their expenses is the
+									reason why customers choose kaChing when it comes to saving. Password & Security
+									Question Best practices for protecting your sensitive data.
+								</p>
+								<p className="font-italic" style={{ color: "black" }}>
+									Here are smart financial steps to take if you need help overcoming your barriers to
+									saving. <i className="fas fa-hand-holding-usd" />{" "}
+								</p>
+							</Media.Body>
+							<img
+								width={270}
+								height={270}
+								className="ml-3 rounded-circle"
+								id="userphone"
+								src="http://media.bizj.us/view/img/3490261/cell-phone*1200xx3867-2175-0-202.jpg"
+							/>
+						</Media>
+						<div>
+							<h1 style={{ marginLeft: "25px" }}>Get the most benefit from your KaChing account.</h1>
+
+							<ol style={{ marginLeft: "25px" }}>
+								<li>Think Beyond Income and Expenses</li>
+								<li>
+									Don´t have an account?{" "}
+									<Link to={"/register"}>
+										<span className="mr-2 btn" style={{ color: "blue" }} href="#" role="button">
+											RegisterOne
+										</span>
+									</Link>
+								</li>
+								<li>Record your expenses</li>
+								<li>Create a Children´s Savings Kaching </li>
+								<li>Project your goals</li>
+								<li>Time to celebrate your achievements</li>
+							</ol>
+						</div>
+					</p>
+					<p className="font-italic" style={{ color: "black", marginLeft: "25px" }}>
+						The easiest and safest way to save and manage your finances.{" "}
+						<i className="fas fa-hand-holding-usd" />{" "}
+					</p>
+				</Media.Body>
+			</Media>
+
+			<Media style={{ background: "white", padding: "3%" }}>
+				<Media.Body>
+					<h5 style={{ color: "black" }} /> <i className="fas fa-comment-dollar" />{" "}
+					<h5 style={{ color: "black" }}>What is KaChing? </h5>
+					<p className="font-italic" style={{ color: "black" }}>
+						Remember the days when you dropped your spare change into a piggy bank or a jar? Now Let us help
+						you to save your money and make a budget to how you should spend your money Saving money is at
+						the heart of all good financial plans. Learn how to save money consistently even when it seems
+						like there isn´t any money left to spare.
+					</p>
+					<p className="font-italic" style={{ color: "black" }}>
+						The information on this site and the products and services offered are not intended for
+						distribution to any person in any country or jurisdiction where such distribution or use would
+						be contrary to local law or regulation. <i className="fas fa-hand-holding-usd" />{" "}
+					</p>
+				</Media.Body>
+				<img
+					width={270}
+					height={270}
+					className="ml-3 rounded-circle"
+					id="hand"
+					src="https://www.kindpng.com/picc/m/111-1111080_computer-icons-money-cash-bank-funding-transparent-background.png"
+					alt="Generic placeholder"
+				/>
+			</Media>
+
+			<Media style={{ background: "white", padding: "5%" }}>
+				<img
+					width={250}
+					height={250}
+					className="mr-3 rounded-circle"
+					src="https://images.all-free-download.com/images/graphicthumb/practical_business_financial_picture_01_hd_pictures_170385.jpg"
+					alt="Generic placeholder"
+				/>
+				<Media.Body style={{ background: "white" }}>
+					<h5 style={{ color: "black" }}>Benefits of KaChing</h5>
+					<p style={{ color: "black" }}>
+						You open your account free in less than 3 minutes and you can close it with a single click., No
+						commissions. No strings attached. No surprises. <i className="fas fa-dollar-sign" />
+					</p>
+				</Media.Body>
+			</Media>
+
+			<div className="card-group" style={{ marginTop: "0px" }}>
 				<div className="card">
 					<img
 						src="https://images.pexels.com/photos/4475523/pexels-photo-4475523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -75,7 +174,6 @@ export const Welcome = () => {
 					</div>
 				</div>
 			</div>
-
 			<div className="card-group">
 				<div className="card">
 					<img
@@ -138,44 +236,32 @@ export const Welcome = () => {
 					</div>
 				</div>
 			</div>
-
 			<Carousel>
 				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src="https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-						alt="First step"
-					/>
+					<img className="d-block w-100" src={registro} alt="registro" />
 					<Carousel.Caption>
-						<h3>1° STEP</h3>
-						<p>Create an account.</p>
+						<h3 style={{ color: "B9DCDC" }}>Registre</h3>
+						<p style={{ color: "B9DCDC" }}>One click away</p>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src="https://images.pexels.com/photos/4968663/pexels-photo-4968663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-						alt="Second slide"
-					/>
+					<img className="d-block w-100" src={finances} alt="finances" />
 
 					<Carousel.Caption>
-						<h3>Second slide label</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3 />
+						<p />
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src="https://images.pexels.com/photos/4968663/pexels-photo-4968663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-						alt="Third slide"
-					/>
+					<img className="d-block w-100" src={grafico} alt="grafico" />
 
 					<Carousel.Caption>
-						<h3>Third slide label</h3>
-						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+						<h3 />
+						<p />
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
+
 			<div className="posicionFooter" />
 		</div>
 	);

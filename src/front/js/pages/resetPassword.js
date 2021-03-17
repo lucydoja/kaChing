@@ -1,6 +1,6 @@
 import { Context } from "../store/appContext";
 import React, { useState, useContext } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const ResetPass = () => {
@@ -11,6 +11,7 @@ export const ResetPass = () => {
 	const [securityQ, setSecurityQ] = useState("");
 	const [securityA, setSecurityA] = useState("");
 	const [redirect, setRedirect] = useState(false);
+	const history = useHistory();
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -29,7 +30,7 @@ export const ResetPass = () => {
 		};
 		console.log(data);
 
-		fetch(process.env.BACKEND_URL + "/reset", {
+		fetch(process.env.BACKEND_URL + "/api/reset", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -46,6 +47,8 @@ export const ResetPass = () => {
 				return response.json();
 			})
 			.then(data => {
+				actions.logOut();
+				actions.logged();
 				console.log("Password reset");
 			})
 			.catch(error => {
@@ -55,11 +58,11 @@ export const ResetPass = () => {
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
 			<div className="formulario mb-5">
+				<h3 className="mt-2">RESET PASSWORD</h3>
 				<div className="alert alert-info" role="alert">
-					Oh no! It seams that you forgot your <strong>KaChing! </strong>
-					password, please fill the information bellow to reset it!
+					Oh! It seems that you need to reset your <strong>KaChing! </strong>
+					password, please fill the information bellow to set a new one!
 				</div>
-				<h3 className="mt-2">Reset Password</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
 						<div className="form-row mt-3">
@@ -137,12 +140,19 @@ export const ResetPass = () => {
 							<div className="valid-feedback" />
 						</div>
 						<div className="mt-3 form-row justify-content-end">
-							<Link to={"/login"}>
+							{/*<Link to={"/login"}>
 								<button className="btn btn-secondary btn-md" type="reset">
 									<p className="boton-link"> Cancel</p>
 								</button>
-							</Link>
-
+							</Link>*/}
+							<button
+								className="btn btn-secondary btn-md"
+								type="reset"
+								onClick={() => {
+									history.goBack();
+								}}>
+								<p className="boton-link"> Cancel</p>
+							</button>
 							<button className="btn btn-primary ml-2 btn-md" type="submit">
 								Reset Password
 							</button>

@@ -1,35 +1,245 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			isLogged: "false"
+			isLogged: "false",
+			expenses: [],
+			incomes: [],
+			user: {
+				first_name: "Lucia",
+				last_name: "Dominguez",
+				email: "lucydoja@gmail.com"
+			},
+			resume: [
+				{
+					year: 2021,
+					month: 3,
+					incomes: 50000,
+					expenses: {
+						total: 0,
+						week: [0, 0, 0, 0]
+					},
+					category: {
+						entertainment: {
+							total: 0,
+							week: [0, 0, 0, 0]
+						},
+						food: {
+							total: 0,
+							week: [0, 0, 0, 0]
+						},
+						services: {
+							total: 0,
+							week: [0, 0, 0, 0]
+						},
+						transport: {
+							total: 0,
+							week: [0, 0, 0, 0]
+						},
+						home: {
+							total: 0,
+							week: [0, 0, 0, 0]
+						},
+						education: {
+							total: 0,
+							week: [0, 0, 0, 0]
+						},
+						clothing: {
+							total: 0,
+							week: [0, 0, 0, 0]
+						}
+					},
+
+					method: {
+						credit: 0,
+						debit: 0,
+						cash: 0
+					}
+				},
+				{
+					year: 2020,
+					month: 3,
+					incomes: 50000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						credit: 12,
+						debit: 6,
+						cash: 5
+					}
+				},
+				{
+					year: 2021,
+					month: 2,
+					incomes: 50000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						credit: 12,
+						debit: 6,
+						cash: 5
+					}
+				},
+				{
+					year: 2021,
+					month: 1,
+					incomes: 50000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						credit: 12,
+						debit: 6,
+						cash: 5
+					}
+				},
+				{
+					year: 2020,
+					month: 12,
+					incomes: 100000,
+					expenses: {
+						total: 25000,
+						week: [10000, 5000, 3000, 7000]
+					},
+					category: {
+						entertainment: {
+							total: 2000,
+							week: [0, 2000, 0, 0]
+						},
+						food: {
+							total: 4000,
+							week: [0, 4000, 0, 0]
+						},
+						services: {
+							total: 8000,
+							week: [2000, 4000, 0, 2000]
+						},
+						transport: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						home: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						education: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						},
+						clothing: {
+							total: 1000,
+							week: [500, 0, 500, 0]
+						}
+					},
+
+					method: {
+						credit: 12,
+						debit: 6,
+						cash: 5
+					}
+				}
+			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
 
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
 			logged: () => {
 				let status = sessionStorage.getItem("is_logged");
 				status != "true" ? setStore({ isLogged: "false" }) : setStore({ isLogged: status });
@@ -39,6 +249,208 @@ const getState = ({ getStore, getActions, setStore }) => {
 				sessionStorage.removeItem("user_token");
 				sessionStorage.removeItem("is_logged");
 				getActions().logged();
+			},
+
+			addExpense: datos => {
+				const data = datos;
+				let user_token = sessionStorage.getItem("user_token");
+
+				fetch(process.env.BACKEND_URL + "/api/expense", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					},
+					body: JSON.stringify(data)
+				})
+					.then(response => {
+						if (!response.ok) {
+							response.text().then(text => alert(text));
+							throw Error(response.statusText);
+						} else {
+							const expense = getStore().expenses;
+							const updExpense = expense.concat(data);
+							setStore({ expenses: [...updExpense] });
+						}
+						return response.json();
+					})
+					.then(data => {
+						console.log("Succesfully added expense");
+					})
+					.catch(error => {
+						console.error("Error:", error);
+					});
+			},
+
+			addIncome: datos => {
+				let data = datos;
+				let user_token = sessionStorage.getItem("user_token");
+
+				fetch(process.env.BACKEND_URL + "/api/income", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					},
+					body: JSON.stringify(data)
+				})
+					.then(response => {
+						if (!response.ok) {
+							response.text().then(text => alert(text));
+							throw Error(response.statusText);
+						} else {
+							const income = getStore().incomes;
+							const updIncome = income.concat(data);
+							setStore({ incomes: [...updIncome] });
+						}
+						return response.json();
+					})
+					.then(data => {
+						console.log("Succesfully added income");
+					})
+					.catch(error => {
+						console.error("Error:", error);
+					});
+			},
+
+			deleteExpense: variable => {
+				let user_token = sessionStorage.getItem("user_token");
+
+				fetch(process.env.BACKEND_URL + "/api/expense", {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					},
+					body: JSON.stringify({ id: variable })
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						} else {
+							const expense = getStore().expenses;
+							const updExpense = expense.filter(item => item.id !== variable);
+							setStore({ expenses: [...updExpense] });
+						}
+						return response.json();
+					})
+					.then(data => {
+						console.log("Expense deleted");
+					})
+					.catch(error => {
+						console.error("Error:", error);
+					});
+			},
+
+			deleteIncome: variable => {
+				let user_token = sessionStorage.getItem("user_token");
+
+				fetch(process.env.BACKEND_URL + "/api/income", {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					},
+					body: JSON.stringify({ id: variable })
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						} else {
+							const income = getStore().incomes;
+							const updIncome = income.filter(item => item.id !== variable);
+							setStore({ incomes: [...updIncome] });
+						}
+						return response.json();
+					})
+					.then(data => {
+						console.log("Income deleted");
+					})
+					.catch(error => {
+						console.error("Error:", error);
+					});
+			},
+			getIncome: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/api/income", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ incomes: data.data });
+					})
+					.catch(err => console.error(err));
+			},
+			getExpense: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/api/expense", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ expenses: data.data });
+					})
+					.catch(err => console.error(err));
+			},
+
+			getResume: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/finances", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ resume: data.data });
+					})
+					.catch(err => console.error(err));
+			},
+
+			getUser: () => {
+				let user_token = sessionStorage.getItem("user_token");
+				fetch(process.env.BACKEND_URL + "/user", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + user_token
+					}
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ user: data.data });
+					})
+					.catch(err => console.error(err));
 			}
 		}
 	};
