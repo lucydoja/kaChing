@@ -58,7 +58,7 @@ export const Welcome = () => {
 				</a>
 			</div>
 
-			<div className="container mb-2 ">
+			<div className="container mb-2">
 				<div className="col-12">
 					<h1 className="text-center" style={{ fontWeight: "800" }}>
 						Welcome to KaChing!{" "}
@@ -92,12 +92,12 @@ export const Welcome = () => {
 						/>
 					</Media.Body>
 				</Media>
-				<Media className="row p-3  mt-3">
+				<Media className="row mt-3">
 					<Media.Body
 						className="col-lg-5 col-12 text-justify shadow my-3"
-						style={{ background: "white", minHeight: "270px" }}>
+						style={{ background: "white", minHeight: "300px" }}>
 						<h2 className="text-center mt-4">Quick Start</h2>
-						<div className="mx-auto">
+						<div className="mx-auto mt-2">
 							<ol>
 								<li>Do you need help tracking your finances?</li>
 								<li>
@@ -121,9 +121,10 @@ export const Welcome = () => {
 							</ol>
 						</div>
 					</Media.Body>
+					<div className="col-lg-1 col-0" />
 					<div
 						id="carouselExampleIndicators"
-						className="carousel slide col-lg-7 col-12 my-auto"
+						className="carousel slide col-lg-6 col-12 my-auto p-0"
 						data-ride="carousel">
 						<ol className="carousel-indicators">
 							<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
@@ -341,7 +342,7 @@ export const Welcome = () => {
 						</div>
 					</div>
 				</div>
-				<p className="font-italic" style={{ color: "black", fontSize: "15px" }}>
+				<p className="font-italic text-justify" style={{ color: "gray", fontSize: "15px" }}>
 					The information on this site and the products and services offered are not intended for distribution
 					to any person in any country or jurisdiction where such distribution or use would be contrary to
 					local law or regulation.{" "}
