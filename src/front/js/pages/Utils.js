@@ -249,7 +249,7 @@ export const PieGraphMethod_function = props => {
 	let data = [];
 	let methods = ["credit", "debit", "cash"];
 	methods.forEach(item => {
-		let valor = monthly_data["method"][item];
+		let valor = monthly_data["payment_method"][item];
 		data.push(valor);
 	});
 

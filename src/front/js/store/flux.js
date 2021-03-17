@@ -49,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					},
 
-					method: {
+					payment_method: {
 						credit: 0,
 						debit: 0,
 						cash: 0
@@ -94,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					},
 
-					method: {
+					payment_method: {
 						credit: 12,
 						debit: 6,
 						cash: 5
@@ -140,7 +140,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					},
 
-					method: {
+					payment_method: {
 						credit: 12,
 						debit: 6,
 						cash: 5
@@ -185,7 +185,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					},
 
-					method: {
+					payment_method: {
 						credit: 12,
 						debit: 6,
 						cash: 5
@@ -230,7 +230,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					},
 
-					method: {
+					payment_method: {
 						credit: 12,
 						debit: 6,
 						cash: 5
@@ -255,7 +255,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addExpense: datos => {
 				const data = datos;
 				let access_token = sessionStorage.getItem("access_token");
-				console.log(access_token);
 
 				fetch(process.env.BACKEND_URL + "/api/expense", {
 					method: "POST",

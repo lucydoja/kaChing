@@ -142,6 +142,7 @@ def create_user_income():
     current_user_email = get_jwt_identity()
     amount = request.json["amount"]
     detail = request.json["detail"]
+    front_id = request.json["id"]
     date = datetime.datetime.now()
     year = date.year
     month = date.month
@@ -150,7 +151,7 @@ def create_user_income():
     if not (amount and detail):
         return jsonify({"error": "Invalid"}), 400
 
-    new_income = Income(user_email=current_user_email, amount=amount, detail=detail, date=date, year=year, month=month, day=day)
+    new_income = Income(user_email=current_user_email, amount=amount, detail=detail, front_id=front_id, date=date, year=year, month=month, day=day)
 
     db.session.add(new_income)
     db.session.commit()
@@ -183,7 +184,7 @@ def delete_user_income():
     if not income_id:
         return jsonify({"error": "Missing parameter"}), 400
 
-    income_to_delete = Income.query.filter_by(user_email=current_user_email, id=income_id).first()
+    income_to_delete = Income.query.filter_by(user_email=current_user_email, front_id=income_id).first()
 
     if not income_to_delete:
         return jsonify({"error": "data not found"}), 400
@@ -203,6 +204,7 @@ def create_user_expense():
     payment_method = request.json["payment_method"]
     amount = request.json["amount"]
     detail = request.json["detail"]
+    front_id = request.json["id"]
     date = datetime.datetime.now()
     year = date.year
     month = date.month
@@ -211,7 +213,7 @@ def create_user_expense():
     if not (category and payment_method and amount and detail):
         return jsonify({"error": "Missing parameter"})
 
-    new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, date=date, year=year, month=month, day=day)
+    new_expense = Expense(user_email=current_user_email, category=category, payment_method=payment_method, amount=amount, detail=detail, front_id=front_id, date=date, year=year, month=month, day=day)
 
     db.session.add(new_expense)
     db.session.commit()
@@ -244,7 +246,7 @@ def delete_expense_data():
     if not expense_id:
         return jsonify({"error": "Missing parameter"}), 400
 
-    expense_to_delete = Expense.query.filter_by(user_email=current_user_email, id=expense_id).first()
+    expense_to_delete = Expense.query.filter_by(user_email=current_user_email, front_id=expense_id).first()
 
     if not expense_to_delete:
         return jsonify({"error": "data not found"}), 400

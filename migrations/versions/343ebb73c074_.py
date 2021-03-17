@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: e16e0744e44f
+Revision ID: 343ebb73c074
 Revises: 
-Create Date: 2021-03-17 17:05:38.978404
+Create Date: 2021-03-17 18:31:55.018072
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e16e0744e44f'
+revision = '343ebb73c074'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,24 +36,28 @@ def upgrade():
     sa.Column('payment_method', sa.String(length=120), nullable=False),
     sa.Column('amount', sa.Integer(), nullable=False),
     sa.Column('detail', sa.String(length=280), nullable=True),
+    sa.Column('front_id', sa.String(length=300), nullable=False),
     sa.Column('date', sa.DateTime(), nullable=False),
     sa.Column('year', sa.Integer(), nullable=False),
     sa.Column('month', sa.Integer(), nullable=False),
     sa.Column('day', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_email'], ['user.email'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('front_id')
     )
     op.create_table('income',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_email', sa.String(length=120), nullable=False),
     sa.Column('amount', sa.Integer(), nullable=False),
     sa.Column('detail', sa.String(length=280), nullable=True),
+    sa.Column('front_id', sa.String(length=300), nullable=False),
     sa.Column('date', sa.DateTime(), nullable=False),
     sa.Column('year', sa.Integer(), nullable=False),
     sa.Column('month', sa.Integer(), nullable=False),
     sa.Column('day', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_email'], ['user.email'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('front_id')
     )
     # ### end Alembic commands ###
 
