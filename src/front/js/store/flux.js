@@ -15,36 +15,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 					month: 3,
 					incomes: 50000,
 					expenses: {
-						total: 0,
+						total: 25000,
 						week: [0, 0, 0, 0]
 					},
 					category: {
 						entertainment: {
-							total: 0,
+							total: 2300,
 							week: [0, 0, 0, 0]
 						},
 						food: {
-							total: 0,
+							total: 4500,
 							week: [0, 0, 0, 0]
 						},
 						services: {
-							total: 0,
+							total: 1900,
 							week: [0, 0, 0, 0]
 						},
 						transport: {
-							total: 0,
+							total: 5000,
 							week: [0, 0, 0, 0]
 						},
 						home: {
-							total: 0,
+							total: 4250,
 							week: [0, 0, 0, 0]
 						},
 						education: {
-							total: 0,
+							total: 2350,
 							week: [0, 0, 0, 0]
 						},
 						clothing: {
-							total: 0,
+							total: 1450,
 							week: [0, 0, 0, 0]
 						}
 					},
@@ -100,6 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						cash: 5
 					}
 				},
+
 				{
 					year: 2021,
 					month: 2,
