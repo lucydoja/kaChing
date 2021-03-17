@@ -81,7 +81,7 @@ def get_user():
     return jsonify(user.serialize()), 200
 
 # Change User Data
-@api.route("/change", methods=["POST"])
+@api.route("/profile", methods=["PUT"])
 @jwt_required()
 def change_user_data():
 
