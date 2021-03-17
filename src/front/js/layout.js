@@ -12,6 +12,7 @@ import { Finances } from "./pages/finances";
 import { Welcome } from "./pages/welcome";
 import { Transactions } from "./pages/transactions";
 import { Perfil } from "./pages/perfil";
+import { About } from "./pages/about";
 import { Faqs } from "./pages/faqs";
 import { Exchange } from "./pages/exchange";
 
@@ -27,6 +28,7 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
+
 						<Route exact path="/" component={Welcome} />
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/reset" component={ResetPass} />
@@ -36,6 +38,8 @@ const Layout = () => {
 						<Route exact path="/profile" component={Perfil} />
 						<Route exact path="/faqs" component={Faqs} />
 						<Route exact path="/exchange" component={Exchange} />
+            <Route exact path="/about" component={About} />
+
 
 						<Route>
 							<h1>Not found!</h1>
