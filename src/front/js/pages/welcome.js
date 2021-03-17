@@ -7,10 +7,11 @@ import Image from "react-bootstrap/Image";
 import { Media } from "react-bootstrap";
 import { Card, Container, Row, Col, Toast, Badge } from "react-bootstrap";
 import grafico from "../../img/grafico.png";
+import grafico2 from "../../img/grafico2.png";
 import finances from "../../img/finances.png";
 import registro from "../../img/registro1.png";
 import login from "../../img/login.png";
-
+import cuadro from "../../img/cuadro.png";
 import logo from "../../img/logo.jpg";
 
 export const Welcome = () => {
@@ -58,11 +59,6 @@ export const Welcome = () => {
 			</div>
 
 			<div className="container mb-2 ">
-				<img
-					src="https://media.giphy.com/media/13ln9K5TWkNTLa/giphy.gif"
-					style={{ width: "100%", height: "250px" }}
-				/>
-
 				<div className="col-12">
 					<h1 className="text-center" style={{ fontWeight: "800" }}>
 						Welcome to KaChing!{" "}
@@ -96,9 +92,9 @@ export const Welcome = () => {
 						/>
 					</Media.Body>
 				</Media>
-				<Media className="row p-3  mt-4">
+				<Media className="row p-3  mt-3">
 					<Media.Body
-						className="col-lg-6 col-12 text-justify shadow"
+						className="col-lg-5 col-12 text-justify shadow my-3"
 						style={{ background: "white", minHeight: "270px" }}>
 						<h2 className="text-center mt-4">Quick Start</h2>
 						<div className="mx-auto">
@@ -127,23 +123,30 @@ export const Welcome = () => {
 					</Media.Body>
 					<div
 						id="carouselExampleIndicators"
-						className="carousel slide col-lg-6 col-12"
-						style={{ maxHeight: "260px" }}
+						className="carousel slide col-lg-7 col-12 my-auto"
 						data-ride="carousel">
 						<ol className="carousel-indicators">
 							<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
 							<li data-target="#carouselExampleIndicators" data-slide-to="1" />
 							<li data-target="#carouselExampleIndicators" data-slide-to="2" />
+							<li data-target="#carouselExampleIndicators" data-slide-to="3" />
+							<li data-target="#carouselExampleIndicators" data-slide-to="4" />
 						</ol>
 						<div className="carousel-inner">
 							<div className="carousel-item active">
-								<img className="d-block w-100" src={registro} alt="First slide" />
+								<img className="d-block w-100" src={grafico2} alt="First slide" />
 							</div>
 							<div className="carousel-item">
-								<img className="d-block w-100" src={login} alt="Second slide" />
+								<img className="d-block w-100" src={registro} alt="Second slide" />
 							</div>
 							<div className="carousel-item">
-								<img className="d-block w-100" src={grafico} alt="Third slide" />
+								<img className="d-block w-100" src={login} alt="Third slide" />
+							</div>
+							<div className="carousel-item">
+								<img className="d-block w-100" src={grafico} alt="Fourth slide" />
+							</div>
+							<div className="carousel-item">
+								<img className="d-block w-100" src={cuadro} alt="Fifth slide" />
 							</div>
 						</div>
 						<a
@@ -164,7 +167,7 @@ export const Welcome = () => {
 						</a>
 					</div>
 				</Media>
-				<Media className="row p-3 shadow mt-4" style={{ background: "white" }}>
+				<Media className="row p-3 shadow mt-3" style={{ background: "white" }}>
 					<Media.Body className="col-lg-3 col-12 d-flex justify-content-center mb-2 my-auto">
 						<img
 							width={250}
