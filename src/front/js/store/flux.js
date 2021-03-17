@@ -5,7 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			expenses: [],
 			incomes: [],
 			user: null,
-			resume: null
+			resume: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
