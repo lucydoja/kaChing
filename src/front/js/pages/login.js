@@ -46,6 +46,7 @@ export const Login = () => {
 				actions.getUser();
 				console.log("Succesful log in");
 			})
+
 			.catch(error => {
 				console.error("Error:", error);
 			});
@@ -53,6 +54,7 @@ export const Login = () => {
 
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
+			{redirect ? <Redirect to="/" /> : ""}
 			<div className="formulario mb-5">
 				<h3 className="mt-2">LOG IN</h3>
 				<div className="alert alert-info" role="alert">
@@ -111,8 +113,6 @@ export const Login = () => {
 					</form>
 				</div>
 			</div>
-
-			{redirect ? <Redirect to="/finances" /> : ""}
 		</div>
 	);
 };
