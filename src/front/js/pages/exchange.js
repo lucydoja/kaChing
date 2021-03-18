@@ -1,82 +1,119 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import "../../styles/exchange.scss";
 
 export const Exchange = () => {
-	const { store, actions } = useContext(Context);
-	{
-		/* esta es la api que se va utilizar: https://api.cambio.today/v1/quotes/EUR/USD/json?quantity=1&key=8111|*sOE3drT9Umj0PzGr0Ok8rqqD_LDJS_q */
-	}
-	return (
-		<div className="container mb-2">
-			titulo
-			<br />
-			<div className="row" id="header">
-				<div className="container breadcrumb">Currency Converter</div>
-			</div>
-			<br />
-			<form onSubmit>
-				<div className="col-lg-4 form-group d-flex flex-column">
-					<label htmlFor="Amount">Amount</label>
-				</div>
-				<div className="col-lg-4 form-group d-flex flex-column">
-					<input
-						id="number"
-						type="number"
-						min="1"
-						max="100000"
-						pattern="^[0-9]+"
-						placeholder="$Amount"
-						required
-					/>
-				</div>
-				<div className="col-lg-4 form-group d-flex flex-column">
-					<label htmlFor="From">From</label>
-				</div>
-				<div className="col-lg-4 form-group d-flex flex-column">
-					<select className="form-control" name="From" id="From" onChange>
-						<option value="USD">United States Dollar</option>
-						<option value="CRC">Costa Rica Colon</option>
-						<option value="MXN">Mexican Peso</option>
-						<option value="CLP">Chilean Peso</option>
-						<option value="ARS">Argentine Peso</option>
-						<option value="COP">Colombian Peso</option>
-						<option value="PEN">Peruvian Sol</option>
-						<option value="PAB">Panamanian Balboa</option>
-						<option value="CAD">Canadian Dollar</option>
-					</select>
-				</div>
-				<div className="col-lg-4 form-group d-flex flex-column">
-					<label htmlFor="To">To</label>
-				</div>
-				<div className="col-lg-4 form-group d-flex flex-column">
-					<select className="form-control" name="To" id="To" onChange>
-						<option value="CRC">Costa Rica Colon</option>
-						<option value="USD">United States Dollar</option>
+	const [USDCRC, setUSDCRC] = useState("");
+	const [first, setFirst] = useState("USD");
+	const [second, setSecond] = useState("CRC");
+	const [rate, setRate] = useState("");
+	const [amount, setAmount] = useState("");
+	const [result, setResult] = useState("");
 
-						<option value="MXN">Mexican Peso</option>
-						<option value="CLP">Chilean Peso</option>
-						<option value="ARS">Argentine Peso</option>
-						<option value="COP">Colombian Peso</option>
-						<option value="PEN">Peruvian Sol</option>
-						<option value="PAB">Panamanian Balboa</option>
-						<option value="CAD">Canadian Dollar</option>
-					</select>
-				</div>
-				<div className="col-lg-4 form-group d-flex flex-column">
-					<label htmlFor="To">Result</label>
-				</div>
-				<div className="col-lg-4 form-group d-flex flex-column">{/*  etiqueta donde llame el resultado */}</div>
-				<div className="col-lg-4 form-group ">
-					<button type="reset" value="Borrar" className="btn btn-danger">
-						Cancel
+	function getExchange(first, second) {
+		fetch(`https://v6.exchangerate-api.com/v6/b8c46a1b76e331fd931c3c4d/pair/${first}/${second}`)
+			.then(resp => resp.json())
+
+			.then(data => {
+				let change = data.conversion_rate;
+				// setRate(change);
+				getresult(change);
+			})
+
+			.catch(error => console.log("Error loading message from backend", error));
+	}
+	function getresult(vari) {
+		setResult(Math.round(amount * vari * 100) / 100);
+	}
+
+	return (
+		<div className="container d-flex justify-content-center mt-2">
+			<div className="formulario2 my-5 rounded shadow p-2">
+				<h3 className="mt-2">Currency Converter</h3>
+				<div className="d-flex flex-column">
+					<div className="col-md">
+						<label className="ml">From</label>
+					</div>
+					<div className="col-sm">
+						<select className="form-control" value={first} onChange={e => setFirst(e.target.value)}>
+							<option value="CRC">Costa Rica Colon</option>
+							<option value="USD">United States Dollar</option>
+							<option value="MXN">Mexican Peso</option>
+							<option value="CLP">Chilean Peso</option>
+							<option value="ARS">Argentine Peso</option>
+							<option value="COP">Colombian Peso</option>
+							<option value="PEN">Peruvian Sol</option>
+							<option value="PAB">Panamanian Balboa</option>
+							<option value="CAD">Canadian Dollar</option>
+							<option value="EUR">Euro</option>
+						</select>
+					</div>
+					<br />
+					<div className="col-md">
+						<label className="ml">To</label>
+					</div>
+					<div className="col-sm">
+						<select className="form-control" value={second} onChange={e => setSecond(e.target.value)}>
+							<option value="CRC">Costa Rica Colon</option>
+							<option value="USD">United States Dollar</option>
+							<option value="MXN">Mexican Peso</option>
+							<option value="CLP">Chilean Peso</option>
+							<option value="ARS">Argentine Peso</option>
+							<option value="COP">Colombian Peso</option>
+							<option value="PEN">Peruvian Sol</option>
+							<option value="PAB">Panamanian Balboa</option>
+							<option value="CAD">Canadian Dollar</option>
+							<option value="EUR">Euro</option>
+						</select>
+					</div>
+					<br />
+					<div className="col-md">
+						<label className="ml">$Amount</label>
+					</div>
+					<div className="col-md">
+						<input
+							onChange={e => setAmount(e.target.value)}
+							id="number"
+							type="number"
+							min="1"
+							max="10000"
+							pattern="^[0-9]+"
+							placeholder="$Amount"
+							className="form-control"
+							required
+						/>
+					</div>
+					<br />
+					<div className="d-flex justify-content-center">
+						<label className="ml">
+							<h5>
+								<strong>Result</strong>
+							</h5>
+						</label>
+					</div>
+					<div className="col-sm">
+						<div className="d-flex justify-content-center">
+							<div className="p-2">
+								{amount} {first} =
+							</div>
+							<div className="p-2">{rate[`${first}_${second}`]}</div>
+							<div className="p-2">
+								<strong>{result}</strong>
+							</div>
+							<div className="p-2">{second}</div>
+						</div>
+					</div>
+
+					<button
+						onClick={() => {
+							getExchange(first, second);
+						}}
+						className="btn btn-info btn-lg">
+						Convert
 					</button>
-					<button type="submit" className="btn btn-success">
-						Submit
-					</button>
 				</div>
-			</form>
+			</div>
+			<div className="posicionFooter" />
 		</div>
 	);
 };
