@@ -28,7 +28,7 @@ export const Perfil = () => {
 		})
 			.then(response => {
 				if (!response.ok) {
-					response.text().then(text => alert(text));
+					alert("The data submitted is incorrect");
 					throw Error(response.statusText);
 				}
 			})

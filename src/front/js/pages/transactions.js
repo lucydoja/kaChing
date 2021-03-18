@@ -139,7 +139,7 @@ export const Transactions = () => {
 										/>
 									</div>
 									<div className="form-row mt-3">
-										<label>Description (optional): </label>
+										<label>Description: *</label>
 										<input
 											type="text"
 											className="form-control"
@@ -148,6 +148,7 @@ export const Transactions = () => {
 											onChange={e => {
 												setDescription(e.target.value);
 											}}
+											required
 										/>
 									</div>
 									<div className="mt-3 form-row justify-content-end">
@@ -235,7 +236,7 @@ export const Transactions = () => {
 										/>
 									</div>
 									<div className="form-row mt-3">
-										<label>Description (optional): </label>
+										<label>Description: *</label>
 										<input
 											type="text"
 											className="form-control"
@@ -244,6 +245,7 @@ export const Transactions = () => {
 											onChange={e => {
 												setDescription(e.target.value);
 											}}
+											required
 										/>
 									</div>
 									<div className="mt-3 form-row justify-content-end">

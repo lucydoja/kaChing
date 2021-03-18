@@ -56,6 +56,11 @@ export function NavLogged() {
 							Profile
 						</span>
 					</Link>
+					<Link to={"/exchange"}>
+						<span className="dropdown-item d-flex flex-grow-1" role="button">
+							Exchange
+						</span>
+					</Link>
 					<div className="dropdown-divider" />
 					<Link to={"/"}>
 						<span

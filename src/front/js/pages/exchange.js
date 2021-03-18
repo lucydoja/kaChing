@@ -28,7 +28,7 @@ export const Exchange = () => {
 
 	return (
 		<div className="container d-flex justify-content-center mt-2">
-			<div className="formulario2 my-5 rounded shadow p-2">
+			<div className="formulario2 mb-5 rounded shadow p-2">
 				<h3 className="mt-2">Currency Converter</h3>
 				<div className="d-flex flex-column">
 					<div className="col-md">
@@ -94,9 +94,8 @@ export const Exchange = () => {
 					<div className="col-sm">
 						<div className="d-flex justify-content-center">
 							<div className="p-2">
-								{amount} {first} =
+								{amount} {first} = {rate[`${first}_${second}`]}
 							</div>
-							<div className="p-2">{rate[`${first}_${second}`]}</div>
 							<div className="p-2">
 								<strong>{result}</strong>
 							</div>
@@ -113,7 +112,7 @@ export const Exchange = () => {
 					</button>
 				</div>
 			</div>
-			<div className="posicionFooter" />
+			<div />
 		</div>
 	);
 };
