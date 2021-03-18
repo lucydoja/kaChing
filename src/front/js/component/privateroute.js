@@ -1,16 +1,10 @@
-import React from 'react'
-import { Redirect } from 'react-router-dom';
-import { Login } from '../pages/login';
+import React, { useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
+import { Login } from "../pages/login";
+import { Context } from "../store/appContext";
 
+export function PrivateRoute({ component: Component, ...rest }) {
+	const { store, actions } = useContext(Context);
 
-const user = null;
-const user = { id: username }
-
-export default function PrivateRoute({ component: Component, ...rest }) {
-    return (
-        <Route {...rest}>
-            {user ? (<Component />) : (<Redirect to= "login"/>)}
-
-        </Route>
-    );
+	return <Route {...rest}>{store.user ? <Component /> : <Redirect to="/login" />}</Route>;
 }

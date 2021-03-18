@@ -15,6 +15,7 @@ import { Perfil } from "./pages/perfil";
 import { About } from "./pages/about";
 import { Faqs } from "./pages/faqs";
 import { Exchange } from "./pages/exchange";
+import { PrivateRoute } from "./component/privateroute";
 
 //create your first component
 const Layout = () => {
@@ -29,15 +30,15 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/" component={Welcome} />
-						<Route exact path="/register" component={Register} />
-						<Route exact path="/reset" component={ResetPass} />
-						<Route exact path="/login" component={Login} />
-						<Route exact path="/finances" component={Finances} />
-						<Route exact path="/transactions" component={Transactions} />
-						<Route exact path="/profile" component={Perfil} />
 						<Route exact path="/faqs" component={Faqs} />
-						<Route exact path="/exchange" component={Exchange} />
 						<Route exact path="/aboutUs" component={About} />
+						<Route exact path="/exchange" component={Exchange} />
+						<Route exact path="/register" component={Register} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/reset" component={ResetPass} />
+						<PrivateRoute exact path="/finances" component={Finances} />
+						<PrivateRoute exact path="/transactions" component={Transactions} />
+						<PrivateRoute exact path="/profile" component={Perfil} />
 
 						<Route>
 							<h1>Not found!</h1>

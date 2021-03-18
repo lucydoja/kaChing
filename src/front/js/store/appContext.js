@@ -23,7 +23,7 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.logged();
-			if (state.store.isLogged === "true") {
+			if (state.store.isLogged === true) {
 				state.actions.getIncome();
 				state.actions.getExpense();
 				state.actions.getUser();
