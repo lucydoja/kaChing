@@ -6,7 +6,7 @@ export function NavLogged() {
 	const { store, actions } = useContext(Context);
 	let logged = store.isLogged;
 	//cambiar condicion a != despues de unir con el back
-	if (logged != "true") {
+	if (logged != true) {
 		return (
 			<div className="d-flex justify-content-end">
 				<ul className="navbar-nav mr-auto">
