@@ -33,7 +33,8 @@ export const Perfil = () => {
 				}
 			})
 			.then(data => {
-				setEditar(false);
+                setEditar(false);
+                actions.getUser()
 				console.log("Succesful change in profile");
 			})
 			.catch(error => {
