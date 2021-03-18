@@ -28,7 +28,6 @@ export const Transactions = () => {
 			payment_method: payment,
 			id: shortid.generate()
 		};
-		console.log(data);
 		actions.addExpense(data);
 		document.getElementById("formulario-transactions").reset();
 		setDescription("");

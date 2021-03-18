@@ -39,7 +39,6 @@ export const Register = () => {
 			security_answer: securityA.toLowerCase(),
 			security_question: securityQ
 		};
-		console.log(data);
 
 		fetch(process.env.BACKEND_URL + "/api/register", {
 			method: "POST",

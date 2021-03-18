@@ -28,7 +28,7 @@ export const ResetPass = () => {
 			security_answer: securityA,
 			security_question: securityQ
 		};
-		console.log(data);
+		
 
 		fetch(process.env.BACKEND_URL + "/api/reset", {
 			method: "POST",
