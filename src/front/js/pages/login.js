@@ -18,10 +18,10 @@ export const Login = () => {
 		// FETCH
 		const data = {
 			password: password,
-			email: email
+			email: email.toLowerCase()
 		};
 
-		fetch(process.env.BACKEND_URL + "/login", {
+		fetch(process.env.BACKEND_URL + "/api/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -30,7 +30,7 @@ export const Login = () => {
 		})
 			.then(response => {
 				if (!response.ok) {
-					response.text().then(text => alert(text));
+					alert("The data submitted is incorrect");
 					throw Error(response.statusText);
 				} else {
 					setRedirect(true);
@@ -38,11 +38,15 @@ export const Login = () => {
 				return response.json();
 			})
 			.then(data => {
-				sessionStorage.setItem("user_token", data.token);
-				sessionStorage.setItem("is_logged", "true");
+				sessionStorage.setItem("access_token", data.access_token);
+				sessionStorage.setItem("is_logged", true);
 				actions.logged();
+				actions.getIncome();
+				actions.getExpense();
+				actions.getUser();
 				console.log("Succesful log in");
 			})
+
 			.catch(error => {
 				console.error("Error:", error);
 			});
@@ -50,12 +54,13 @@ export const Login = () => {
 
 	return (
 		<div className="container d-flex justify-content-center mt-2 mb-5">
+			{redirect ? <Redirect to="/" /> : ""}
 			<div className="formulario mb-5">
+				<h3 className="mt-2">LOG IN</h3>
 				<div className="alert alert-info" role="alert">
 					Welcome back to <strong>KaChing! </strong>
 					we are so happy to see you again! Please log in to access your account.
 				</div>
-				<h3 className="mt-2">Log in</h3>
 				<div className="">
 					<form className="needs-validation" onSubmit={e => handleSubmit(e)}>
 						<div className="form-row mt-3">
@@ -91,11 +96,11 @@ export const Login = () => {
 
 						<div className="mt-3 form-row justify-content-end">
 							<Link to={"/"}>
-								<button className="btn btn-secondary btn-md" type="reset">
-									<p className="boton-link"> Cancel</p>
+								<button className="btn btn-outline-dark btn-md" type="reset">
+									<p className="boton-link2"> Cancel</p>
 								</button>
 							</Link>
-							<button className="btn btn-primary ml-1" type="submit">
+							<button className="btn btn-info ml-1" type="submit">
 								Log in
 							</button>
 						</div>
@@ -108,8 +113,6 @@ export const Login = () => {
 					</form>
 				</div>
 			</div>
-
-			{redirect ? <Redirect to="/" /> : ""}
 		</div>
 	);
 };

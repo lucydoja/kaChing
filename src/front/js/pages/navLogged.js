@@ -6,27 +6,32 @@ export function NavLogged() {
 	const { store, actions } = useContext(Context);
 	let logged = store.isLogged;
 	//cambiar condicion a != despues de unir con el back
-	if (logged == "true") {
+	if (logged != true) {
 		return (
 			<div className="d-flex justify-content-end">
-				{" "}
-				<Link to={"/register"}>
-					<span className="btn btn-outline-dark ml-2 mr-2" href="#" role="button">
-						Register
-					</span>
-				</Link>
-				<Link to={"/login"}>
-					<span className="btn btn-outline-dark" href="#" role="button">
-						Log in
-					</span>
-				</Link>{" "}
+				<ul className="navbar-nav mr-auto">
+					<li className="nav-item active">
+						<Link to={"/register"}>
+							<span className="mr-2 btn" href="#" role="button">
+								Register
+							</span>
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link to={"/login"}>
+							<span className="btn" href="#" role="button">
+								Log in
+							</span>
+						</Link>{" "}
+					</li>
+				</ul>
 			</div>
 		);
 	} else {
 		return (
 			<div className="dropdown d-flex justify-content-end" id="dropdownDiv">
 				<button
-					className="btn btn-dark dropdown-toggle"
+					className="btn btn-info dropdown-toggle"
 					data-boundary="window"
 					type="button"
 					id="dropdownMenuButton"
@@ -36,9 +41,9 @@ export function NavLogged() {
 					Menu
 				</button>
 				<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-					<Link to={"/expenses"}>
+					<Link to={"/transactions"}>
 						<span className="dropdown-item d-flex flex-grow-1" role="button">
-							Expenses
+							My Transactions
 						</span>
 					</Link>
 					<Link to={"/finances"}>
@@ -49,6 +54,11 @@ export function NavLogged() {
 					<Link to={"/profile"}>
 						<span className="dropdown-item d-flex flex-grow-1" role="button">
 							Profile
+						</span>
+					</Link>
+					<Link to={"/exchange"}>
+						<span className="dropdown-item d-flex flex-grow-1" role="button">
+							Exchange
 						</span>
 					</Link>
 					<div className="dropdown-divider" />

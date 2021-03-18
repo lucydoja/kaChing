@@ -8,23 +8,24 @@ body{
 footer{
     ///background-color: black;
     ///color: white;
+    height: 80px;
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 .posicionFooter{
-    height: 70px;
+    height: 80px;
 }
 
 nav{
     width: 100vw;
     background-color: white;
-    box-shadow: 0px 0px 10px rgb(41, 41, 41);;
+    box-shadow: 0px 0px 10px rgb(41, 41, 41);
 }
 
 .posicionNav{
-    height: 100px;
+    height: 80px;
 }
 
 .logo-nav{
@@ -38,9 +39,19 @@ nav{
     //box-shadow: 0px 0px 6px white;
     background-color: white;
     min-width: 150px;
-    max-width: 500px;
+    max-width: 600px;
     height: auto;
+    margin: 10px;
     
+}
+
+.formulario2{
+    text-align: justify;
+    display: inline-block;
+    //box-shadow: 0px 0px 6px white;
+    background-color: white;
+    min-width: 150px;
+    width: 600px;
     margin: 10px;
     
 }
@@ -57,23 +68,73 @@ nav{
      
 }
 
-.boton-link{
-    
-  color: #FFF;
-padding: 0px;
-margin: 0px;
-}
+
 .boton-link:hover {
-   color: white;
+    color: white;
 }
 
 .boton-link2{
     
-  color:black;
-padding: 0px;
-margin: 0px;
+    color:black;
+    padding: 0px;
+    margin: 0px;
 }
 
 .far, .fas{
     cursor: pointer;
 }
+
+
+.graficos{
+    min-height: 250px;
+}
+
+.progress-bar{
+    position: relative;
+    height: 20px;
+    min-width: 100%;
+    
+    border-radius: 50px;
+    border: 1px solid black;
+    background-color: white;
+    //background: rgb(255,255,255);
+    //background: radial-gradient(circle, rgba(255,255,255,1) 38%, rgba(207,207,209,1) 100%);
+    
+ 
+}
+
+.filler{
+    
+    height: 100%;
+    border-radius: inherit;
+    transition: width .2 ease-in;
+    color: black;
+    font-weight: 800;
+    font-size: 15px;
+    margin: 0px;
+    background: rgb(224,226,144);
+    background: linear-gradient(90deg, rgba(224,226,144,1) 0%, rgba(253,205,29,1) 45%, rgba(227,56,0,1) 82%);
+}
+
+
+#box-principal{
+background: rgb(243,240,126);
+background: linear-gradient(0deg, rgba(243,240,126,1) 29%, rgba(108,160,207,1) 54%);
+}
+
+
+h3{
+    font-weight: 999;
+    text-align: center;
+    font-size: 22px;
+}
+
+.imageContainer {
+      
+    background-image: url("../img/fondo.png");
+ }
+
+ .exchange {
+    margin-bottom: 80px !important;
+ }
+ 

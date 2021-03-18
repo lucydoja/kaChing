@@ -1,64 +1,55 @@
-# WebApp boilerplate with React JS
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-flask-hello.git)
+# kaChing!
+> English
 
-<p align="center">
-<a href="https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b"><img src="https://github.com/4GeeksAcademy/flask-rest-hello/blob/main/docs/assets/how-to.png?raw=true?raw=true" /></a>
-</p>
+**kaChing!** is a budget tracker that lets users keep track of their income and expenses on a monthly and weekly basis.
+You can categorize your expenses and then compare them visually with charts and graphs.
 
-### Styles
-You can update the `styles/index.scss` or create new `.scss` files inside `styles/` and import them into your current scss or js files depending on your needs.
+This project uses **React** for the Client-Side, **Flux** and **Context API** to organize the data distribution,
+**React Router Dom** to handle routing,
+**Chart.js** for data visualization and **Bootstrap** for styling.
 
-### Components
-Add more files into your `./src/js/components` or styles folder as you need them and import them into your current files as needed.
+The Back-End is built with Python **Flask**, **SQLAlchemy** for the data models and querying, and **PostgreSQL** for the database.
 
-💡Note: There is an example using the Context API inside `views/demo.js`;
+Features:
+- OAuth User Authentication
+- REST API with CRUD operations
+- Currency Converter using third-party API
+- Password Reset functionality
+- Compare expenses on a monthly and weekly basis by category with data visualization
 
-### Views (Components)
-Add more files into your `./src/js/views` and import them in `./src/js/layout.jsx`.
+kaChing! is the graduation project from [4Geeks Academy](https://github.com/4GeeksAcademy/) Full Stack Developer Bootcamp of: 
+- [Andrés Born](https://github.com/andresborn/)
+- [Lucía Domínguez](https://github.com/lucydoja) 
+- [Abraham Chinchilla](https://github.com/abraham1798)
+- [Gabriela Sánchez](https://github.com/gaby-oop)
+- [Milena Peñaranda](https://github.com/MILENA1988)
 
-### Context
-This boilerplate comes with a centralized general Context API. The file `./src/js/store/flux.js` has a base structure for the store, we encourage you to change it and adapt it to your needs.
+This Bootcamp was sponsored by MICITT (Ministry of Science, Technology and Communication of Costa Rica), administered by CINDE (Investment Promotion Agency of Costa Rica) and funded by the IDB (Interamerican Development Bank).
 
-React Context [docs](https://reactjs.org/docs/context.html)
-BreathCode Lesson [view](https://content.breatheco.de/lesson/react-hooks-explained)
+# kaChing!
+> Español
 
-The `Provider` is already set. You can consume from any component using the useContext hook to get the `store` and `actions` from the Context. Check `/views/demo.js` to see a demo.
+**kaChing!** es un monedero virtual que permite que los usuarios le den seguimiento a sus ingresos y gastos de manera mensual y semanal.
+Se pueden categorizar los gastos y luego compararlos visualmente con gráficos y cuadros.
 
-```jsx
-import { Context } from "../store/appContext";
-const MyComponentSuper = () => {
-  //here you use useContext to get store and actions
-  const { store, actions } = useContext(Context);
-  return <div>{/* you can use your actions or store inside the html */}</div>
-}
-```
+Este proyecto utiliza **React** para el lado del cliente, **Flux** y **Context API** para organizar la distribución de la información,
+**React Router Dom** para manejar las rutas,
+**Chart.js** para visualizar los datos y **Bootstrap** para los estilos.
 
-### Back-End Manual Installation:
+El Back-End fue construido con Python **Flask**, **SQLAlchemy** para los modelos de datos y las consultas, y **PostgreSQL** para la base de datos.
 
-It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)
+Características:
+- Autenticación de usuario con OAuth
+- REST API con operaciones CRUD (crear, leer, actualizar, borrar)
+- Convertidor de Moneda usando una API externa
+- Funcionalidad para Recuperar Contraseña
+- Comparación de gastos mensuales y semanales por categoría con visualización de datos
 
-1. Install the python packages: `$ pipenv install`
-2. Create a .env file based on the .env.example: `$ cp .env.example .env`
-3. Install your database engine and create your database, depending on your database you have to create a DATABASE_URL variable with one of the possible values, make sure yo replace the valudes with your database information:
+kaChing! es el proyecto de graduación de [4Geeks Academy](https://github.com/4GeeksAcademy/) Full Stack Developer Bootcamp de: 
+- [Andrés Born](https://github.com/andresborn/)
+- [Lucía Domínguez](https://github.com/lucydoja) 
+- [Abraham Chinchilla](https://github.com/abraham1798)
+- [Gabriela Sánchez](https://github.com/gaby-oop)
+- [Milena Peñaranda](https://github.com/MILENA1988)
 
-| Engine	| DATABASE_URL 						|
-| ------------- | ----------------------------------------------------- |
-| SQLite	| sqlite:////test.db	 				|
-| MySQL		| mysql://username:password@localhost:port/example	|
-| Postgress	| postgres://username:password@localhost:5432/example 	|
-
-4. Migrate the migrations: `$ pipenv run migrate` (skip if you have not made changes to the models on the `./src/api/models.py`)
-5. Run the migrations: `$ pipenv run upgrade`
-6. Run the application: `$ pipenv run start
-
-
-### Front-End Manual Installation:
-
-- Make sure you are using node version 14+ and that you have already successfully installed and runned the backend.
-
-1. Install the packages: `$ npm install`
-2. Start coding! start the webpack dev server `$ npm run start`
-
-## Publish your website!
-
-This boilerplate it's 100% integrate with Herkou, just by pushing your changes to the heroku repository it will deploy: `$ git push heroku main`
+Este Bootcamp fue patrocinado por el MICITT (Ministerio de Ciencia, Tecnología y Comunicaciones de Costa Rica), administrado por el CINDE (Agencia de Promoción de Inversiones de Costa Rica) con fondos del BID (Banco Interamericano de Desarrollo).

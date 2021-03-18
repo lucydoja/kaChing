@@ -2,25 +2,21 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 import { Register } from "./pages/register";
 import { Login } from "./pages/login";
-import { View1 } from "./pages/view1";
 import { ResetPass } from "./pages/resetPassword";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Finances } from "./pages/finances";
-import { Expenses } from "./pages/expenses";
-<<<<<<< HEAD
-import { Bienvenida } from "./pages/bienvenida";
-import { IncExp } from "./pages/inc-exp";
-
-=======
+import { Welcome } from "./pages/welcome";
+import { Transactions } from "./pages/transactions";
 import { Perfil } from "./pages/perfil";
->>>>>>> origin/gabriela
+import { About } from "./pages/about";
+import { Faqs } from "./pages/faqs";
+import { Exchange } from "./pages/exchange";
+import { PrivateRoute } from "./component/privateroute";
+
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -33,36 +29,17 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/view1">
-							<View1 />
-						</Route>
-						<Route exact path="/expenses">
-							<Expenses />
-						</Route>
-						<Route exact path="/register">
-							<Register />
-						</Route>
-						<Route exact path="/reset">
-							<ResetPass />
-						</Route>
-						<Route exact path="/login">
-							<Login />
-						</Route>
-						<Route exact path="/finances">
-							<Finances />
-						</Route>
-						<Route exact path="/bienvenida">
-							<Bienvenida />
-						</Route>
-						<Route exact path="/incexp">
-							<IncExp />
-                        </Route>
-						<Route exact path="/profile">
-							<Perfil />
-						</Route>
+						<Route exact path="/" component={Welcome} />
+						<Route exact path="/faqs" component={Faqs} />
+						<Route exact path="/aboutUs" component={About} />
+						<PrivateRoute exact path="/exchange" component={Exchange} />
+						<Route exact path="/register" component={Register} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/reset" component={ResetPass} />
+						<PrivateRoute exact path="/finances" component={Finances} />
+						<PrivateRoute exact path="/transactions" component={Transactions} />
+						<PrivateRoute exact path="/profile" component={Perfil} />
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
