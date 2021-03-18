@@ -25,7 +25,7 @@ export const About = () => {
 							alt=""
 						/>
 						<div className="card-body">
-							<h4 className="card-title text-center">Lucia Domiguez</h4>
+							<h4 className="card-title text-center">Lucía Domíguez</h4>
 							<a
 								href="https://github.com/lucydoja"
 								target="_blank"
@@ -68,7 +68,7 @@ export const About = () => {
 					<div className="card m-1 mt-3" style={{ width: "18rem" }}>
 						<img src={andres} className="card-img-top m-0" alt="..." />
 						<div className="card-body">
-							<h4 className="card-title text-center">Andres Born</h4>
+							<h4 className="card-title text-center">Andrés Born</h4>
 							<a
 								href="https://github.com/andresborn"
 								target="_blank"
