@@ -13,58 +13,51 @@ import registro from "../../img/registro1.png";
 import login from "../../img/login.png";
 import cuadro from "../../img/cuadro.png";
 import logo from "../../img/logo.jpg";
+import fondo from "../../img/fondo.png";
 
 export const Welcome = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div id="box-principal" className="mt-1">
-			<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-				<ol className="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
-					<li data-target="#carouselExampleIndicators" data-slide-to="1" />
-					<li data-target="#carouselExampleIndicators" data-slide-to="2" />
-				</ol>
-				<div className="carousel-inner">
-					<div className="carousel-item active">
-						<img
-							className="d-block w-100"
-							src=".../800x400?auto=yes&bg=777&fg=555&text=First slide"
-							alt="First slide"
-						/>
+			<div className="imageContainer d-flex " style={{ height: "95vh" }}>
+				<div className="align-self-center flex-grow-1">
+					<div className=" p-2 mb-4">
+						<h1
+							className="text-center"
+							style={{ fontWeight: "800", color: "white", fontFamily: "Times new roman" }}>
+							<strong>Welcome to KaChing!</strong>{" "}
+						</h1>
+						<h4 className="text-center m-3 " style={{ color: "white" }}>
+							The Web App that allows you to take control over your finances.{" "}
+						</h4>
 					</div>
-					<div className="carousel-item">
-						<img
-							className="d-block w-100"
-							src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide"
-							alt="Second slide"
-						/>
-					</div>
-					<div className="carousel-item">
-						<img
-							className="d-block w-100"
-							src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide"
-							alt="Third slide"
-						/>
+					<div className="flex-wrap text-center m-2">
+						<Link to={"/register"}>
+							<span className="m-2 btn shadow p-2" href="#" role="button">
+								Register
+							</span>
+						</Link>
+						<Link to={"/login"}>
+							<span className="m-2 btn shadow p-2 " href="#" role="button">
+								Log in
+							</span>
+						</Link>{" "}
+						<Link to={"/AboutUs"}>
+							<span className="m-2 btn shadow p-2 " href="#" role="button">
+								About Us
+							</span>
+						</Link>
+						<Link to={"/faqs"}>
+							<span className="m-2 btn shadow p-2 " href="#" role="button">
+								FAQs
+							</span>
+						</Link>
 					</div>
 				</div>
-				<a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					<span className="carousel-control-prev-icon" aria-hidden="true" />
-					<span className="sr-only">Previous</span>
-				</a>
-				<a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					<span className="carousel-control-next-icon" aria-hidden="true" />
-					<span className="sr-only">Next</span>
-				</a>
 			</div>
 
 			<div className="container mb-2">
-				<div className="col-12">
-					<h1 className="text-center" style={{ fontWeight: "800" }}>
-						Welcome to KaChing!{" "}
-					</h1>
-					<h4 className="text-center">The Web App that allows you to take control over your finances. </h4>
-				</div>
 				<Media className="row p-3 shadow mt-4" style={{ background: "white" }}>
 					<Media.Body className="col-lg-9 col-12 text-justify  my-auto">
 						<h2 className="text-center"> What is kaChing!</h2>
@@ -97,7 +90,7 @@ export const Welcome = () => {
 						className="col-lg-5 col-12 text-justify shadow my-3"
 						style={{ background: "white", minHeight: "300px" }}>
 						<h2 className="text-center mt-4">Quick Start</h2>
-						<div className="mx-auto mt-2">
+						<div className="mx-auto mt-3">
 							<ol>
 								<li>Do you need help tracking your finances?</li>
 								<li>
@@ -342,7 +335,7 @@ export const Welcome = () => {
 						</div>
 					</div>
 				</div>
-				<p className="font-italic text-justify" style={{ color: "gray", fontSize: "15px" }}>
+				<p className="font-italic text-justify mx-2" style={{ color: "gray", fontSize: "15px" }}>
 					The information on this site and the products and services offered are not intended for distribution
 					to any person in any country or jurisdiction where such distribution or use would be contrary to
 					local law or regulation.{" "}
