@@ -76,10 +76,10 @@ export const Perfil = () => {
 					<Link to="/reset">Change Password</Link>
 				</p>
 				<div className="submit-row d-flex justify-content-center my-2">
-					<button type="reset" className="btn btn-primary mr-2" onClick={e => setEditar(false)}>
+					<button type="reset" className="btn btn-outline-dark mr-2" onClick={e => setEditar(false)}>
 						Cancel
 					</button>
-					<button type="submit" className="btn btn-outline-dark ml-2">
+					<button type="submit" className="btn btn-info ml-2">
 						Change
 					</button>
 				</div>
@@ -116,7 +116,7 @@ export const Perfil = () => {
 					<Link to="/reset">Change Password</Link>
 				</p>
 				<div className="submit-row d-flex justify-content-center my-2">
-					<button type="reset" className="btn btn-primary mr-1" onClick={e => setEditar(true)}>
+					<button type="reset" className="btn btn-info mr-1" onClick={e => setEditar(true)}>
 						Editar
 					</button>
 				</div>

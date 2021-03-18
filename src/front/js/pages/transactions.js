@@ -152,10 +152,10 @@ export const Transactions = () => {
 										/>
 									</div>
 									<div className="mt-3 form-row justify-content-end">
-										<button className="btn btn-secondary" type="reset">
+										<button className="btn btn-outline-dark" type="reset">
 											Cancel
 										</button>
-										<button className="btn btn-primary ml-1" type="submit">
+										<button className="btn btn-info ml-1" type="submit">
 											Add
 										</button>
 									</div>
@@ -249,10 +249,10 @@ export const Transactions = () => {
 										/>
 									</div>
 									<div className="mt-3 form-row justify-content-end">
-										<button className="btn btn-secondary" type="reset">
+										<button className="btn btn-outline-dark" type="reset">
 											Cancel
 										</button>
-										<button className="btn btn-primary ml-1" type="submit">
+										<button className="btn btn-info ml-1" type="submit">
 											Add
 										</button>
 									</div>

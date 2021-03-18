@@ -31,7 +31,7 @@ export function NavLogged() {
 		return (
 			<div className="dropdown d-flex justify-content-end" id="dropdownDiv">
 				<button
-					className="btn btn-primary dropdown-toggle"
+					className="btn btn-info dropdown-toggle"
 					data-boundary="window"
 					type="button"
 					id="dropdownMenuButton"

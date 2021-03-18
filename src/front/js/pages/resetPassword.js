@@ -140,20 +140,15 @@ export const ResetPass = () => {
 							<div className="valid-feedback" />
 						</div>
 						<div className="mt-3 form-row justify-content-end">
-							{/*<Link to={"/login"}>
-								<button className="btn btn-secondary btn-md" type="reset">
-									<p className="boton-link"> Cancel</p>
-								</button>
-							</Link>*/}
 							<button
-								className="btn btn-secondary btn-md"
+								className="btn btn-outline-dark btn-md"
 								type="reset"
 								onClick={() => {
 									history.goBack();
 								}}>
-								<p className="boton-link"> Cancel</p>
+								<p className="boton-link2"> Cancel</p>
 							</button>
-							<button className="btn btn-primary ml-2 btn-md" type="submit">
+							<button className="btn btn-info ml-2 btn-md" type="submit">
 								Reset Password
 							</button>
 						</div>

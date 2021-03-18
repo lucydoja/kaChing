@@ -96,11 +96,11 @@ export const Login = () => {
 
 						<div className="mt-3 form-row justify-content-end">
 							<Link to={"/"}>
-								<button className="btn btn-secondary btn-md" type="reset">
-									<p className="boton-link"> Cancel</p>
+								<button className="btn btn-outline-dark btn-md" type="reset">
+									<p className="boton-link2"> Cancel</p>
 								</button>
 							</Link>
-							<button className="btn btn-primary ml-1" type="submit">
+							<button className="btn btn-info ml-1" type="submit">
 								Log in
 							</button>
 						</div>
