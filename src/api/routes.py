@@ -85,6 +85,8 @@ def get_user():
 @jwt_required()
 def change_user_data():
 
+    email = get_jwt_identity()
+
     upd_first_name = request.json["first_name"]
     upd_last_name = request.json["last_name"]
 
