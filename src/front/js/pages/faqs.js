@@ -15,7 +15,8 @@ export const Faqs = () => {
 						className=" m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>Why should I choose kaChing?</strong>
@@ -31,7 +32,8 @@ export const Faqs = () => {
 						className="m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>Do I need to pay to have access to katChing?</strong>
@@ -44,7 +46,8 @@ export const Faqs = () => {
 						className="m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>Do I need to verify my identity?</strong>
@@ -57,7 +60,8 @@ export const Faqs = () => {
 						className="m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>How do I update my personal details?</strong>
@@ -72,7 +76,8 @@ export const Faqs = () => {
 						className="m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>I had a kaChing account in the past. How can I reactivate it?</strong>
@@ -86,7 +91,8 @@ export const Faqs = () => {
 						className="m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>I forgot my password, how do I gain access to my account? </strong>
@@ -100,7 +106,8 @@ export const Faqs = () => {
 						className="m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>
@@ -116,7 +123,8 @@ export const Faqs = () => {
 						className="m-3 p-2 text-center shadow flex-grow-1"
 						style={{
 							minHeight: "60px",
-							border: "1px solid grey"
+							border: "1px solid grey",
+							backgroundColor: "rgba(231,241,255,1)"
 						}}>
 						<div className="mb-2">
 							<strong>Where can I use kaChing?</strong>
