@@ -10,7 +10,7 @@ export const Exchange = () => {
 	const [amount, setAmount] = useState("");
 	const [result, setResult] = useState("");
 
-	function getExchange(first, second) {
+	function getExchange() {
 		fetch(`https://v6.exchangerate-api.com/v6/b8c46a1b76e331fd931c3c4d/pair/${first}/${second}`)
 			.then(resp => resp.json())
 
@@ -28,7 +28,7 @@ export const Exchange = () => {
 
 	return (
 		<div className="container d-flex justify-content-center mt-2">
-			<div className="formulario2 mb-5 rounded shadow p-2">
+			<div className="formulario2 mb-5 mt-3 rounded shadow p-2 row exchange">
 				<h3 className="mt-2">Currency Converter</h3>
 				<div className="d-flex flex-column">
 					<div className="col-md">
@@ -94,25 +94,23 @@ export const Exchange = () => {
 					<div className="col-sm">
 						<div className="d-flex justify-content-center">
 							<div className="p-2">
-								{amount} {first} = {rate[`${first}_${second}`]}
+								{amount} {first} = <strong>{result}</strong> {second}
 							</div>
-							<div className="p-2">
-								<strong>{result}</strong>
-							</div>
-							<div className="p-2">{second}</div>
 						</div>
 					</div>
 
 					<button
 						onClick={() => {
-							getExchange(first, second);
+							getExchange();
 						}}
 						className="btn btn-info btn-lg">
 						Convert
 					</button>
 				</div>
 			</div>
-			<div />
+			<div>
+				<div className="posicionFooter" />
+			</div>
 		</div>
 	);
 };

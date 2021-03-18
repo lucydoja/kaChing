@@ -44,7 +44,7 @@ export const Perfil = () => {
 
 	return editar ? (
 		<div className="container d-flex justify-content-center mt-2">
-			<form className="formulario2 my-5 rounded shadow p-2" onSubmit={e => handleSubmit(e)}>
+			<form className="formulario2 my-5 rounded shadow p-2 exchange" onSubmit={e => handleSubmit(e)}>
 				<h3 className="mt-3">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
@@ -89,7 +89,7 @@ export const Perfil = () => {
 		</div>
 	) : (
 		<div className="container d-flex justify-content-center mt-2">
-			<form className="formulario2 my-5 rounded shadow p-2">
+			<form className="formulario2 my-5 rounded shadow p-2 exchange">
 				<h3 className="mt-3">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
