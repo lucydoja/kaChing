@@ -6,7 +6,8 @@ import andres from "../../img/img_andres.jpg";
 import gaby from "../../img/img_gaby.jpg";
 
 export const About = () => {
-	const { store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
+    //algun cambio
 
 	return (
 		<div id="box-principal" style={{ height: "100%" }}>
