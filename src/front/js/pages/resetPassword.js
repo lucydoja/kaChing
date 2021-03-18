@@ -49,7 +49,6 @@ export const ResetPass = () => {
 			.then(data => {
 				actions.logOut();
 				actions.logged();
-				console.log("Password reset");
 			})
 			.catch(error => {
 				console.error("Error:", error);

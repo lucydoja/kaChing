@@ -45,7 +45,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						console.log("Succesfully added expense");
 					})
 					.catch(error => {
 						console.error("Error:", error);
@@ -76,7 +75,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						console.log("Succesfully added income");
 					})
 					.catch(error => {
 						console.error("Error:", error);
@@ -105,7 +103,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						console.log("Expense deleted");
 					})
 					.catch(error => {
 						console.error("Error:", error);
@@ -134,7 +131,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(data => {
-						console.log("Income deleted");
 					})
 					.catch(error => {
 						console.error("Error:", error);

@@ -57,7 +57,6 @@ export const Register = () => {
 				return response.json();
 			})
 			.then(data => {
-				console.log("New user was registered");
 			})
 			.catch(error => {
 				console.error("Error:", error);

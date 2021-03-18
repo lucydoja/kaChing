@@ -44,7 +44,6 @@ export const Login = () => {
 				actions.getIncome();
 				actions.getExpense();
 				actions.getUser();
-				console.log("Succesful log in");
 			})
 
 			.catch(error => {

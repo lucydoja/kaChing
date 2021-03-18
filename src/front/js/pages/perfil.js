@@ -35,7 +35,6 @@ export const Perfil = () => {
 			.then(data => {
 				setEditar(false);
 				actions.getUser();
-				console.log("Succesful change in profile");
 			})
 			.catch(error => {
 				console.error("Error:", error);
