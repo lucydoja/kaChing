@@ -40,6 +40,7 @@ export const Login = () => {
 			.then(data => {
 				sessionStorage.setItem("access_token", data.access_token);
 				sessionStorage.setItem("is_logged", true);
+				setRedirect(true);
 				actions.logged();
 				actions.getIncome();
 				actions.getExpense();

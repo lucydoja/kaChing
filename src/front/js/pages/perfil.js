@@ -17,10 +17,12 @@ export const Perfil = () => {
 		};
 		// // fetch de metodo put
 
+		let access_token = sessionStorage.getItem("access_token");
 		fetch(process.env.BACKEND_URL + "/api/profile", {
 			method: "PUT",
 			headers: {
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
+				Authorization: "Bearer " + access_token
 			},
 			body: JSON.stringify(data)
 		})
@@ -41,7 +43,7 @@ export const Perfil = () => {
 
 	return editar ? (
 		<div className="container d-flex justify-content-center mt-2">
-			<div className="formulario2 my-5 rounded shadow p-2">
+			<form className="formulario2 my-5 rounded shadow p-2" onSubmit={e => handleSubmit(e)}>
 				<h3 className="mt-3">PROFILE</h3>
 				<div className="form-row my-2">
 					<div className="col-md">
@@ -80,7 +82,7 @@ export const Perfil = () => {
 						Change
 					</button>
 				</div>
-			</div>
+			</form>
 
 			<div className="posicionFooter" />
 		</div>
