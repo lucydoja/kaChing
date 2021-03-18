@@ -68,7 +68,7 @@ export const Exchange = () => {
 					</div>
 					<br />
 					<div className="col-md">
-						<label className="ml">$Amount</label>
+						<label className="ml">Amount</label>
 					</div>
 					<div className="col-md">
 						<input
@@ -78,7 +78,7 @@ export const Exchange = () => {
 							min="1"
 							max="10000"
 							pattern="^[0-9]+"
-							placeholder="$Amount"
+							placeholder="Amount"
 							className="form-control"
 							required
 						/>
