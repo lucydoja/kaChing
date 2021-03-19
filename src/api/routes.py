@@ -266,10 +266,12 @@ def get_transaction_data():
 
     today = datetime.datetime.now()
     one_year_ago = today - datetime.timedelta(days=365)
-    
+
+    user_income_qry = Income.query.filter_by(user_email=current_user_email)
+    user_expense_qry = Expense.query.filter_by(user_email=current_user_email)
     # Get All Incomes and Expenses Year to Date
-    income_qry_ytd = Income.query.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago)
-    expense_qry_ytd = Expense.query.filter(cast(Expense.date, DATE)<=today).filter(cast(Expense.date, DATE)>=one_year_ago)
+    income_qry_ytd = user_income_qry.filter(cast(Income.date, DATE)<=today).filter(cast(Income.date, DATE)>=one_year_ago)
+    expense_qry_ytd = user_expense_qry.filter(cast(Expense.date, DATE)<=today).filter(cast(Expense.date, DATE)>=one_year_ago)
 
     # Get Most Recent Income and Expense
     last_income = income_qry_ytd.order_by(Income.date.desc()).first()

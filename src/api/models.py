@@ -52,7 +52,7 @@ class Expense(db.Model):
 
     def serialize(self):
         return {
-            "id": self.id,
+            "id": self.front_id,
             "user_email": self.user_email,
             "category": self.category,
             "payment_method": self.payment_method,
@@ -78,7 +78,7 @@ class Income(db.Model):
 
     def serialize(self):
         return {
-            "id": self.id,
+            "id": self.front_id,
             "user_email": self.user_email,
             "amount": self.amount,
             "detail": self.detail,
